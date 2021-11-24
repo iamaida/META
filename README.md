@@ -12,19 +12,19 @@ This repository contain all the information associated with the development of a
 
 ## Modules
 
-### User Management
+- ### User Management
 
  
-### Inventory Management
+- ### Inventory Management
 
 
-### Reservation Management
+- ### Reservation Management
 
 
-### Pay Management
+- ### Pay Management
 
 
-### Report Management
+- ### Report Management
 
 
 
