@@ -1,6 +1,6 @@
 # HOTELMANAGER
 
-This repository contain all the information associated with the development of an Integral Management System to support inventory, rooms reservation, accounting and services requests tasks of the small business Hotel Berlin.
+This repository contain all the information associated with the development of an Integral Management System to support inventory, rooms reservation, payment and services requests tasks of the small business Hotel Berlin.
 
 ## Development Team
 
