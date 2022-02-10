@@ -4,6 +4,7 @@ import '../src/styles/Styles.css'
 import InicioSesion from './pages/InicioSesion';
 import MenuPrincipal from './pages/MenuPrincipal';
 import ModalEliminarUsuario from './components/ModalEliminarUsuario';
+import VerUsuario from './components/VerUsuario';
 
 export function App() {
   return(
@@ -14,6 +15,7 @@ export function App() {
         <Route exact path='/' element={ <InicioSesion /> }/>
         <Route exact path='/menuprincipal' element={ <MenuPrincipal /> } />
         <Route exact path='/eliminar' element={ <ModalEliminarUsuario /> } />
+        <Route exact path='/usuario' element={ <VerUsuario /> } />
       </Routes>
     </BrowserRouter>
       
