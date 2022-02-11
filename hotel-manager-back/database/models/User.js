@@ -15,6 +15,9 @@ module.exports = (sequelize, type) => {
         cargo: type.STRING,
         email: type.STRING,
         password: type.STRING,
-        estado: type.BOOLEAN
+        estado: {
+            type: type.BOOLEAN,
+            defaultValue: true
+        }
     })
 }
