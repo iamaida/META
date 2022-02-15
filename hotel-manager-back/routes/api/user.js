@@ -24,9 +24,9 @@ router.get('/user/:email', async (req, res) => {
 //Registrar usuarios
 router.post('/register', [
     //Con check se hacen esas validaciones necesarios en los campos
-    //check('email', 'El correo electrónico debe estar correcto').isEmail(),
-    //check('tipo_documento','El tipo de documento es obligatorio').not().isEmpty(),
-    //check('num_documento', 'El número de documento es obligatorio').not().isEmpty()
+    check('email', 'El correo electrónico debe estar correcto').isEmail(),
+    check('tipo_documento','El tipo de documento es obligatorio').not().isEmpty(),
+    check('num_documento', 'El número de documento es obligatorio').not().isEmpty()
 ], async (req, res) => {
 
     //Para captar los errores
@@ -43,12 +43,19 @@ router.post('/register', [
 });
 
 //Editar usuarios
-router.put('/:userId', async (req, res) => {
+router.put('/edit/:userId', async (req, res) => {
     await User.update(req.body, {
-        where: { id: req.params.userId}
+        where: { id_usuario: req.params.userId }
     });
     res.json({success: 'Se modificó'});
 });
+
+router.put('/eliminar/:userId', async (req, res) => {
+    
+    await User.update(req.body, {
+        where: { id_usuario: req.params.userId}
+    })
+})
 
 
 //Hacer el logueo
