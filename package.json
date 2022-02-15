@@ -1,0 +1,22 @@
+{
+  "name": "hotel-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "back": "cd ./hotel-manager-back && npm run dev",
+    "front": "cd ./hotel-manager-front && npm run start",
+    "dev": "concurrently \"npm run back\"  \"npm run front\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
+    "universal-cookie": "^4.0.4"
+  }
+}
