@@ -24,9 +24,9 @@ router.get('/user/:email', async (req, res) => {
 //Registrar usuarios
 router.post('/register', [
     //Con check se hacen esas validaciones necesarios en los campos
-    check('email', 'El correo electrónico debe estar correcto').isEmail(),
-    check('tipo_documento','El tipo de documento es obligatorio').not().isEmpty(),
-    check('num_documento', 'El número de documento es obligatorio').not().isEmpty()
+    //check('email', 'El correo electrónico debe estar correcto').isEmail(),
+    //check('tipo_documento','El tipo de documento es obligatorio').not().isEmpty(),
+    //check('num_documento', 'El número de documento es obligatorio').not().isEmpty()
 ], async (req, res) => {
 
     //Para captar los errores
