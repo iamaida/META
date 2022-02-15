@@ -157,7 +157,7 @@ eliminar=(dato)=>{
                         <FormGroup>
                             <label>Numero Doc:</label>
                             <input
-                                className='form-control'name="NumeroDoc." type="text" onChange={this.handleChange}/>
+                                className='form-control'name="NumeroDoc" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Nombre:</label>
@@ -167,7 +167,7 @@ eliminar=(dato)=>{
                         <FormGroup>
                             <label>Apellidos:</label>
                             <input
-                                className='form-control'name="apellidos." type="text" onChange={this.handleChange}/>
+                                className='form-control'name="apellidos" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Genero:</label>
@@ -182,7 +182,7 @@ eliminar=(dato)=>{
                         <FormGroup>
                             <label>Fecha Nac.:</label>
                             <input
-                                className='form-control'name="fechaNac." type="text" onChange={this.handleChange}/>
+                                className='form-control'name="FechaNacimiento" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
                             <label>Cargo:</label>
