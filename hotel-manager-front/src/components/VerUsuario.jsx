@@ -229,7 +229,11 @@ eliminarUsuario = async () => {
                             <input
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 className='form-control'name="NumeroDoc" type="text" onChange={this.handleChange}/>
+=======
+                                className='form-control'name="num_documento" type="text" onChange={this.handleChange}/>
+>>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
 =======
                                 className='form-control'name="num_documento" type="text" onChange={this.handleChange}/>
 >>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
@@ -247,7 +251,11 @@ eliminarUsuario = async () => {
                             <input
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 className='form-control'name="apellidos" type="text" onChange={this.handleChange}/>
+=======
+                                className='form-control'name="apellido" type="text" onChange={this.handleChange}/>
+>>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
 =======
                                 className='form-control'name="apellido" type="text" onChange={this.handleChange}/>
 >>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
@@ -270,7 +278,11 @@ eliminarUsuario = async () => {
                             <input
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 className='form-control'name="FechaNacimiento" type="text" onChange={this.handleChange}/>
+=======
+                                className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}/>
+>>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
 =======
                                 className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}/>
 >>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
