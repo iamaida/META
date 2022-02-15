@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-export default function ModalEliminarUsuario() {
+export default function ModalEliminarUsuario(registro) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,7 +20,7 @@ export default function ModalEliminarUsuario() {
         <Modal.Body>¿Está seguro de eliminar al usuario?</Modal.Body>
         <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancelar
             </Button>
             <Button variant="danger" onClick={handleClose}>
             Aceptar
