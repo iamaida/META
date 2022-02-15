@@ -12,6 +12,7 @@ class VerUsuario extends React.Component {
     state = {
         data: data,
         form:{
+            id_usuario:"",
             tipo_documento:"",
             num_documento:"",
             nombre: "",
@@ -25,6 +26,7 @@ class VerUsuario extends React.Component {
         },
         modalInsertar: false,
         modalEditar: false,
+        modalEliminar: false,
         mappedData: [] //Donde se va a guardar la consulta
     
     };
@@ -61,6 +63,16 @@ ocultarModalEditar=()=>{
     this.setState({modalEditar: false});
 }
 
+//funcion para botton de eliminar
+mostrarModalEliminar=(registro)=>{
+    this.setState({modalEliminar: true, form: registro});
+}
+
+//funcion para cerrar botton de eliminar
+ocultarModalEliminar=()=>{
+    this.setState({modalEliminar: false});
+}
+
 
 //funncion para insertar datos dentro de la tabla
 insertar=()=>{
@@ -91,26 +103,28 @@ editar=(dato)=>{
         contador++;
     });
     this.setState({data: lista, modalEditar: false});
+    this.editarUsuario();
 }
 
 //funcion para eliminar
-
 eliminar=(dato)=>{
-    var opcion=window.confirm("Deseas eliminar este usuario ");
-    if(opcion){ 
-        var contador=0;
-        var lista= this.state.data;
-        lista.map((registro)=>{
-            if(registro.TipoDoc===dato.TipoDoc){
-                lista.splice(contador, 1);
-            }
-            contador++;
-        })
-        this.setState({data: lista});
-    }
+    var contador=0;
+    var lista= this.state.data;
+    lista.map((registro)=>{
+        if(dato.id_usuario===registro.id_usuario){
+            lista[contador].id_usuario=dato.id_usuario;
+        }
+        contador++;
+    });
+    this.setState({data: lista, modalEliminar:false})
+    this.eliminarUsuario();
 }
 
-componentDidMount = async () => {
+componentDidMount = () => {
+    this.verUsuario();
+}
+
+verUsuario = async () => {
     const res = await axios.get('http://localhost:5000/api/users');
     data = res.data;
     this.setState({mappedData:res.data});
@@ -121,12 +135,39 @@ insertarUsuario = async () => {
     console.log(lista);
     try{
         const res = await axios.post('http://localhost:5000/api/users/register', {tipo_documento:lista.tipo_documento, num_documento:lista.num_documento,
-        nombre:lista.nombre, apellido:lista.apellido, genero:lista.genero, fecha_nacimiento:lista.fecha_nacimiento, cargo:lista.cargo, email:lista.email, password:'1234'});
-        //const res = await axios.post('http://localhost:5000/api/users/register', {tipo_documento:'C.C.', num_documento:'957775886', nombre:'Ejemplo4', apellido:'Ejemplo4', genero:'Masculino', telefono:'985448510', fecha_nacimiento:'2000-08-07', cargo:'Recepcionista', email:'ejemplo4@ejemplo4.com', password:'1234'});
+        nombre:lista.nombre, apellido:lista.apellido, genero:lista.genero, fecha_nacimiento:lista.fecha_nacimiento, telefono:lista.telefono, cargo:lista.cargo, email:lista.email, password:lista.password});
         console.log(res.data);
         this.setState({lista:{}});
+        this.componentDidMount();
     }catch(e){
         console.log(e)
+    }
+}
+
+editarUsuario = async () => {
+    var lista = this.state.form;
+    console.log(lista)
+    try{
+        const res = await axios.put(`http://localhost:5000/api/users/edit/${lista.id_usuario}`,
+        {tipo_documento:lista.tipo_documento, num_documento:lista.num_documento,
+            nombre:lista.nombre, apellido:lista.apellido, genero:lista.genero, fecha_nacimiento:lista.fecha_nacimiento, telefono:lista.telefono, cargo:lista.cargo}
+        )
+        console.log(res.data);
+        this.setState({lista:{}});
+        this.componentDidMount();
+        
+    }catch(e){
+        console.log(e);
+    }
+}
+
+eliminarUsuario = async () => {
+    var lista = this.state.form;
+    console.log(lista);
+    try{
+        const res = await axios.put(`http://localhost:5000/api/users/`)
+    }catch(e){
+        
     }
 }
 
@@ -160,7 +201,7 @@ insertarUsuario = async () => {
                                     <td>{elemento.fecha_nacimiento}</td>
                                     <td>{elemento.cargo}</td>
                                     <td><Button color="primary"onClick={()=>this.mostrarModalEditar(elemento)}>Editar </Button>&nbsp;&nbsp;
-                                        <Button color="danger"onClick={()=>this.eliminar(elemento)}>Eliminar</Button></td>
+                                        <Button color="danger"onClick={()=>this.mostrarModalEliminar(elemento)}>Eliminar</Button></td>
 
                                 </tr>
                             ))}
@@ -290,6 +331,22 @@ insertarUsuario = async () => {
                     <ModalFooter>
                         <Button color="primary"onClick={()=>this.editar(this.state.form)}>Editar</Button>
                         <Button color="danger"onClick={()=>this.ocultarModalEditar()}>Cancelar</Button>
+                        
+                    </ModalFooter>
+                </Modal>
+
+                <Modal isOpen={this.state.modalEliminar}>
+                    <ModalHeader>
+                        <div><h3>Eliminar usuario</h3></div>
+                    </ModalHeader>
+
+                    <ModalBody>
+                        ¿Está seguro de eliminar el usuario?
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button color="danger" onClick={()=>this.ocultarModalEliminar()}>Cancelar</Button>
+                        <Button color="primary" onClick={()=>this.eliminar()}>Aceptar</Button>
                         
                     </ModalFooter>
                 </Modal>
