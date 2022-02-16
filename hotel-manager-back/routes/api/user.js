@@ -8,7 +8,9 @@ const { response } = require('express');
 
 //Consultar usuarios
 router.get('/', async (req, res) => {
-    const users = await User.findAll();
+    const users = await User.findAll({
+        where: {estado: true}
+    });
     res.json(users)
 });
 
@@ -43,12 +45,19 @@ router.post('/register', [
 });
 
 //Editar usuarios
-router.put('/:userId', async (req, res) => {
+router.put('/edit/:userId', async (req, res) => {
     await User.update(req.body, {
-        where: { id: req.params.userId}
+        where: { id_usuario: req.params.userId }
     });
     res.json({success: 'Se modificó'});
 });
+
+router.put('/eliminar/:userId', async (req, res) => {
+    
+    await User.update(req.body, {
+        where: { id_usuario: req.params.userId}
+    })
+})
 
 
 //Hacer el logueo
