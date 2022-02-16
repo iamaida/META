@@ -13,7 +13,10 @@ module.exports = (sequelize, type) => {
         telefono: type.STRING,
         fecha_nacimiento: type.DATE,
         cargo: type.STRING,
-        email: type.STRING,
+        email: {
+            type: type.STRING,
+            unique: true
+        },
         password: type.STRING,
         estado: type.BOOLEAN
     })
