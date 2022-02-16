@@ -24,3 +24,24 @@
   .card-img-top:hover {
     transform: scale(1.8);
   }
+  .card{
+    margin: 10px;
+  }
+
+  .container{
+    margin-bottom: 20px;
+  }
+
+  .button-link{
+    color: black;
+    text-decoration: none;
+  }
+  .button-link:hover{
+    color: black;
+    text-decoration: none;
+  }
+
+  .Link{
+    color: black;
+    text-decoration: none;
+  }
