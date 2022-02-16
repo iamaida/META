@@ -165,9 +165,13 @@ eliminarUsuario = async () => {
     var lista = this.state.form;
     console.log(lista);
     try{
-        const res = await axios.put(`http://localhost:5000/api/users/`)
+        const res = await axios.put(`http://localhost:5000/api/users/edit/${lista.id_usuario}`,
+        {estado:false})
+        console.log(res.data);
+        this.setState({lista:{}});
+        this.componentDidMount();
     }catch(e){
-        
+        console.log(e);
     }
 }
 

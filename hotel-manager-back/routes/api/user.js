@@ -8,7 +8,9 @@ const { response } = require('express');
 
 //Consultar usuarios
 router.get('/', async (req, res) => {
-    const users = await User.findAll();
+    const users = await User.findAll({
+        where: {estado: true}
+    });
     res.json(users)
 });
 
