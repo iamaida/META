@@ -1,7 +1,11 @@
 import { React, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import Cookies from 'universal-cookie/es6';
 import NavbarMenuPrincipal from '../components/NavbarMenuPrincipal';
+import CardsMenuPrincipal from '../components/CardsMenuPrincipal';
+import Footer from '../components/Footer';
+import '../styles/menuPrincipal.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faHandshake} from '@fortawesome/free-solid-svg-icons';
 
 
 export default function MenuPrincipal() {
@@ -14,12 +18,6 @@ export default function MenuPrincipal() {
     componentDidMount()
   }, [cookies]);
 
-
-  //Elimina el token de las cookies para dejar de mantener el inicio de sesión
-  const cerrarSesion = () => {
-    cookies.remove('token', {path:'/'});
-    window.location.assign('./');
-  }
   
   //En caso de que no retorne el token, quiere decir que no esta iniciada la sesión, por lo que es necesario
   //que se siga redirigiendo a la página de inicio de sesión.
@@ -32,12 +30,15 @@ export default function MenuPrincipal() {
   console.log('token: '+cookies.get('token'));
   return (
     <div>
+
       <NavbarMenuPrincipal />
-      Menu Principal
-      <br />
-      <Button  variant="link" type="submit" onClick={()=>cerrarSesion()}>
-        Cerrar sesión
-      </Button>
+      <h1 className='titulo-menu'>
+        <FontAwesomeIcon icon={faHandshake} />
+        &nbsp;¡Bienvenido a Hotel Manager!
+        </h1>
+      <CardsMenuPrincipal />
+      <Footer />
+
     </div>
 
 

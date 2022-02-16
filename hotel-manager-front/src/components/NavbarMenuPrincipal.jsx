@@ -32,7 +32,7 @@ export default function NavbarMenuPrincipal() {
 
   return( 
     <div>
-      <Navbar className='navbar' variant='dark' expand="lg">
+      <Navbar className='navbar' variant='dark'>
         <Container>
           <Navbar.Brand href="./menuprincipal">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
