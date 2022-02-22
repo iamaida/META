@@ -218,28 +218,25 @@ eliminarUsuario = async () => {
 
                     <ModalBody>
                         <FormGroup>
-                            <label> Tipo Doc:</label>
+                            <label> </label>
 
-                            <input
-                                className='form-control' name="tipo_documento" type="text" onChange={this.handleChange} />
+                            
+                <select class="form-control" id="exampleFormControlSelect1" onChange={this.handleChange}>
+                             <option selected value = "0" >Tipo de Documento</option>
+                             <option>Cedula</option>
+                             <option>Tarjeta de Identidad</option>
+                             <option>Nit</option>
+                            </select> 
                         </FormGroup>
 
                         <FormGroup>
                             <label>Numero Doc:</label>
                             <input
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                                 className='form-control'name="NumeroDoc" type="text" onChange={this.handleChange}/>
-=======
-                                className='form-control'name="num_documento" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
-=======
-                                className='form-control'name="num_documento" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
-=======
-                                className='form-control'name="num_documento" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
+
+                              
+
                         </FormGroup>
                         <FormGroup>
                             <label>Nombre:</label>
@@ -249,19 +246,11 @@ eliminarUsuario = async () => {
                         <FormGroup>
                             <label>Apellidos:</label>
                             <input
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                className='form-control'name="apellidos" type="text" onChange={this.handleChange}/>
-=======
-                                className='form-control'name="apellido" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
-=======
-                                className='form-control'name="apellido" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
-=======
-                                className='form-control'name="apellido" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
+
+
+                            className='form-control'name="apellidos" type="text" onChange={this.handleChange}/>
+
+                            
                         </FormGroup>
                         <FormGroup>
                             <label>Genero:</label>
@@ -276,19 +265,8 @@ eliminarUsuario = async () => {
                         <FormGroup>
                             <label>Fecha Nac.:</label>
                             <input
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                className='form-control'name="FechaNacimiento" type="text" onChange={this.handleChange}/>
-=======
-                                className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
-=======
-                                className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
-=======
-                                className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}/>
->>>>>>> 40b2937dd2776cf7ca7449c90600183d335be90e
+                            className='form-control' type ="date" id= "fecha de nacimiento" min="1930-01-01" max="2023-12-31"onChange={this.handleChange} ></input>
+                                
                         </FormGroup>
                         <FormGroup>
                             <label>Cargo:</label>
