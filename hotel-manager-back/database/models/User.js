@@ -8,7 +8,10 @@ module.exports = (sequelize, type) => {
             autoIncrement: true
         },
         tipo_documento: type.STRING,
-        num_documento: type.STRING,
+        num_documento:{
+            type: type.STRING,
+            unique:true
+        },
         nombre: type.STRING,
         apellido: type.STRING,
         genero: type.STRING,

@@ -42,7 +42,7 @@ export default function CardsMenuPrincipal() {
             id: 5,
             title: "Usuarios",
             image: usuarios,
-            url: "/usuario",
+            url: "/usuarios",
             text: 'Gestionar usuarios de empleados'
           }
       ];
