@@ -20,7 +20,10 @@ module.exports = (sequelize, type) => {
       }
         },
         cargo: type.STRING,
-        email: type.STRING,
+        email: {
+            type: type.STRING,
+            unique: true
+        },
         password: type.STRING,
         estado: {
             type: type.BOOLEAN,
