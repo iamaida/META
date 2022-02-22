@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter } from 'reactstrap';
+import { Table, Button, Container, Modal, FormGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 
@@ -216,11 +216,11 @@ eliminarUsuario = async () => {
                 </Container>
 
                 <Modal isOpen={this.state.modalInsertar}>
-                    <ModalHeader>
+                    <Modal.Header>
                         <div><h3>Registrar Cliente</h3></div>
-                    </ModalHeader>
+                    </Modal.Header>
 
-                    <ModalBody>
+                    <Modal.Body>
                         <FormGroup>
                             <label> Tipo Doc:</label>
 
@@ -273,21 +273,21 @@ eliminarUsuario = async () => {
                             <input
                                 className='form-control'name="password" type="password" onChange={this.handleChange}/>
                         </FormGroup>
-                    </ModalBody>
+                    </Modal.Body>
 
-                    <ModalFooter>
+                    <Modal.Footer>
                         <Button color="primary"onClick={()=>this.insertar()}>Insertar</Button>
                         <Button color="danger"onClick={()=>this.ocultarModalInsertar()}>Cancelar</Button>
                         
-                    </ModalFooter>
+                    </Modal.Footer>
                 </Modal>
                 
                 <Modal isOpen={this.state.modalEditar}>
-                    <ModalHeader>
+                    <Modal.Header>
                         <div><h3>Editar Cliente</h3></div>
-                    </ModalHeader>
+                    </Modal.Header>
 
-                    <ModalBody>
+                    <Modal.Body>
                         <FormGroup>
                             <label> Tipo Doc:</label>
 
@@ -330,29 +330,29 @@ eliminarUsuario = async () => {
                             <input
                                 className='form-control'name="cargo" type="text" onChange={this.handleChange} value={this.state.form.cargo}/>
                         </FormGroup>
-                    </ModalBody>
+                    </Modal.Body>
 
-                    <ModalFooter>
+                    <Modal.Footer>
                         <Button color="primary"onClick={()=>this.editar(this.state.form)}>Editar</Button>
                         <Button color="danger"onClick={()=>this.ocultarModalEditar()}>Cancelar</Button>
                         
-                    </ModalFooter>
+                    </Modal.Footer>
                 </Modal>
 
                 <Modal isOpen={this.state.modalEliminar}>
-                    <ModalHeader>
+                    <Modal.Header>
                         <div><h3>Eliminar usuario</h3></div>
-                    </ModalHeader>
+                    </Modal.Header>
 
-                    <ModalBody>
+                    <Modal.Body>
                         ¿Está seguro de eliminar el usuario?
-                    </ModalBody>
+                    </Modal.Body>
 
-                    <ModalFooter>
+                    <Modal.Footer>
                         <Button color="danger" onClick={()=>this.ocultarModalEliminar()}>Cancelar</Button>
                         <Button color="primary" onClick={()=>this.eliminar()}>Aceptar</Button>
                         
-                    </ModalFooter>
+                    </Modal.Footer>
                 </Modal>
             </>
             
