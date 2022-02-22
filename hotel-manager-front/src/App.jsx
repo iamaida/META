@@ -3,20 +3,17 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import '../src/styles/Styles.css'
 import InicioSesion from './pages/InicioSesion';
 import MenuPrincipal from './pages/MenuPrincipal';
-import ModalEliminarUsuario from './components/ModalEliminarUsuario';
-import VerUsuario from './components/VerUsuario';
+import ModuloUsuarios from './pages/ModuloUsuarios';
 
 export function App() {
   return(
 
-
     <BrowserRouter>
-      <Routes>
-        <Route exact path='/' element={ <InicioSesion /> }/>
-        <Route exact path='/menuprincipal' element={ <MenuPrincipal /> } />
-        <Route exact path='/eliminar' element={ <ModalEliminarUsuario /> } />
-        <Route exact path='/usuario' element={ <VerUsuario /> } />
-      </Routes>
+        <Routes>
+          <Route exact path='/' element={ <InicioSesion /> }/>
+          <Route exact path='/menuprincipal' element={ <MenuPrincipal/> } />
+          <Route exact path='/usuarios' element={ <ModuloUsuarios /> } />
+        </Routes>
     </BrowserRouter>
       
   );

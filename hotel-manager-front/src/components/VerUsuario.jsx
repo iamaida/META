@@ -1,6 +1,8 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter } from 'reactstrap';
+import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter, Row, Col } from 'reactstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faUser, faPencilAlt, faTrashAlt, faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+import '../styles/VerUsuario.css';
 import axios from 'axios';
 
 
@@ -110,7 +112,7 @@ editar=(dato)=>{
 eliminar=(dato)=>{
     var contador=0;
     var lista= this.state.data;
-    lista.map((registro)=>{
+    lista.map((registro) => {
         if(dato.id_usuario===registro.id_usuario){
             lista[contador].id_usuario=dato.id_usuario;
         }
@@ -122,6 +124,33 @@ eliminar=(dato)=>{
 
 componentDidMount = () => {
     this.verUsuario();
+}
+
+
+getFetch = async (email) => {
+    let baseUrl = "http://localhost:5000/api/users/edit/"
+
+    if(email){
+        baseUrl=baseUrl+email;
+    }
+
+    return await axios.get(baseUrl)
+}
+
+getUsers = () => {
+    return this.getFetch();
+}
+
+getSpecifiedUser = (email) =>{
+    return this.getFetch(email)
+}
+
+
+
+verUsuarioEspecifico = async () => {
+    var lista=this.state.form
+    const res = await axios.get(`http://localhost:5000/api/users/${lista.email}`);
+    console.log(res.data)
 }
 
 verUsuario = async () => {
@@ -178,21 +207,34 @@ eliminarUsuario = async () => {
     render() {
         return (
             <>
-                <Container>
-                    <br />
-                    <Button color="success" onClick={()=>this.mostrarModalInsertar()}>Ingresar nuevo usuarios</Button>
-                    <br /><br />
+                <Container className='usuario'>
+                    <Row className='titulo-boton'>
+                        <Col sm={8}>
+                            <h2 className='titulo-principal'>
+                            <FontAwesomeIcon icon={faUser} />&nbsp; Gestión de usuarios
+                            </h2>
+                        </Col>
+                        <Col sm={4}>
+                            <div className=' d-flex justify-content-end'>
+                                <Button color="outline-success" onClick={()=>this.mostrarModalInsertar()}><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Nuevo Usuario</Button>
+                            </div>
+                        </Col>
+                    </Row>
 
-                    <Table>
-                        <thead><tr><th>Tipo Doc.</th>
-                            <th>Numero Doc.</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Genero</th>
-                            <th>Telefono</th>
-                            <th>Fecha Nac.</th>
-                            <th>Cargo</th>
-                            <th>Acciones</th></tr></thead>
+                    <Table className='tabla-usuarios'>
+                        <thead className='table-head'>
+                            <tr className='table-tr'>
+                                <th>Tipo Doc.</th>
+                                <th>Numero Doc.</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Genero</th>
+                                <th>Telefono</th>
+                                <th>Fecha Nac.</th>
+                                <th>Cargo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             {this.state.mappedData.map((elemento) => (
                                 <tr>
@@ -204,8 +246,8 @@ eliminarUsuario = async () => {
                                     <td>{elemento.telefono}</td>
                                     <td>{elemento.fecha_nacimiento}</td>
                                     <td>{elemento.cargo}</td>
-                                    <td><Button color="primary"onClick={()=>this.mostrarModalEditar(elemento)}>Editar </Button>&nbsp;&nbsp;
-                                        <Button color="danger"onClick={()=>this.mostrarModalEliminar(elemento)}>Eliminar</Button></td>
+                                    <td><Button color="outline-primary"onClick={()=>this.mostrarModalEditar(elemento)}> <FontAwesomeIcon icon={faPencilAlt} /> </Button>&nbsp;&nbsp;
+                                        <Button color="outline-danger"onClick={()=>this.mostrarModalEliminar(elemento)}> <FontAwesomeIcon icon={faTrashAlt} /> </Button></td>
 
                                 </tr>
                             ))}
@@ -362,3 +404,4 @@ eliminarUsuario = async () => {
 }
 
 export default VerUsuario;
+

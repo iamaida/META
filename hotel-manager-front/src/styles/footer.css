@@ -23,7 +23,7 @@ footer {
   
   footer .content p,
   a {
-    color: #fff;
+    color: #F5F5DC;
   }
   
   footer .content .box {
@@ -76,6 +76,7 @@ footer {
     margin: 30px 5px 0 0;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    text-decoration: none;
   }
   
   footer .content .media-icons p {
@@ -98,4 +99,46 @@ footer {
   
   footer a:hover {
     color: #ffc304;
+  }
+
+  .left{
+    margin-left: 24px;
+    padding-left: 50px;
+  }
+
+  .right{
+    text-align: center;
+    padding-left: 200px;
+    text-decoration: none;
+  }
+
+  .contenedor{
+    padding: auto;
+  }
+
+  a:link, a:hover{
+    color: #F5F5DC;
+    text-decoration: none;
+  }
+  
+  .contacto{
+    color: #F5F5DC;
+  }
+
+  .titulo-mapa{
+    color: #F5F5DC;
+  }
+
+  .links-mapa{
+    text-decoration: none;
+  }
+  
+  .link-mapa{
+    color: #F5F5DC;
+    text-decoration: none;
+  }
+
+  .icono-footer{
+    color: #F5F5DC;
+    text-decoration: none;
   }

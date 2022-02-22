@@ -3,49 +3,50 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //Esta es para icono estaticos fa
 import {faPhoneVolume, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 //Esta es para iconos de marcas fab
-import {faFacebook, faInstagram, faTwitter, faYoutube, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import {faFacebook, faInstagram} from '@fortawesome/free-brands-svg-icons'
 import '../styles/footer.css';
+import { Link } from "react-router-dom";
 
 export default function Footer () {
 
     return (
-      <footer>
+      <footer className="contenedor">
       <div className="content">
           <div className="left box">
               <div className="upper">
                       <div className="topic">Sobre nosotros</div>
-                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, id modi. Dolorum, quia
-                          deserunt vitae cum aperiam suscipit sapiente porro repellat facilis illum at fugiat alias eos
-                          quod quibusdam! Vel.</p>
+                      <p>El Hotel Berlín es un negocio familiar ubicado en La Plata, Huila, que ofrece el servicio 
+                        de alojamiento en habitaciones individuales y dobles. Adicionalmente, los clientes pueden 
+                        solicitar varios servicios complementarios como  lavandería, alimentación, entre otros. 
+                        El hotel cuenta con 22 habitaciones disponibles para ofrecerle el mejor servicio de la ciudad.</p>
               </div>
               <div className="lower">
                       <div className="topic">Contáctanos</div>
                       <div className="phone">
-                          <a href="/">
-                              <div className="icono-footer">
+                              <div className="icono-footer contacto">
                                   <FontAwesomeIcon icon={faPhoneVolume} label="&nbsp; &nbsp; +1 76484377"/>
-                                  &nbsp; +1 76484377
+                                  &nbsp; 608 8370229
                               </div>
-                          </a>
                       </div>
                       <div className="email">
-                          <a href="mailto:contacto@etecno.com">
-                              <div className="icono-footer">
+                              <div className="icono-footer contacto">
                                   <FontAwesomeIcon icon={faEnvelope}/>
-                                  &nbsp; contacto@etecno.com
+                                  &nbsp; hotelberlin.laplata@gmail.com
                               </div>
-                          </a>
                       </div>
               </div>
           </div>
 
-          <div className="middle box">
-              <div><a href="/">Home</a></div>
-              <div><a href="/">Tienda</a></div>
-              <div><a href="/">Carrito</a></div>
-              <div><a href="/">Contáctenos</a></div>
+          <div className="right box text-decoration-none link-mapa">
+              <h4 className="titulo-mapa">Mapa del sitio</h4>
+              <div><Link to='/menuprincipal' className="link-mapa">Inicio</Link></div>
+              <div><Link to='/reservas' className="link-mapa">Reservas</Link></div>
+              <div><Link to='/pagos' className="link-mapa">Pagos</Link></div>
+              <div><Link to='/inventario' className="link-mapa">Inventario</Link></div>
+              <div><Link to='/reportes' className="link-mapa">Reportes</Link></div>
+              <div><Link to='/usuarios' className="link-mapa">Usuarios</Link></div>
               <div className="media-icons">
-                      <a href="/">
+                      <a href="https://www.facebook.com/hotelberlinlaplatahuila">
                           <div className="icono-footer">
                               <FontAwesomeIcon icon={faFacebook}/>
                           </div>
@@ -55,22 +56,7 @@ export default function Footer () {
                               <FontAwesomeIcon icon={faInstagram}/>
                           </div>
                       </a>
-                      <a href="/">
-                          <div className="icono-footer">
-                              <FontAwesomeIcon icon={faTwitter}/>
-                          </div>
-                      </a>
-                      <a href="/">
-                          <div className="icono-footer">
-                              <FontAwesomeIcon icon={faYoutube}/>
-                          </div>
-                      </a>
-                      <a href="/">
-                          <div className="icono-footer">
-                              <FontAwesomeIcon icon={faLinkedin}/>
-                          </div>
-                      </a>
-                      <p>eTecno© 2021 All rights reserved</p>
+                      <p>Hotel Manager© 2022</p>
               </div>
           </div>
       </div>
