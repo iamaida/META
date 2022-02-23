@@ -2,11 +2,13 @@ import React from "react";
 import {Tabs, Tab} from 'react-bootstrap';
 import FormularioModificarReservacion from '../components/FormularioModificarReservacion';
 import FormularioModificarInfoCliente from '../components/FormularioModificarInfoCliente';
+import '../styles/modificarReserva.css';
+
 
 export default function TabsModificarReserva() {
 
     return (
-        <div className='margen-superior'>
+        <div className='tab-style'>
         <Tabs
             defaultActiveKey="info-reserva"
             transition={true}

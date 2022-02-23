@@ -1,13 +1,13 @@
 import React from "react";
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import '../styles/formulario.css';
+import '../styles/modificarReserva.css';
 
 const FormularioModificarReservacion = () => {
     return(
         
-        <Container fluid="sm">
+       
             
-          <div className='block-example'>   
+          <div className='form-style'>   
             <React.Fragment>
                     <left><h4>MODIFICAR RESERVACIÓN</h4></left>
             </React.Fragment>
@@ -79,7 +79,7 @@ const FormularioModificarReservacion = () => {
             </Row>
         </Form>
         </div> 
-        </Container>
+        
     );
 
 }
