@@ -6,6 +6,7 @@ import FormularioModificarInfoCliente from '../components/FormularioModificarInf
 export default function TabsModificarReserva() {
 
     return (
+        <div className='margen-superior'>
         <Tabs
             defaultActiveKey="info-reserva"
             transition={true}
@@ -19,6 +20,6 @@ export default function TabsModificarReserva() {
             <FormularioModificarInfoCliente/>
             </Tab>
         </Tabs>
-
+        </div>
     )
 }

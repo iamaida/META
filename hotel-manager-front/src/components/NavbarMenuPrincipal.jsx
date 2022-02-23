@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react';
-import { Navbar, Nav, Container, NavDropdown, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import '../styles/navbarMenuPrincipal.css';
 import Cookies from 'universal-cookie/es6';
+import user from '../assets/images/user.png';
 
 export default function NavbarMenuPrincipal() {
 
   const cookies = new Cookies();
+  const cookies2 = new Cookies();
 
   //Se usa useEffect para permitir que la función se siga ejecutando, en este caso, la funcion que hace
   //que persista la ventana de menu principal en caso de que se mantenga la sesión
   useEffect(() => {
-    componentDidMount()
-  }, [cookies]);
+    const cookies = new Cookies();
+    if(!cookies.get('token')){
+      window.location.assign('./');
+  }
+  }, []);
 
 
   //Elimina el token de las cookies para dejar de mantener el inicio de sesión
@@ -21,38 +26,32 @@ export default function NavbarMenuPrincipal() {
     cookies.remove('token', {path:'/'});
     window.location.assign('./');
   }
-  
-  //En caso de que no retorne el token, quiere decir que no esta iniciada la sesión, por lo que es necesario
-  //que se siga redirigiendo a la página de inicio de sesión.
-  const componentDidMount =() =>{
-    if(!cookies.get('token')){
-        window.location.assign('./');
-    }
-  }
 
-  return( 
-    <div>
-      <Navbar className='navbar' variant='dark'>
-        <Container>
-          <Navbar.Brand href="./menuprincipal">React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse className='justify-content-end' id="basic-navbar-nav">
-            <Nav>
-            <img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" className="avatar" alt="Avatar" />
-              <NavDropdown title="Nombre" id="basic-nav-dropdown" className='justify-content-end'>
-                  <NavDropdown.Item className='dropdown-item'>
-                    <Button  variant="light" type="submit" onClick={()=>cerrarSesion()}>
-                      <FontAwesomeIcon icon={faSignOutAlt}/>
-                      &nbsp; &nbsp;Cerrar Sesion
-                    </Button>
-                    
-                  </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+  const email = cookies2.get('email');
+
+  console.log('cookie', email);
+
+  return(
+          <div className='navbar-tam'>
+          <Navbar className='navbar' variant='dark'>
+              <Navbar.Brand className='navbar-brand' href="./menuprincipal">Hotel Berlín</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse className='justify-content-end navbar-collapse' id="basic-navbar-nav">
+                <Nav>
+                <img src={user} className="avatar" alt="Avatar" />
+                  <NavDropdown title={`${email}`} id="basic-nav-dropdown" className='justify-content-end'>
+                      <NavDropdown.Item className='dropdown-item navbar-dropdown'>
+                        <Button  variant="light" type="submit" onClick={()=>cerrarSesion()}>
+                          <FontAwesomeIcon icon={faSignOutAlt}/>
+                          &nbsp; &nbsp;Cerrar Sesion
+                        </Button>
+                        
+                      </NavDropdown.Item>
+                  </NavDropdown>
+                </Nav>
+              </Navbar.Collapse>
+          </Navbar>
+        </div>
     
     );
 }

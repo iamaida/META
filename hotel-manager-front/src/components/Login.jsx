@@ -8,6 +8,7 @@ import '../styles/login.css';
 import Cookies from "universal-cookie/es6";
 import Alerta from './Alerta';
 
+
 export default function Login() {
 
     //Se definen los estados de los atributos que se van a usar para obtener las consultas a la BD
@@ -15,6 +16,8 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [user, setUser] = useState(null);
     const cookies = new Cookies();
+    const cookies2 = new Cookies();
+    
     
     //La idea de usar este error message es que se pueda mostrar solo por 5 segundos, solo que no se como implementarlo en notificaciones
     const [errorMessage, setErrorMessage] = useState(false);
@@ -26,7 +29,10 @@ export default function Login() {
             const user = JSON.parse(loggedUserJSON);
             setUser(user);
         }
-        componentDidMount();
+        const cookies = new Cookies();
+        if(cookies.get('token')){
+            window.location.assign('./menuprincipal')
+        }
     }, []);
 
     //Se realiza la consulta a la BD para el inicio de sesión
@@ -35,8 +41,6 @@ export default function Login() {
         
         setUser(res);
         console.log(res.data);
-        setEmail('');
-        setPassword('');
 
         //Si success es undefined quiere decir que no se validaron las credenciales
         if(res.data.success===undefined){
@@ -47,22 +51,18 @@ export default function Login() {
             setErrorMessage(false);
             console.log(res.data.success);
             console.log(res.data.id_usuario);
+            setUser(res.data.email);            
             cookies.set('token', res.data.success, {path:'/'})
+            cookies2.set('email', res.data.email , { path: '/' });
             window.location.assign("./menuprincipal")
+
+            
         }
 
         //Mantener la sesion iniciada
         window.localStorage.setItem(
             'loggedUser', JSON.stringify(user)
         )
-    }
-
-    //Aqui valida si en cookies todavia se almacena el token, lo que quiere decir que tiene la sesión iniciada.
-    //Como está iniciada la sesion, debe de redirigir a la página de menu principal
-    const componentDidMount=()=>{
-        if(cookies.get('token')){
-            window.location.assign('./menuprincipal')
-        }
     }
 
     //Guarda los estados de email
@@ -81,7 +81,6 @@ export default function Login() {
     const ingresar = () => {
         console.log('Click');
         consultarBase();
-        console.log(errorMessage);
     }
 
     //On submit para permitir que los datos no se envien automaticamente sino cuando se usen los elementos
@@ -101,7 +100,7 @@ export default function Login() {
 
   return(
       <div className="login-contenedor">
-          <Container className="login">
+            <Container className="login">
                 <Row sm={"auto"}>
                     <Col sm={7} ><img src='https://picsum.photos/190/270' alt='Foto'/></Col>
                     <Col sm={5}  className="formulario_inicio_sesion">

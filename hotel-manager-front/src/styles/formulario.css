@@ -1,8 +1,9 @@
 .block-example {
-    border: 5px outset red;
+    border: 1px outset red;
     padding: 8px 15px;
-    background-color: lightblue;
-    border-radius: 30px; 
+    background-color:#930001;
+    color: #F5F5DC;
+    border-radius: 10px; 
 
 }
 
