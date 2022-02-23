@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter, Row, Col } from 'reactstrap';
+import { Table, Button, Container, Modal, Form, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser, faPencilAlt, faTrashAlt, faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import '../styles/VerUsuario.css';
@@ -170,42 +170,6 @@ insertarUsuario = async () => {
         this.componentDidMount();
     }catch(e){
         console.log(e)
-<<<<<<< HEAD
-    }
-}
-
-editarUsuario = async () => {
-    var lista = this.state.form;
-    console.log(lista)
-    try{
-        const res = await axios.put(`http://localhost:5000/api/users/edit/${lista.id_usuario}`,
-        {tipo_documento:lista.tipo_documento, num_documento:lista.num_documento,
-            nombre:lista.nombre, apellido:lista.apellido, genero:lista.genero, fecha_nacimiento:lista.fecha_nacimiento, telefono:lista.telefono, cargo:lista.cargo}
-        )
-        console.log(res.data);
-        this.setState({lista:{}});
-        this.componentDidMount();
-        
-    }catch(e){
-        console.log(e);
-    }
-}
-
-eliminarUsuario = async () => {
-    var lista = this.state.form;
-    console.log(lista);
-    try{
-        const res = await axios.put(`http://localhost:5000/api/users/edit/${lista.id_usuario}`,
-        {estado:false})
-        console.log(res.data);
-        this.setState({lista:{}});
-        this.componentDidMount();
-    }catch(e){
-        console.log(e);
-    }
-}
-
-=======
     }
 }
 
@@ -236,7 +200,6 @@ eliminarUsuario = async () => {
     }
 }
 
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
     render() {
         return (
             <>
@@ -291,174 +254,147 @@ eliminarUsuario = async () => {
                 </Container>
 
                 <Modal isOpen={this.state.modalInsertar}>
-                    <ModalHeader>
+                    <Modal.Header>
                         <div><h3>Registrar Cliente</h3></div>
-                    </ModalHeader>
+                    </Modal.Header>
 
-                    <ModalBody>
-                        <FormGroup>
-                            <label> </label>
-
-<<<<<<< HEAD
+                    <Modal.Body>
+                        <Form.Group>
+                            <Form.Label>Tipo de documento</Form.Label>
+                            <Form.Select aria-label="Default select example" onChange={this.handleChange}>
+                                <option>Seleccione el tipo de documento</option>
+                                <option value="1">Tarjeta de identidad</option>
+                                <option value="2">Cedula de ciudadania</option>
+                                <option value="3">Pasaporte</option>
+                            </Form.Select>
                             
-                <select class="form-control" id="exampleFormControlSelect1" onChange={this.handleChange}>
-                             <option selected value = "0" >Tipo de Documento</option>
-                             <option>Cedula</option>
-                             <option>Tarjeta de Identidad</option>
-                             <option>Nit</option>
-                            </select> 
-=======
-                            <input
-                                className='form-control' name="tipo_documento" type="text" onChange={this.handleChange} />
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
-                        </FormGroup>
+                        </Form.Group>
 
-                        <FormGroup>
+                        <Form.Group>
                             <label>Numero Doc:</label>
                             <input
-<<<<<<< HEAD
-
-                                className='form-control'name="NumeroDoc" type="text" onChange={this.handleChange}/>
-
-                              
-
-=======
                                 className='form-control'name="num_documento" type="text" onChange={this.handleChange}/>
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Nombre:</label>
                             <input
                                 className='form-control'name="nombre" type="text" onChange={this.handleChange}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Apellidos:</label>
                             <input
-<<<<<<< HEAD
-
-
-                            className='form-control'name="apellidos" type="text" onChange={this.handleChange}/>
-
-                            
-=======
                                 className='form-control'name="apellido" type="text" onChange={this.handleChange}/>
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Genero:</label>
                             <input
                                 className='form-control'name="genero" type="text" onChange={this.handleChange}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Telefono:</label>
                             <input
                                 className='form-control'name="telefono" type="text" onChange={this.handleChange}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Fecha Nac.:</label>
                             <input
-<<<<<<< HEAD
-                            className='form-control' type ="date" id= "fecha de nacimiento" min="1930-01-01" max="2023-12-31"onChange={this.handleChange} ></input>
-                                
-=======
                                 className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}/>
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Cargo:</label>
                             <input
                                 className='form-control'name="cargo" type="text" onChange={this.handleChange}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Email:</label>
                             <input
                                 className='form-control'name="email" type="email" onChange={this.handleChange}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Constraseña:</label>
                             <input
                                 className='form-control'name="password" type="password" onChange={this.handleChange}/>
-                        </FormGroup>
-                    </ModalBody>
+                        </Form.Group>
+                    </Modal.Body>
 
-                    <ModalFooter>
+                    <Modal.Footer>
                         <Button color="primary"onClick={()=>this.insertar()}>Insertar</Button>
                         <Button color="danger"onClick={()=>this.ocultarModalInsertar()}>Cancelar</Button>
                         
-                    </ModalFooter>
+                    </Modal.Footer>
                 </Modal>
                 
                 <Modal isOpen={this.state.modalEditar}>
-                    <ModalHeader>
+                    <Modal.Header>
                         <div><h3>Editar Cliente</h3></div>
-                    </ModalHeader>
+                    </Modal.Header>
 
-                    <ModalBody>
-                        <FormGroup>
+                    <Modal.Body>
+                        <Form.Group>
                             <label> Tipo Doc:</label>
 
                             <input
                                 className='form-control' name="tipo_documento" type="text" onChange={this.handleChange} value={this.state.form.tipo_documento}/>
-                        </FormGroup>
+                        </Form.Group>
 
-                        <FormGroup>
+                        <Form.Group>
                             <label>Numero Doc:</label>
                             <input
                                 className='form-control'name="num_documento" type="text" onChange={this.handleChange} value={this.state.form.num_documento}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Nombre:</label>
                             <input
                                 className='form-control'name="nombre" type="text" onChange={this.handleChange}value={this.state.form.nombre}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Apellidos:</label>
                             <input
                                 className='form-control'name="apellido" type="text" onChange={this.handleChange} value={this.state.form.apellido}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Genero:</label>
                             <input
                                 className='form-control'name="genero" type="text" onChange={this.handleChange}value={this.state.form.genero}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Telefono:</label>
                             <input
                                 className='form-control'name="telefono" type="text" onChange={this.handleChange}value={this.state.form.telefono}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Fecha Nac.:</label>
                             <input
                                 className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}value={this.state.form.fecha_nacimiento}/>
-                        </FormGroup>
-                        <FormGroup>
+                        </Form.Group>
+                        <Form.Group>
                             <label>Cargo:</label>
                             <input
                                 className='form-control'name="cargo" type="text" onChange={this.handleChange} value={this.state.form.cargo}/>
-                        </FormGroup>
-                    </ModalBody>
+                        </Form.Group>
+                    </Modal.Body>
 
-                    <ModalFooter>
+                    <Modal.Footer>
                         <Button color="primary"onClick={()=>this.editar(this.state.form)}>Editar</Button>
                         <Button color="danger"onClick={()=>this.ocultarModalEditar()}>Cancelar</Button>
                         
-                    </ModalFooter>
+                    </Modal.Footer>
                 </Modal>
 
                 <Modal isOpen={this.state.modalEliminar}>
-                    <ModalHeader>
+                    <Modal.Header>
                         <div><h3>Eliminar usuario</h3></div>
-                    </ModalHeader>
+                    </Modal.Header>
 
-                    <ModalBody>
+                    <Modal.Body>
                         ¿Está seguro de eliminar el usuario?
-                    </ModalBody>
+                    </Modal.Body>
 
-                    <ModalFooter>
+                    <Modal.Footer>
                         <Button color="danger" onClick={()=>this.ocultarModalEliminar()}>Cancelar</Button>
                         <Button color="primary" onClick={()=>this.eliminar()}>Aceptar</Button>
                         
-                    </ModalFooter>
+                    </Modal.Footer>
                 </Modal>
             </>
             
