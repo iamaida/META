@@ -3,7 +3,7 @@ import Sidebar from '../../components/Sidebar';
 import NavbarMenuPrincipal from '../../components/NavbarMenuPrincipal';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import BreadCrumPaginasModificarReserva from './BreadCrumPaginasModificarReserva';
+import BreadCrumPaginasModificarReserva from '../modificar-reserva/BreadCrumPaginasModificarReserva';
 import TabsModificarReserva from '../modificar-reserva/TabsModificarReserva';
 import Footer from '../../components/Footer';
 import '../../styles/modificarReserva.css';
