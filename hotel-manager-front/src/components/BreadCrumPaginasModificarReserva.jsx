@@ -7,7 +7,7 @@ export default function BreadcrumbPaginasModificarReserva() {
   return (
     <div>
         <Breadcrumb className='breadcrumb'>
-        <Breadcrumb.Item href="#">Inicio</Breadcrumb.Item>
+        <Breadcrumb.Item href="/menuprincipal">Inicio</Breadcrumb.Item>
         <Breadcrumb.Item href="#">Reservas</Breadcrumb.Item>
         <Breadcrumb.Item href="#">Información Reserva</Breadcrumb.Item>
         <Breadcrumb.Item active>Modificar</Breadcrumb.Item>

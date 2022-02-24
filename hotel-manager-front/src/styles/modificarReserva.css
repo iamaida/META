@@ -24,14 +24,17 @@
     
 }
 
+.principal{
+    background-color:#F5F5DC;
+}
+.principal .title-style{
 
-.title-style{
     color:#930001 ;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 200px;
     margin-right: 200px;
 }
 
 .margen-footer{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }

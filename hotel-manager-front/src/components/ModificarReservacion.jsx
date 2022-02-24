@@ -10,7 +10,7 @@ import '../styles/modificarReserva.css';
 
 const ModificarReservacion = () => {
     return(
-        <div>
+        <div className='principal'>
              <NavbarMenuPrincipal/>
             <Sidebar/>
             <BreadCrumPaginasModificarReserva/>
