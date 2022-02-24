@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import '../styles/modificarReserva.css';
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import SeleccionardorFechaReserva from "./SeleccionadorFechaReserva";
+import '../../styles/modificarReserva.css';
 
 const FormularioModificarReservacion = () => {
     return(
@@ -19,18 +20,15 @@ const FormularioModificarReservacion = () => {
                 <Col>
                     <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
                     <Form.Label>Fecha Ingreso</Form.Label>
-                    <Form.Select aria-label="Default select example">
-                        <option>Seleccione fecha ingreso</option>
-                    </Form.Select>
+                    <SeleccionardorFechaReserva/>
                     </Form.Group>
+                    
                 </Col>
                
                 <Col>
                 <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
                     <Form.Label>Fecha Salida</Form.Label>
-                    <Form.Select aria-label="Default select example">
-                        <option>Seleccione fecha salida</option>
-                    </Form.Select>
+                    <SeleccionardorFechaReserva/>
                     </Form.Group>
                 </Col>
             

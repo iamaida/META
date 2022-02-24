@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import '../styles/modificarReserva.css';
+import '../../styles/modificarReserva.css';
 
 const FormularioModificarInfoCliente = () => {
     return(

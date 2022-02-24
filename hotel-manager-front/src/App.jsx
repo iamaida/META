@@ -8,7 +8,7 @@ import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
 import Datos from './components/Datos';
 import Prueba from './components/Prueba';
-import ModificarReservacion from './components/ModificarReservacion';
+import ModificarReservacion from './components/modificar-reserva/ModificarReservacion';
 
 
 export function App() {

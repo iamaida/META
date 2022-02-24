@@ -1,6 +1,6 @@
 import React from 'react'
 import { Breadcrumb} from 'react-bootstrap';
-import '../styles/breadcrumbPaginas.css';
+import '../../styles/breadcrumbPaginas.css';
 
 export default function BreadcrumbPaginasModificarReserva() {
 
@@ -8,7 +8,7 @@ export default function BreadcrumbPaginasModificarReserva() {
     <div>
         <Breadcrumb className='breadcrumb'>
         <Breadcrumb.Item href="/menuprincipal">Inicio</Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Reservas</Breadcrumb.Item>
+        <Breadcrumb.Item href="/reserva">Reservas</Breadcrumb.Item>
         <Breadcrumb.Item href="#">Información Reserva</Breadcrumb.Item>
         <Breadcrumb.Item active>Modificar</Breadcrumb.Item>
         </Breadcrumb>

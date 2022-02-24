@@ -1,8 +1,8 @@
 import React from "react";
 import {Tabs, Tab} from 'react-bootstrap';
-import FormularioModificarReservacion from '../components/FormularioModificarReservacion';
-import FormularioModificarInfoCliente from '../components/FormularioModificarInfoCliente';
-import '../styles/modificarReserva.css';
+import FormularioModificarReservacion from '../modificar-reserva/FormularioModificarReservacion';
+import FormularioModificarInfoCliente from '../modificar-reserva/FormularioModificarInfoCliente';
+import '../../styles/modificarReserva.css';
 
 
 export default function TabsModificarReserva() {
