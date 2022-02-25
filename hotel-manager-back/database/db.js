@@ -29,8 +29,6 @@ Habitacion.hasOne(Reserva,{foreignKey: "id_habitacion"})
 Cliente.belongsTo(Reserva,{foreignKey: "id_reserva"})
 Reserva.hasMany(Cliente,{foreignKey: "id_reserva"})
 
-
-
 sequelize.sync({ force: false })
 .then(() => {
     console.log('Tablas sincronizadas')
