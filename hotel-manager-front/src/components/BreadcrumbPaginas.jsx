@@ -1,5 +1,5 @@
 import React from 'react'
-import { Breadcrumb, Button, Container } from 'react-bootstrap';
+import { Breadcrumb } from 'react-bootstrap';
 import '../styles/breadcrumbPaginas.css';
 
 export default function BreadcrumbPaginas({nombre}) {

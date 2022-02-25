@@ -38,7 +38,6 @@ router.post('/register', [
         //Muestra los errores que tuvo
         return res.status(422).json( { errores: errors.array() })
     }
-
     //El 10 corresponde al nivel de encriptación de la contraseña
     req.body.password = bcrypt.hashSync(req.body.password, 10);
     const user = await User.create(req.body);
@@ -49,9 +48,21 @@ router.post('/register', [
 router.put('/edit/:userId', async (req, res) => {
     await User.update(req.body, {
         where: { id_usuario: req.params.userId }
+
     });
     res.json({success: 'Se modificó'});
 });
+
+//Editar contraseña
+router.put('/edit/password/:userId', async (req, res) => {
+    req.body.password = bcrypt.hashSync(req.body.password, 10);
+    await User.update(req.body, {
+        where: { id_usuario: req.params.userId }
+
+    });
+    res.json({success: 'Se modificó la contraseña'});
+});
+
 
 //Desactivar usuario
 router.put('/eliminar/:userId', async (req, res) => {

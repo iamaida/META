@@ -1,6 +1,9 @@
 const { Sequelize } = require('sequelize');
 const { database } = require('../config');
 const UserModel = require('./models/User');
+const HabitacionModel = require('./models/Habitacion');
+const ReservaModel = require('./models/Reserva');
+
 const sequelize = new Sequelize(
     database.database,
     database.username,
@@ -11,6 +14,8 @@ const sequelize = new Sequelize(
 );
 
 const User = UserModel(sequelize, Sequelize);
+const Habitacion = HabitacionModel(sequelize, Sequelize);
+const Reserva = ReservaModel(sequelize, Sequelize);
 
 sequelize.sync({ force: false })
 .then(() => {
@@ -19,5 +24,5 @@ sequelize.sync({ force: false })
 
 
 module.exports = {
-    User
+    sequelize, User, Habitacion, Reserva
 }
