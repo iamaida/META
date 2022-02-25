@@ -27,7 +27,7 @@ module.exports = (sequelize, type) => {
         para_donde_va: type.STRING,
         vehiculo: {
             type: type.BOOLEAN,
-            defaultValue: true
+            defaultValue: false
         },
         nacionalidad: type.STRING,
         profesion: type.STRING

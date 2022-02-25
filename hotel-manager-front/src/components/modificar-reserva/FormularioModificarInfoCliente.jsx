@@ -14,11 +14,13 @@ const FormularioModificarInfoCliente = () => {
     const [estado_civil, setEstado_civil] = useState('');
     const [donde_viene, setDonde_viene] = useState('');
     const [para_donde_va, setDonde_va] = useState('');
-    const [vehiculo, setVehiculo] = useState('');
+    const [vehiculo, setVehiculo] = useState('false');
     const [nacionalidad, setNacionalidad] = useState('');
     const [profesion, setProfesion] = useState('');
-   
-  
+    const tipos_documento = ['C.C.', 'T.I.', 'C.E'];
+    const opcion_vehiculo = ['true', 'false'];
+
+
 
     const onChangeNombre = (e) => {
         setNombre(e.currentTarget.value);
@@ -65,112 +67,155 @@ const FormularioModificarInfoCliente = () => {
         console.log(para_donde_va);
     };
 
-    const onChangeVehiculo= (e) => {
+    const onChangeVehiculo = (e) => {
         setVehiculo(e.currentTarget.value);
         console.log(vehiculo);
     };
 
-    const onChangeNacionalidad= (e) => {
+    const onChangeNacionalidad = (e) => {
         setNacionalidad(e.currentTarget.value);
         console.log(nacionalidad);
     };
 
-    const onChangeProfesion= (e) => {
+    const onChangeProfesion = (e) => {
         setProfesion(e.currentTarget.value);
         console.log(profesion);
     };
 
-    var tipos_documento = [];
-    const validarTipoDocumento = () => {
 
-        if(tipo_doc=='C.C.'){
-            tipos_documento[0]='T.I.';
-            tipos_documento[1]='C.E.';
-        }else if(tipo_doc=='T.I.'){
-            tipos_documento[0]='C.C.';
-            tipos_documento[1]='C.E.';
-        }else{
-            tipos_documento[0]='C.C.';
-            tipos_documento[1]='T.I.';
+    const validarTipoDocumento = (t_doc) => {
+        let copia_tipos_documento = tipos_documento.slice()
+        for (let i = 0; i < copia_tipos_documento.length; i++) {
+            if (t_doc === copia_tipos_documento[i]) {
+                copia_tipos_documento.splice(i, 1);
+            }
         }
-    }
-    validarTipoDocumento()
+        return copia_tipos_documento;
+    };
 
-    return(
-        
+    const validarOpcionVehiculo = (tiene_vehiculo) => {
+        let copia_opcion_vehiculo = opcion_vehiculo.slice()
+        for (let i = 0; i < copia_opcion_vehiculo.length; i++) {
+            if (tiene_vehiculo == copia_opcion_vehiculo[i]) {
+                copia_opcion_vehiculo.splice(i, 1);
+            }
+        }
+        return copia_opcion_vehiculo;
+    };
+
+
+    return (
+
         <div className='form-style'>
-              
-            <React.Fragment>
-                    <left><h4>MODIFICAR INFORMACIÓN CLIENTE</h4></left>
-            </React.Fragment>
-            
-        <Form>
-        
-            <Row>
-                
-                <Col>
-                    <Form.Group className="mb-3" controlId="formBasicNombre">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control name='nombre' placeholder="Nombre" onChange ={onChangeNombre} />
-                    </Form.Group>
-                </Col>
-               
-                <Col>
-                <Form.Group className="mb-3" controlId="formBasicApellidos">
-                    <Form.Label>Apellidos</Form.Label>
-                    <Form.Control name='apellidos' placeholder="Apellidos" onChange ={onChangeApellidos}  />
-                    </Form.Group>
-                </Col>
-            
-            </Row>
 
-            <Row>
-                
-                <Col>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Correo Electrónico</Form.Label>
-                    <Form.Control name='email' placeholder="Correo Electrónico" onChange ={onChangeEmail}  />
-                    </Form.Group>
-                </Col>
-            
-            </Row>
-            <Row>
-                <Col>
-                    <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
-                        <Form.Label>Tipo Documento</Form.Label>
-                        <Form.Select name='tipo_doc' onChange={onChangeTipoDoc}>
-                        <option>{tipo_doc}</option>
-                        <option value={tipos_documento[0]}>{tipos_documento[0]}</option>
-                        <option value={tipos_documento[1]}>{tipos_documento[1]}</option>
-                        </Form.Select>
-                    </Form.Group>
-                </Col>
-                <Col>
-                    <Form.Group className="mb-3" controlId="formBasicNumDocumento">
-                        <Form.Label>Núm. Documento</Form.Label>
-                    <Form.Control type="num_documento" placeholder="Digitar documento" />
-                    </Form.Group>
-                </Col>
-            </Row>
-            <Row>
-                
-                <Col>
-                <Form.Group className="mb-3" controlId="formBasicTelefono">
-                    <Form.Label>Teléfono</Form.Label>
-                    <Form.Control type="telefono" placeholder="Digitar telefono" />
-                    </Form.Group>
-                </Col>
-            
-            </Row>
-            <Row>
-                <Col md="10"></Col>
-                <Col >
-                <Button variant="primary">Guardar</Button>
-                </Col>
-            </Row>
-        </Form>
-        </div> 
-      
+            <React.Fragment>
+                <left><h4>MODIFICAR INFORMACIÓN CLIENTE</h4></left>
+            </React.Fragment>
+
+            <Form>
+
+                <Row>
+
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicNombre">
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control name='nombre' placeholder={nombre} onChange={onChangeNombre} />
+                        </Form.Group>
+                    </Col>
+
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicApellidos">
+                            <Form.Label>Apellidos</Form.Label>
+                            <Form.Control name='apellidos' placeholder={apellidos} onChange={onChangeApellidos} />
+                        </Form.Group>
+                    </Col>
+
+                </Row>
+                <Row>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
+                            <Form.Label>Tipo Documento</Form.Label>
+                            <Form.Select name='tipo_doc' placeholder={tipo_doc} onChange={onChangeTipoDoc}>
+                                <option>{tipo_doc}</option>
+                                {validarTipoDocumento(tipo_doc).map((t_doc) => (
+                                    <option key={t_doc} value={t_doc}>{t_doc}</option>
+                                ))}
+                            </Form.Select>
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicNumDocumento">
+                            <Form.Label>Núm. Documento</Form.Label>
+                            <Form.Control name='num_doc' placeholder={num_doc} onChange={onChangeNumDoc} />
+                        </Form.Group>
+                    </Col>
+                </Row>
+
+                <Row>
+
+
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicNacionalidad">
+                            <Form.Label>Nacionalidad</Form.Label>
+                            <Form.Control name='nacionalidad' placeholder={nacionalidad} onChange={onChangeNacionalidad} />
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicTelefono">
+                            <Form.Label>Teléfono</Form.Label>
+                            <Form.Control name='telefono' placeholder={telefono} onChange={onChangeTelefono} />
+                        </Form.Group>
+                    </Col>
+
+                </Row>
+                <Row>
+
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Correo Electrónico</Form.Label>
+                            <Form.Control name='email' placeholder={email} onChange={onChangeEmail} />
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicProfesion">
+                            <Form.Label>Profesión</Form.Label>
+                            <Form.Control name='profesion' placeholder={profesion} onChange={onChangeProfesion} />
+                        </Form.Group>
+                    </Col>
+
+                </Row>
+                <Row>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="formBasicVehículo">
+                            <Form.Label>¿Tiene Vehiculo?</Form.Label>
+                            <div key='inline-radio'  className="check-buttoms">
+                            <Form.Check
+                                inline
+                                label="si"
+                                name="group1"
+                                type='radio'
+                                id='inline-radio-1'
+                            />
+                            <Form.Check
+                                inline
+                                label="no"
+                                name="group1"
+                                type='radio'
+                                id='inline-radio-2'
+                            />
+                            </div>
+                        </Form.Group>
+                    </Col>
+                    </Row>
+                    <Row>
+                    <Col md="10"></Col>
+                    <Col >
+                        <Button variant="primary">Guardar</Button>
+                    </Col>
+                </Row>
+            </Form>
+        </div>
+
     );
 
 }
