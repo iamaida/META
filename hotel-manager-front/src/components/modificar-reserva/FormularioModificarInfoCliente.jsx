@@ -192,14 +192,14 @@ const FormularioModificarInfoCliente = () => {
                             <Form.Check
                                 inline
                                 label="si"
-                                name="group1"
+                                name="grupo1"
                                 type='radio'
                                 id='inline-radio-1'
                             />
                             <Form.Check
                                 inline
                                 label="no"
-                                name="group1"
+                                name="gropo1"
                                 type='radio'
                                 id='inline-radio-2'
                             />
