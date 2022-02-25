@@ -10,6 +10,7 @@ import Prueba from './components/Prueba';
 import ModuloUsuarios from './pages/ModuloUsuarios';
 import ConsultarReserva from './components/ConsultarReserva';
 import ModificarReservacion from './components/modificar-reserva/ModificarReservacion';
+import VerInventario from './components/ver-inventario/VerInventario';
 
 
 export function App() {
@@ -26,6 +27,7 @@ export function App() {
         <Route exact path='/prueba' element={ <Prueba /> } />
         <Route exact path='/consultarReservas' element={ <ConsultarReserva /> } />
          <Route exact path='/modificarreserva' element={ <ModificarReservacion /> } />
+         <Route exact path='/inventario' element={ <VerInventario /> } />
         
       </Routes>
     </BrowserRouter>
