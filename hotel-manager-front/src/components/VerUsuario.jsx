@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter, Row, Col } from 'reactstrap';
+import { Table, Button, Container, Modal, ModalBody, ModalHeader, Form, FormGroup, ModalFooter, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser, faPencilAlt, faTrashAlt, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import '../styles/VerUsuario.css';
