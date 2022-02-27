@@ -28,7 +28,7 @@ export default function CardsMenuPrincipal() {
           id: 3,
           title: "Inventario",
           image: inventario,
-          url: "/menuprincipal",
+          url: "/inventario",
           text: 'Gestionar inventario de productos'
         },
         {

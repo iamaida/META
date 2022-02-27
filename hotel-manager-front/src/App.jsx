@@ -9,8 +9,8 @@ import Prueba from './components/Prueba';
 import ModuloUsuarios from './pages/ModuloUsuarios';
 import ConsultarReserva from './components/ConsultarReserva';
 import ModificarReservacion from './components/modificar-reserva/ModificarReservacion';
-import VerInventario from './components/ver-inventario/VerInventario';
-import ModalNuevoProducto from './components/ver-inventario/ModalNuevoProducto';
+import VerInventario from './components/modulo-inventario/VerInventario';
+import RegistrarProducto from './components/modulo-inventario/RegistrarProducto';
 
 
 export function App() {
@@ -27,7 +27,7 @@ export function App() {
         <Route exact path='/consultarReservas' element={ <ConsultarReserva /> } />
          <Route exact path='/modificarreserva' element={ <ModificarReservacion /> } />
          <Route exact path='/inventario' element={ <VerInventario /> } />
-         <Route exact path='/nuevoproducto' element={ <ModalNuevoProducto /> } />
+         <Route exact path='/registarproducto' element={ <RegistrarProducto /> } />
         
       </Routes>
     </BrowserRouter>

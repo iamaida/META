@@ -1,10 +1,8 @@
 import React from "react";
-import Sidebar from '../../components/Sidebar';
+import Sidebar from '../Sidebar';
 import NavbarMenuPrincipal from '../../components/NavbarMenuPrincipal';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import BreadCrumVerInventario from '../ver-inventario/BreadCrumbVerInventario';
-import TablaInventario from '../ver-inventario/TablaInventario';
+import BreadCrumVerInventario from '../modulo-inventario/BreadCrumbVerInventario';
+import TablaInventario from '../modulo-inventario/TablaInventario';
 import Footer from '../../components/Footer';
 import '../../styles/moduloInventario.css';
 
