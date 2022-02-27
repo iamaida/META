@@ -1,0 +1,35 @@
+img{
+    border-radius: 8px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .usuario .table-head, .table-body{
+    font-weight: bold;
+    text-align: center;
+    margin-left: 40px;
+  }
+
+  .usuario .scroll .table-body{
+    font-weight: normal;
+    text-align: center;
+    margin-left: 40px;
+    margin-top: 10px;
+    border-bottom: 1px;
+  }
+
+  .usuario .scroll{
+                 margin:4px, 4px;
+                padding:4px;
+                background-color: #F5F5DC;
+                width: "100%";
+                height: 350px;
+                overflow-x: hidden;
+                overflow-y: auto;
+  }
+
+
+
+
+
+
