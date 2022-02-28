@@ -11,8 +11,8 @@ const VerInventario = () => {
     
     return(
         <div className='principal'>
-            <NavbarMenuPrincipal/>
             <Sidebar/>
+            <NavbarMenuPrincipal/>
             <BreadCrumVerInventario/>
             <TablaInventario/>
             <div className='margen-footer'></div>

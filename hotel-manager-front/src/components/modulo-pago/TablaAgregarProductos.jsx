@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faTrashAlt, faPlusCircle, faCocktail, faFileInvoiceDollar } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faTrashAlt, faPlusCircle, faBeer, faEgg } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/VerUsuario.css';
 import '../../styles/moduloPago.css';
 import axios from 'axios';
 import AlertConfirmacion from '../../components/AlertConfirmacion';
 
-
-
-const TablaProductosServicios = () => {
+const TablaAgregarProductos = () => {
 
     const [nombre, setNombre] = useState('');
     const [descrip, setDescripcion] = useState('');
@@ -83,56 +81,45 @@ const TablaProductosServicios = () => {
     };
 
 
-
-    
-
     return (
 
         <>
             <Container className='usuario'>
 
                 <Row className='titulo-boton'>
-                    {/* Titulo Gestión Productos y Servicios Cliente*/}
+                    {/* Titulo Gestión Productos y Servicios a agregar*/}
                     <Col sm={8}>
                         <h2 className='titulo-principal'>
-                            <FontAwesomeIcon icon={faCocktail} />&nbsp; Productos y Servicios Cliente
+                            <FontAwesomeIcon icon={faBeer} />&nbsp; Productos y Servicios a agregar
                         </h2>
-                    </Col>
-                    {/* Botón Nuevo Producto/Servicio*/}
-                    <Col sm={4}>
-                        <div className=' d-flex justify-content-end'>
-                            <Button color="outline-success" href='/pagoagregarserviciosproductoscliente' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Agregar Producto/Servicio</Button>
-                        </div>
                     </Col>
                 </Row>
 
                 {/* Tabla Productos*/}
                 {/* Titulo*/}
                 <Row className='table-head'>
-
+                    <Col>Selección</Col>
                     <Col>Imagen</Col>
                     <Col>Nombre</Col>
                     <Col>Descripción</Col>
                     <Col>Precio</Col>
                     <Col>Cantidad</Col>
-                    <Col>Acciones</Col>
 
                 </Row>
                 {/* Cuerpo*/}
                 <div className="scroll">
                     {products.map(( elemento ) => (
                         <Row className='table-body'>
-
+                            <Col>
+                            <input type="checkbox" id="seleccion" value="seleccion"/>
+                            </Col>
                             <Col> <img src={elemento.imagen} /> </Col>
                             <Col>{elemento.nombre} </Col>
                             <Col>{elemento.descrip}</Col>
                             <Col>$ {elemento.precio}</Col>
-                            <Col>{elemento.cantidad}</Col>
-                            <Col>
-                                <Button color="outline-primary" onClick={()=>openModalModificar(elemento)}> <FontAwesomeIcon icon={faPencilAlt} /> </Button>&nbsp;&nbsp;
-                                <Button color="outline-danger" onClick={openModalEliminar}> <FontAwesomeIcon icon={faTrashAlt} /> </Button>
+                            <Col sm={1}>
+                                 <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad} placeholder={elemento.precio}/>
                             </Col>
-
                         </Row>
                     ))}
                 </div>
@@ -143,60 +130,11 @@ const TablaProductosServicios = () => {
             <Row>
                 <Col sm={11}>
                         <div className=' d-flex justify-content-end'>
-                            <Button color="primary" href='#' ><FontAwesomeIcon icon={faFileInvoiceDollar} />&nbsp; Realizar Pago</Button>
+                            <Button color="primary" href='#' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Agregar Producto/Servicio</Button>
                         </div>
                 </Col>
             </Row>
             </div>
-
-
-            {/* Modal Modificar Producto*/}
-
-            <Modal isOpen={modalModificar}
-                >
-                <ModalHeader>
-                    <div><h4>Modificar Cantidad Producto/Servicio </h4></div>
-                </ModalHeader>
-                <ModalBody>
-                    <Form >
-                        <Row>
-                            <Col>
-                                <img src={producto.imagen} />
-                            </Col>
-                            <Col>
-                                <Row>&nbsp;</Row>
-                                <Row>
-                                    <label>Cantidad</label>
-                                    <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad} placeholder={producto.cantidad}/>
-                                </Row>
-                            </Col>
-                            <Col>&nbsp;</Col>
-                        </Row>
-                    </Form>
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="danger" onClick={closeModalModificar}>Cancelar</Button>
-                    <Button color="primary" onClick={closeModalModificar}>Guardar</Button>
-                </ModalFooter>
-            </Modal>
-
-            <Modal isOpen={modalEliminar}>
-                    <ModalHeader>
-                        <div><h3>Eliminar Producto/Servicio</h3></div>
-                    </ModalHeader>
-
-                    <ModalBody>
-                        ¿Está seguro de eliminar el producto/servicio de la cuenta del cliente?
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button color="danger" onClick={closeModalEliminar}>Cancelar</Button>
-                        <Button color="primary" >Aceptar</Button>
-                        
-                    </ModalFooter>
-                </Modal>
-
-
 
         </>
 
@@ -204,4 +142,4 @@ const TablaProductosServicios = () => {
 
 }
 
-export default TablaProductosServicios;
+export default TablaAgregarProductos;

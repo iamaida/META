@@ -12,8 +12,8 @@ function ModuloPago() {
 
   return (
     <div className ="pago">
-        <Sidebar />
         <NavbarMenuPrincipal />
+        <Sidebar />
        < BreadcrumbInformacionCuenta/>
        <InformacionCuenta />
        <Footer />

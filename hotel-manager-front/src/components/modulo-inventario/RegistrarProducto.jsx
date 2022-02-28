@@ -16,8 +16,7 @@ const RegistrarProducto = () => {
            
            <Sidebar/>
            <NavbarMenuPrincipal/>
-           <BreadCrumbRegistrarProducto/>
-           
+           <BreadCrumbRegistrarProducto/>     
            <FormularioRegistrarProducto/>
            <Footer/>
        </div>

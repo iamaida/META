@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faTrashAlt, faPlusCircle, faWarehouse } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faTrashAlt, faPlusCircle, faWarehouse, faSave } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/VerUsuario.css';
 import '../../styles/moduloInventario.css';
 import axios from 'axios';
@@ -187,8 +187,20 @@ const TablaInventario = () => {
                                 <img src={producto.imagen} />
                             </Col>
                             <Col>
-                                
-                                <Button color="secondary">Editar</Button>
+                                <Row><br></br></Row>
+                                <Row>
+                                    <Col>
+                                    <label>src:</label>
+                                    </Col>
+                                </Row>
+                                <Row>                                    
+                                    <Col sm={8}>
+                                    <input className='form-control' name="src" type="text" placeholder={producto.imagen} onChange={onChangeImagen} />
+                                    </Col>
+                                    <Col>
+                                        <Button color="secondary"><FontAwesomeIcon icon={faSave} /></Button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                         <Row>
@@ -196,7 +208,7 @@ const TablaInventario = () => {
                                 <FormGroup>
 
                                     <label>Nombre</label>
-                                    <input className='form-control' name="nombre" type="text" value={producto.nombre} onChange={onChangeNombre} />
+                                    <input className='form-control' name="nombre" type="text" placeholder={producto.nombre} onChange={onChangeNombre} />
 
                                 </FormGroup>
                             </Col>
@@ -204,7 +216,7 @@ const TablaInventario = () => {
                                 <FormGroup>
 
                                     <label>Descripción</label>
-                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} value={producto.descrip}/>
+                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} placeholder={producto.descrip}/>
 
                                 </FormGroup>
                             </Col>
@@ -214,14 +226,14 @@ const TablaInventario = () => {
                                 <FormGroup>
 
                                     <label>Precio</label>
-                                    <input className='form-control' name="precio" type="text" onChange={onChangePrecio} value={producto.precio} />
+                                    <input className='form-control' name="precio" type="text" onChange={onChangePrecio} placeholder={producto.precio} />
 
                                 </FormGroup>
                             </Col>
                             <Col>
                                 <FormGroup>
                                     <label>Cantidad</label>
-                                    <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad}  value={producto.cantidad}/>
+                                    <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad}  placeholder={producto.cantidad}/>
                                 </FormGroup>
                             </Col>
                         </Row>
@@ -247,9 +259,8 @@ const TablaInventario = () => {
                         <Button color="primary" >Aceptar</Button>
                         
                     </ModalFooter>
-                </Modal>
-
-
+            </Modal>
+                    
 
         </>
 

@@ -12,6 +12,7 @@ import ModificarReservacion from './components/modificar-reserva/ModificarReserv
 import ModuloInventario from './pages/ModuloInventario';
 import VerProductosServiciosCliente from './components/modulo-pago/VerProductosServiciosCliente';
 import RegistrarProducto from './components/modulo-inventario/RegistrarProducto';
+import TablaAgregarProductos from './components/modulo-pago/TablaAgregarProductos';
 import ModuloPago from './pages/ModuloPago';
 
 export function App() {
@@ -31,6 +32,7 @@ export function App() {
          <Route exact path='/registarproducto' element={ <RegistrarProducto /> } />
          <Route exact path='/pago' element={ <ModuloPago /> } />
          <Route exact path='/pagoserviciosproductoscliente' element={ <VerProductosServiciosCliente  /> } />
+         <Route exact path='/pagoagregarserviciosproductoscliente' element={ <TablaAgregarProductos  /> } />
         
       </Routes>
     </BrowserRouter>

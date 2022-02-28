@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Container } from 'react-bootstrap';
 import { Button} from 'reactstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSave, faSoap} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import '../../styles/moduloInventario.css';
 
@@ -54,7 +56,7 @@ const FormularioRegistrarProducto = () => {
         
         <div className= 'registro-producto-title'>
         <React.Fragment>
-            <left><h2>Registrar Producto</h2></left>
+            <left><h2><FontAwesomeIcon icon={faSoap} />&nbsp; Registrar Producto</h2></left>
         </React.Fragment>
         </div>
 
@@ -66,8 +68,20 @@ const FormularioRegistrarProducto = () => {
                                 <img src={producto.imagen} />
                             </Col>
                             <Col>
-                                
-                                <Button color="secondary">Seleccionar</Button>
+                                <Row><br></br></Row>
+                                <Row>
+                                    <Col>
+                                    <label>src:</label>
+                                    </Col>
+                                </Row>
+                                <Row>                                    
+                                    <Col sm={8}>
+                                    <input className='form-control' name="src" type="text" placeholder={producto.imagen} onChange={onChangeImagen} />
+                                    </Col>
+                                    <Col>
+                                        <Button color="secondary"><FontAwesomeIcon icon={faSave} /></Button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                         <Row>
@@ -75,7 +89,7 @@ const FormularioRegistrarProducto = () => {
                                 <Form.Group>
 
                                     <label>Nombre</label>
-                                    <input className='form-control' name="nombre" type="text" value={producto.nombre} onChange={onChangeNombre} />
+                                    <input className='form-control' name="nombre" type="text" placeholder={producto.nombre} onChange={onChangeNombre} />
 
                                 </Form.Group>
                             </Col>
@@ -83,7 +97,7 @@ const FormularioRegistrarProducto = () => {
                                 <Form.Group>
 
                                     <label>Descripción</label>
-                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} value={producto.descrip}/>
+                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} placeholder={producto.descrip}/>
 
                                 </Form.Group>
                             </Col>
@@ -93,14 +107,14 @@ const FormularioRegistrarProducto = () => {
                                 <Form.Group>
 
                                     <label>Precio</label>
-                                    <input className='form-control' name="precio" type="numeric" onChange={onChangePrecio} value={producto.precio} />
+                                    <input className='form-control' name="precio" type="numeric" onChange={onChangePrecio} placeholder={producto.precio} />
 
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group>
                                     <label>Cantidad</label>
-                                    <input className='form-control' name="cantidad" type="numeric" onChange={onChangeCantidad}  value={producto.cantidad}/>
+                                    <input className='form-control' name="cantidad" type="numeric" onChange={onChangeCantidad}  placeholder={producto.cantidad}/>
                                 </Form.Group>
                             </Col>
                         </Row>
