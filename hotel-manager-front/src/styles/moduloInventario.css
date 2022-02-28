@@ -28,7 +28,7 @@ img{
                 overflow-y: auto;
   }
 
-  .total .principal-registrar-producto .form-style{
+  .principal-formulario .principal-registrar-producto .form-style{
     background-color:#F5F5DC;
     color:#930001 ;
     margin-left: 20px;
@@ -36,10 +36,9 @@ img{
     margin-top: 30px;
     margin-bottom: 30px;
     font: nunito;
-    border: 0cm;
-    
+    border: 7cm;    
 }
-.total .registro-producto-title{
+.principal-formulario .registro-producto-title{
   font: nunito;
   font-weight: bold;
   background-color:#F5F5DC;
@@ -48,7 +47,7 @@ img{
   margin-right: 400px;
 }
 
-.total .principal-registrar-producto{
+.principal-formulario .principal-registrar-producto{
   margin-left: 400px;
   margin-right: 400px;
   background-color:#F5F5DC;
@@ -57,18 +56,26 @@ img{
   padding: 8px 15px;
 }
 
-.total .boton-registro{
-  margin-top:20px;
+.principal-formulario .boton-registro{
+  margin-top:10px;
   margin-left: 800px;
   margin-bottom:20px;
 }
 
-.total{
+.principal-formulario{
   background-color:#F5F5DC;
   margin-bottom: 20px;
-  height: 450px;
+  height: 470px;
 }
 
-.ambito-registro-producto{
+.inventario
+{
   background-color:#F5F5DC;
 }
+
+.principal{
+  background-color:#F5F5DC;
+}
+
+
+

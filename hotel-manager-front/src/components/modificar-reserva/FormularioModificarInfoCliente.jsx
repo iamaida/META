@@ -109,7 +109,7 @@ const FormularioModificarInfoCliente = () => {
         <div className='form-style'>
 
             <React.Fragment>
-                <left><h4>MODIFICAR INFORMACIÓN CLIENTE</h4></left>
+                <left><h4>Modificar Información Cliente</h4></left>
             </React.Fragment>
 
             <Form>

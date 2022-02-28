@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faTrashAlt, faPlusCircle, faWarehouse } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faTrashAlt, faPlusCircle, faCocktail, faFileInvoiceDollar } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/VerUsuario.css';
-import '../../styles/moduloInventario.css';
+import '../../styles/moduloPago.css';
 import axios from 'axios';
 import AlertConfirmacion from '../../components/AlertConfirmacion';
 
 
 
-const TablaInventario = () => {
+const TablaProductosServicios = () => {
 
     const [nombre, setNombre] = useState('');
     const [descrip, setDescripcion] = useState('');
@@ -29,27 +29,27 @@ const TablaInventario = () => {
     const [products, setProducts] =useState([
         {
             id:"1",
-            nombre: "Juego de Sabanas",
+            nombre: "Desayuno",
             descrip: "Unidad",
-            imagen: "https://i.ibb.co/fHh724y/white-pillows-and-sheets-on-an-unmade-bed.jpg",
-            precio: 40000,
-            cantidad: 200
+            imagen: "https://i.ibb.co/k1kgGGj/desayuno.jpg",
+            precio: 15000,
+            cantidad: 3
         },
         {
             id:"2",
-            nombre: "Toalla",
-            descrip: " Unidad",
-            imagen: "https://i.ibb.co/chnVC1Z/hotel-bathroom-towels.jpg",
-            precio: 12000,
-            cantidad: 300
+            nombre: "Lavanderia",
+            descrip: "Pieza",
+            imagen: "https://i.ibb.co/f1by7dK/lavanderia.jpg",
+            precio: 5000,
+            cantidad: 1
         },
         {
             id:"3",
-            nombre: "Jabón de Baño",
-            descrip: " Unidad",
-            imagen: "https://i.ibb.co/DQnd77w/soap-bars-on-wood.jpg",
-            precio: 2000,
-            cantidad: 30
+            nombre: "Barra",
+            descrip: "Abierta",
+            imagen: "https://i.ibb.co/2vdHXCc/bar.jpg",
+            precio: 50000,
+            cantidad: 3
         }
     ])
 
@@ -71,25 +71,12 @@ const TablaInventario = () => {
     }
 
 
-    const onChangeNombre= (e) => {
-        setNombre(e.currentTarget.value);
-        console.log(nombre);
-    };
-
-    const onChangeDescripcion = (e) => {
-        setDescripcion(e.currentTarget.value);
-        console.log(descrip);
-    };
-
+  
     const onChangeImagen = (e) => {
         setImagen(e.currentTarget.value);
         console.log(imagen);
     };
 
-    const onChangePrecio = (e) => {
-        setPrecio(e.currentTarget.value);
-        console.log(precio);
-    };
     const onChangeCantidad= (e) => {
         setCantidad(e.currentTarget.value);
         console.log(cantidad);
@@ -97,29 +84,7 @@ const TablaInventario = () => {
 
 
 
-    const modificarDatosProducto = () => {
-        let p ={
-        id:" ",
-        nombre: nombre,
-        descrip: descrip,
-        imagen: imagen,
-        precio: precio,
-        cantidad: cantidad
-        }
-
-        setProducto(p);
-        let nuevos_productos = products;
-        for(let i=0; i<products.length; i++)
-        {
-            if(products.nombre=== producto.nombre)
-            {
-                nuevos_productos[i]=producto;
-            }
-        }
-
-        setProducts(nuevos_productos)
-
-    };
+    
 
     return (
 
@@ -127,16 +92,16 @@ const TablaInventario = () => {
             <Container className='usuario'>
 
                 <Row className='titulo-boton'>
-                    {/* Titulo Gestión Inventario*/}
+                    {/* Titulo Gestión Productos y Servicios Cliente*/}
                     <Col sm={8}>
                         <h2 className='titulo-principal'>
-                            <FontAwesomeIcon icon={faWarehouse} />&nbsp; Gestión Inventario
+                            <FontAwesomeIcon icon={faCocktail} />&nbsp; Productos y Servicios Cliente
                         </h2>
                     </Col>
-                    {/* Botón Nuevo Producto*/}
+                    {/* Botón Nuevo Producto/Servicio*/}
                     <Col sm={4}>
                         <div className=' d-flex justify-content-end'>
-                            <Button color="outline-success" href='/registarproducto' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Nuevo Producto</Button>
+                            <Button color="outline-success" href='#' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Agregar Producto/Servicio</Button>
                         </div>
                     </Col>
                 </Row>
@@ -172,13 +137,25 @@ const TablaInventario = () => {
                     ))}
                 </div>
             </Container>
+            
+            <div className="boton-pago">
+            {/* Botón realizar pago*/}
+            <Row>
+                <Col sm={11}>
+                        <div className=' d-flex justify-content-end'>
+                            <Button color="primary" href='#' ><FontAwesomeIcon icon={faFileInvoiceDollar} />&nbsp; Realizar Pago</Button>
+                        </div>
+                </Col>
+            </Row>
+            </div>
+
 
             {/* Modal Modificar Producto*/}
 
             <Modal isOpen={modalModificar}
                 >
                 <ModalHeader>
-                    <div><h3>Modificar datos producto</h3></div>
+                    <div><h4>Modificar Cantidad Producto/Servicio </h4></div>
                 </ModalHeader>
                 <ModalBody>
                     <Form >
@@ -186,60 +163,32 @@ const TablaInventario = () => {
                             <Col>
                                 <img src={producto.imagen} />
                             </Col>
+                        </Row>
+                        <Row>
                             <Col>
                                 
-                                <Button color="secondary">Editar</Button>
+                                <label>Cantidad</label>
+                            </Col>
+                            <Col>
+                                <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad} placeholder={producto.cantidad}/>
                             </Col>
                         </Row>
-                        <Row>
-                            <Col>
-                                <FormGroup>
-
-                                    <label>Nombre</label>
-                                    <input className='form-control' name="nombre" type="text" value={producto.nombre} onChange={onChangeNombre} />
-
-                                </FormGroup>
-                            </Col>
-                            <Col>
-                                <FormGroup>
-
-                                    <label>Descripción</label>
-                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} value={producto.descrip}/>
-
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <FormGroup>
-
-                                    <label>Precio</label>
-                                    <input className='form-control' name="precio" type="text" onChange={onChangePrecio} value={producto.precio} />
-
-                                </FormGroup>
-                            </Col>
-                            <Col>
-                                <FormGroup>
-                                    <label>Cantidad</label>
-                                    <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad}  value={producto.cantidad}/>
-                                </FormGroup>
-                            </Col>
-                        </Row>
+                        
                     </Form>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="danger" onClick={closeModalModificar}>Cancelar</Button>
-                    <Button color="primary" onClick={modificarDatosProducto}>Guardar</Button>
+                    <Button color="primary" onClick={closeModalModificar}>Guardar</Button>
                 </ModalFooter>
             </Modal>
 
             <Modal isOpen={modalEliminar}>
                     <ModalHeader>
-                        <div><h3>Eliminar Producto</h3></div>
+                        <div><h3>Eliminar Producto/Servicio</h3></div>
                     </ModalHeader>
 
                     <ModalBody>
-                        ¿Está seguro de eliminar el producto?
+                        ¿Está seguro de eliminar el producto/servicio de la cuenta del cliente?
                     </ModalBody>
 
                     <ModalFooter>
@@ -257,4 +206,4 @@ const TablaInventario = () => {
 
 }
 
-export default TablaInventario;
+export default TablaProductosServicios;

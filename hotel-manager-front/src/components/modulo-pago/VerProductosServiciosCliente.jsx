@@ -1,20 +1,20 @@
 import React from "react";
 import Sidebar from '../Sidebar';
 import NavbarMenuPrincipal from '../../components/NavbarMenuPrincipal';
-import BreadCrumVerInventario from '../modulo-inventario/BreadCrumbVerInventario';
-import TablaInventario from '../modulo-inventario/TablaInventario';
+import BreadcrumbProductosServicios from '../modulo-pago/BreadcrumbProductosServicios';
+import TablaProductosServicios from '../modulo-pago/TablaProductosServicios';
 import Footer from '../../components/Footer';
 import '../../styles/moduloInventario.css';
 
-const VerInventario = () => {
+const VerProductosServiciosCliente = () => {
 
     
     return(
-        <div className='principal'>
+        <div className='pago'>
             <NavbarMenuPrincipal/>
             <Sidebar/>
-            <BreadCrumVerInventario/>
-            <TablaInventario/>
+            <BreadcrumbProductosServicios/>
+            <TablaProductosServicios />
             <div className='margen-footer'></div>
             <Footer/>
          </div>
@@ -24,4 +24,4 @@ const VerInventario = () => {
 
 }
 
-export default VerInventario;
+export default VerProductosServiciosCliente;

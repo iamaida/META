@@ -12,13 +12,14 @@ const RegistrarProducto = () => {
 
     return (
 
-       <div className="ambito-registro-producto">
-            <NavbarMenuPrincipal/>
-            <Sidebar/>
-            <BreadCrumbRegistrarProducto/>
-            <FormularioRegistrarProducto/>
-            <div className='margen-footer'></div>
-            <Footer/>
+       <div className="inventario">
+           
+           <Sidebar/>
+           <NavbarMenuPrincipal/>
+           <BreadCrumbRegistrarProducto/>
+           
+           <FormularioRegistrarProducto/>
+           <Footer/>
        </div>
 
     );

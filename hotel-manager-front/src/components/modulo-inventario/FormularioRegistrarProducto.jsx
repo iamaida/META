@@ -49,11 +49,12 @@ const FormularioRegistrarProducto = () => {
 
 
     return (
-        <div className="total">
+        
+        <div className='principal-formulario'>
         
         <div className= 'registro-producto-title'>
         <React.Fragment>
-            <left><h2>REGISTRAR PRODUCTO</h2></left>
+            <left><h2>Registrar Producto</h2></left>
         </React.Fragment>
         </div>
 
@@ -104,14 +105,18 @@ const FormularioRegistrarProducto = () => {
                             </Col>
                         </Row>
                     </Form>
-                    </div>
+
                     
-                 </div>
-                 <div className='boton-registro'>
+            </div>
+            </div>  
+                <div className="boton-registro">
+                    <Row>
+                    <Col sm={11}>
                         <Button color="primary" >Guardar</Button>
-                </div>
-            
-            </div>            
+                    </Col>
+                    </Row>
+                </div>        
+            </div> 
     );
 
 }

@@ -1,6 +1,5 @@
 import React , { useState } from "react";
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import SeleccionardorFechaReserva from "./SeleccionadorFechaReserva";
 import axios from 'axios';
 import '../../styles/modificarReserva.css';
 
@@ -73,7 +72,7 @@ const FormularioModificarReservacion = () => {
             
           <div className='form-style'>   
             <React.Fragment>
-                    <left><h4>MODIFICAR RESERVACIÓN</h4></left>
+                    <left><h4>Modificar Reservación</h4></left>
             </React.Fragment>
             
         <Form>
