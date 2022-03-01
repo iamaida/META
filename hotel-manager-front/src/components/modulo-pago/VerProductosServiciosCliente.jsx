@@ -11,8 +11,8 @@ const VerProductosServiciosCliente = () => {
     
     return(
         <div className='pago'>
-            <NavbarMenuPrincipal/>
             <Sidebar/>
+            <NavbarMenuPrincipal/>
             <BreadcrumbProductosServicios/>
             <TablaProductosServicios />
             <div className='margen-footer'></div>

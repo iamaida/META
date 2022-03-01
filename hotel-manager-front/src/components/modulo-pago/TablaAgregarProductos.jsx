@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
+import {  Button, Container, Row, Col, Table} from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt, faPlusCircle, faBeer, faEgg } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/VerUsuario.css';
@@ -26,28 +26,36 @@ const TablaAgregarProductos = () => {
     })
     const [products, setProducts] =useState([
         {
-            id:"1",
-            nombre: "Desayuno",
+            id:"4",
+            nombre: "Almuerzo",
             descrip: "Unidad",
-            imagen: "https://i.ibb.co/k1kgGGj/desayuno.jpg",
-            precio: 15000,
-            cantidad: 3
-        },
-        {
-            id:"2",
-            nombre: "Lavanderia",
-            descrip: "Pieza",
-            imagen: "https://i.ibb.co/f1by7dK/lavanderia.jpg",
-            precio: 5000,
+            imagen: "https://i.ibb.co/zhjpp32/almuerzo.jpg",
+            precio: 25000,
             cantidad: 1
         },
         {
-            id:"3",
-            nombre: "Barra",
-            descrip: "Abierta",
-            imagen: "https://i.ibb.co/2vdHXCc/bar.jpg",
-            precio: 50000,
+            id:"5",
+            nombre: "Servicio Habitación",
+            descrip: " 1 Pedido",
+            imagen: "https://i.ibb.co/HTjP0BN/serviciohabitacion.jpg",
+            precio: 15000,
+            cantidad: 2
+        },
+        {
+            id:"6",
+            nombre: "Parqueadero",
+            descrip: "1 h",
+            imagen: "https://i.ibb.co/8x3Thg2/parqueadero.jpg",
+            precio: 2000,
             cantidad: 3
+        },
+        {
+            id:"7",
+            nombre: "Guía Turistico",
+            descrip: "Grupo",
+            imagen: "https://i.ibb.co/qmZzpvC/laplatahuila.jpg",
+            precio: 40000,
+            cantidad: 1
         }
     ])
 
@@ -90,51 +98,63 @@ const TablaAgregarProductos = () => {
                     {/* Titulo Gestión Productos y Servicios a agregar*/}
                     <Col sm={8}>
                         <h2 className='titulo-principal'>
-                            <FontAwesomeIcon icon={faBeer} />&nbsp; Productos y Servicios a agregar
+                            <FontAwesomeIcon icon={faBeer} />&nbsp; Productos y Servicios a Agregar
                         </h2>
                     </Col>
                 </Row>
 
                 {/* Tabla Productos*/}
                 {/* Titulo*/}
-                <Row className='table-head'>
-                    <Col>Selección</Col>
+            
+               < div className="table-head">
+                <Row>
+                    <Col sm={2}>Selección</Col>
                     <Col>Imagen</Col>
                     <Col>Nombre</Col>
                     <Col>Descripción</Col>
                     <Col>Precio</Col>
-                    <Col>Cantidad</Col>
+                    <Col sm={2} >Cantidad</Col>
 
                 </Row>
+                </div>
                 {/* Cuerpo*/}
-                <div className="scroll">
+                
+                <div className="table-body"> 
+                <div className="scrolling">
                     {products.map(( elemento ) => (
-                        <Row className='table-body'>
-                            <Col>
+                        <>
+                        <Row>
+                            <Col > 
                             <input type="checkbox" id="seleccion" value="seleccion"/>
                             </Col>
-                            <Col> <img src={elemento.imagen} /> </Col>
-                            <Col>{elemento.nombre} </Col>
-                            <Col>{elemento.descrip}</Col>
-                            <Col>$ {elemento.precio}</Col>
-                            <Col sm={1}>
-                                 <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad} placeholder={elemento.precio}/>
+                            <Col sm={3}> <img src={elemento.imagen} /> </Col>
+                            <Col sm={2}>{elemento.nombre} </Col>
+                            <Col sm={2}>{elemento.descrip}</Col>
+                            <Col sm={2}>$ {elemento.precio}</Col>
+                            <Col sm={2}>
+                                 <input className='form-control' name="cantidad" type="number" size="2" onChange={onChangeCantidad} placeholder={elemento.cantidad}/>
                             </Col>
-                        </Row>
+                            </Row>
+                        <div className="espacio-fila"></div>
+                        </>
                     ))}
                 </div>
-            </Container>
-            
-            <div className="boton-pago">
+                </div>
+
+                <div className="boton-pago">
             {/* Botón realizar pago*/}
             <Row>
-                <Col sm={11}>
+                <Col sm={13}>
                         <div className=' d-flex justify-content-end'>
                             <Button color="primary" href='#' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Agregar Producto/Servicio</Button>
                         </div>
                 </Col>
             </Row>
             </div>
+            
+            </Container>
+            
+            
 
         </>
 
