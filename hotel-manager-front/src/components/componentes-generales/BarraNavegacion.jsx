@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import '../styles/navbarMenuPrincipal.css';
+import '../../styles/componentes-generales/navbarMenuPrincipal.css';
 import Cookies from 'universal-cookie/es6';
-import user from '../assets/images/user.png';
+import user from '../../assets/images-menu/user.png';
 
-export default function NavbarMenuPrincipal() {
+export default function BarraNavegacion() {
 
   const cookies = new Cookies();
   const cookies2 = new Cookies();

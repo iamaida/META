@@ -1,9 +1,9 @@
 import { React, useEffect } from 'react';
 import Cookies from 'universal-cookie/es6';
-import NavbarMenuPrincipal from '../components/NavbarMenuPrincipal';
-import CardsMenuPrincipal from '../components/CardsMenuPrincipal';
-import Footer from '../components/Footer';
-import '../styles/menuPrincipal.css';
+import BarraNavegacion from '../components/componentes-generales/BarraNavegacion'
+import CardsMenuPrincipal from '../components/menu-principal/CardsMenuPrincipal';
+import Footer from '../components/componentes-generales/Footer';
+import '../styles/menu-principal/menuPrincipal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHandshake} from '@fortawesome/free-solid-svg-icons';
 
@@ -27,7 +27,7 @@ export default function MenuPrincipal() {
   return (
     <div className='menu-principal'>
 
-      <NavbarMenuPrincipal />
+      <BarraNavegacion />
       <h1 className='titulo-menu'>
         <FontAwesomeIcon icon={faHandshake} />
         &nbsp;¡Bienvenido a Hotel Manager!

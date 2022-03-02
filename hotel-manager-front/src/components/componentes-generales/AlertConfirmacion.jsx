@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Alert } from 'react-bootstrap';
-import '../styles/alertConfirmacion.css';
+import '../../styles/componentes-generales/alertConfirmacion.css';
 
 export default function AlertConfirmacion({tipo}) {
 

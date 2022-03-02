@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faPhoneVolume, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 //Esta es para iconos de marcas fab
 import {faFacebook, faInstagram} from '@fortawesome/free-brands-svg-icons'
-import '../styles/footer.css';
+import '../../styles/componentes-generales/footer.css';
 import { Link } from "react-router-dom";
 
 export default function Footer () {

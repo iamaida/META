@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import '../styles/card.css';
+import '../../styles/componentes-generales/card.css';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
-
 
 export default function CardMenuPrincipal({imageSource, title, text, url}) {
   return(
@@ -14,7 +12,7 @@ export default function CardMenuPrincipal({imageSource, title, text, url}) {
           <img src={imageSource} alt="a wallpaper" className="card-img-top" />
         </div>
         <div className="card-body">
-          <h3 className="card-title">{title}</h3>
+          <h3 className="card-title-title">{title}</h3>
           <p className="card-text text-secondary">
             {text}
           </p>

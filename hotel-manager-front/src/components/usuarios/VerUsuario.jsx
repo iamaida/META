@@ -1,10 +1,10 @@
 import React from 'react';
-import { Table, Button, Container, Modal, ModalBody, ModalHeader, Form, FormGroup, ModalFooter, Row, Col } from 'reactstrap';
+import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser, faPencilAlt, faTrashAlt, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import '../styles/VerUsuario.css';
+import '../../styles/usuarios/VerUsuario.css';
 import axios from 'axios';
-import AlertConfirmacion from './AlertConfirmacion';
+import AlertConfirmacion from '../componentes-generales/AlertConfirmacion';
 
 
 var data = [];

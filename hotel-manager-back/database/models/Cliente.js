@@ -1,5 +1,7 @@
+const Reserva = require('./Reserva')
+
 module.exports = (sequelize, type) => {
-    return sequelize.define('Cliente', {
+    return sequelize.define('cliente', {
         id_cliente: {
             type: type.INTEGER,
             primaryKey: true,
@@ -7,19 +9,19 @@ module.exports = (sequelize, type) => {
         },
         id_reserva:{
             type: type.INTEGER,
-            foreignKey:true,
-            allowNull:false
+            References:{
+                model: Reserva,
+                key: 'id_reserva'
+            }
         },
         nombre: type.STRING,
         apellido: type.STRING,
         email:{
             type:type.STRING,
-            unique:true
         },
         tipo_doc:type.STRING,
         num_documento:{
             type: type.STRING,
-            unique:true
         },
         telefono: type.STRING,
         estado_civil: type.STRING,

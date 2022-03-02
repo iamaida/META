@@ -1,17 +1,12 @@
 const moment = require('moment');
-<<<<<<< HEAD
 const Habitacion = require('./Habitacion')
 
 module.exports = (sequelize, type) =>{
     return sequelize.define('reserva', {
-=======
-
-module.exports = (sequelize, type) => {
-    return sequelize.define('Reserva', {
->>>>>>> 1ffc55af8fadc04bf825e233ff4dfab1667f6ae5
         id_reserva: {
             type: type.INTEGER,
             primaryKey: true,
+            allowNull: false,
             autoIncrement: true
         },
         fecha_reserva: {
@@ -32,7 +27,6 @@ module.exports = (sequelize, type) => {
                 return moment.utc(this.getDataValue('fecha_salida')).format('YYYY-MM-DD');
             }
         },
-<<<<<<< HEAD
         num_adultos: type.INTEGER,
         num_kids: type.INTEGER,
         estado:{
@@ -45,17 +39,6 @@ module.exports = (sequelize, type) => {
                 model: Habitacion,
                 key: 'id_habitacion'
             }
-=======
-        estado: {
-            type: type.BOOLEAN,
-            defaultValue: true
-        },
-    
-        id_habitacion:{ //Llave foranea
-            type: type.INTEGER,
-            foreignKey: true,
-            allowNull: false
->>>>>>> 1ffc55af8fadc04bf825e233ff4dfab1667f6ae5
         }
     })
 }

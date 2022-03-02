@@ -17,34 +17,28 @@ router.get('/', async (req, res) => {
 });
 
 //Ver habitaciones disponibles
-/*router.get('/disponibles', async (req, res) => {
-    const habitaciones_dispo = await Habitacion.findAll({
-        attributes:{
-            include: [
-                [
-                    sequelize.literal(`(SELECT id_habitacion, nombre, capacidad FROM habitacions WHERE capacidad >=${req.body.capacidad} AND id_habitacion not in (SELECT id_habitacion FROM reservas WHERE fecha_ingreso='${req.body.fecha_ingreso}'))`)                    
-                ]
-            ]
-        }
-    });
-    res.json(habitaciones_dispo)
-});*/
-
-router.get('/disponibles', async (req, res) => {
+router.get('/disponibles/:capacidad/:fecha_ingreso/:fecha_salida', async (req, res) => {
     const habitaciones_dispo = await Habitacion.findAll({
         where:{
             [Op.and]: [
                 {capacidad:{
-                    [Op.gte]: [parseInt(req.body.capacidad)]
+                    [Op.gte]: [parseInt(req.params.capacidad)]
                 }},
                 {id_habitacion:{
-                    [Op.notIn]: sequelize.literal(`(SELECT id_habitacion FROM reservas WHERE fecha_ingreso='${req.body.fecha_ingreso}')`)
+                    [Op.notIn]: sequelize.literal(`(SELECT id_habitacion FROM reservas WHERE fecha_ingreso='${req.params.fecha_ingreso}' AND fecha_salida='${req.params.fecha_salida}')`)
                 }}
             ]
-        }
-            
+        }   
     });
     res.json(habitaciones_dispo)
+});
+
+//Ver habitación específica
+router.get('/habitacion/:id_habitacion', async (req, res) => {
+    const habitacion = await Habitacion.findAll({
+        where:{id_habitacion:req.params.id_habitacion}
+    });
+    res.json(habitacion)
 });
 
 module.exports = router;

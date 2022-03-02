@@ -1,6 +1,6 @@
 import React from 'react'
 import { Breadcrumb } from 'react-bootstrap';
-import '../styles/breadcrumbPaginas.css';
+import '../../styles/componentes-generales/breadcrumbPaginas.css';
 
 export default function BreadcrumbPaginas({nombre}) {
     var datos = [];
@@ -11,8 +11,11 @@ export default function BreadcrumbPaginas({nombre}) {
             ref1: '/menuprincipal',
             pag2: 'Gestión de usuarios'
         },
-        usuarios2: {
-            nombre: 'holll'
+        reservas: {
+            nombre: 'reserva',
+            pag1: 'Inicio',
+            ref: '/menuprincipal',
+            pag2: 'Gestion de reservas'
         }
         
     }
