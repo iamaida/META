@@ -9,8 +9,7 @@ import axios from 'axios';
 import AlertConfirmacion from '../../components/AlertConfirmacion';
 
 
-const FormularioPagoTarjeta = () => {
-
+const FormularioDatosOperacion = () => {
 
     return (
 
@@ -68,4 +67,4 @@ const FormularioPagoTarjeta = () => {
 
 }
 
-export default FormularioPagoTarjeta;
+export default FormularioDatosOperacion;

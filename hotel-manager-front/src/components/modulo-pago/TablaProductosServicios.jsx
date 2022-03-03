@@ -143,7 +143,7 @@ const TablaProductosServicios = () => {
             <Row>
                 <Col sm={11}>
                         <div className=' d-flex justify-content-end'>
-                            <Button color="primary" href='#' ><FontAwesomeIcon icon={faFileInvoiceDollar} />&nbsp; Realizar Pago</Button>
+                            <Button color="primary" href='/realizarpago' ><FontAwesomeIcon icon={faFileInvoiceDollar} />&nbsp; Realizar Pago</Button>
                         </div>
                 </Col>
             </Row>

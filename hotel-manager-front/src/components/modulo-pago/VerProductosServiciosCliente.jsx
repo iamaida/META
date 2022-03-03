@@ -15,7 +15,7 @@ const VerProductosServiciosCliente = () => {
             <NavbarMenuPrincipal/>
             <BreadcrumbProductosServicios/>
             <TablaProductosServicios />
-            <div className='margen-footer'></div>
+            <div className='margen-footer-productoscliente'></div>
             <Footer/>
          </div>
          

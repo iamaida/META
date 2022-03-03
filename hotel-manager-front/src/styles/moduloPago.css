@@ -1,7 +1,15 @@
 .pago{
   background-color:#F5F5DC;
 }
+.pago .margen-footer{
+  background-color:#F5F5DC;
+  height: 27px;
+}
 
+.pago .margen-footer-productoscliente{
+  background-color:#F5F5DC;
+  height: 20px;
+}
 
 img{
     border-radius: 8px;
@@ -76,4 +84,79 @@ img{
   height: 400px;
   width: auto;
 
+}
+
+.contenedor-formulario-pagotarjeta {
+  background-color:#F5F5DC;
+  border:2px outset #930001;
+  margin-top: 10px;
+  margin-left: 55px;
+  margin-right: 510px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  height: 280px;
+  width:300px;
+}
+.formulario-pagotarjeta {
+  background-color: #F5F5DC;
+  height: 260px;
+  width: 280px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 280px;
+  border-radius: 8px;
+  color: #930001;
+  font: nunito;
+}
+
+.contenedor-formulario-pagoefectivo {
+  background-color: #F5F5DC;
+  border:2px outset #930001;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 530px;
+  margin-bottom: 210px;
+  border-radius: 8px;
+  width: 385px;
+  height: 120px;
+}
+.formulario-pagoefectivo {
+  background-color: #F5F5DC;
+  height: 100px;
+  width: 360px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 280px;
+  border-radius: 8px;
+  color: #930001;
+  font: nunito;
+}
+
+.acordeon-pago{
+  color: #930001;
+  font: nunito;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 500px;
+  margin-right: 500px;
+  width: 450px;
+  height: 400px;
+}
+
+.acordeon-body-efectivo{
+
+  height: 150px;
+}
+
+.acordeon-body-tarjeta{
+
+  height: 300px;
+}
+
+.title-acordeon{
+  
+  color:#930001;
+  font: nunito;
 }

@@ -16,6 +16,7 @@ function ModuloPago() {
         <Sidebar />
        < BreadcrumbInformacionCuenta/>
        <InformacionCuenta />
+       <div className='margen-footer'></div>
        <Footer />
     </div>
   )

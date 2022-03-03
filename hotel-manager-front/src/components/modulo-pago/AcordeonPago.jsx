@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import {Button} from 'reactstrap'
-import { Container, Accordion, Form } from 'react-boostrap';
+import { Container, Accordion, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faCommentDollar } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/VerUsuario.css';
 import '../../styles/moduloPago.css';
+import FormularioPagoTarjeta from './FormularioPagoTarjeta';
+import FormularioPagoEfectivo from './FormularioPagoEfectivo';
 import axios from 'axios';
 import AlertConfirmacion from '../../components/AlertConfirmacion';
 
@@ -13,49 +15,38 @@ const AcordeonPago = () => {
 
 
     return (
-        <Container>
-            <Accordion defaultActiveKey="0">
+    
+            <Accordion defaultActiveKey="0" className="acordeon-pago" >
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>
-                        <h4>
+                        <div className="title-acordeon">
                             <FontAwesomeIcon icon={faCommentDollar} />&nbsp; Pagar en efectivo
-                        </h4>
+                        </div>
                     </Accordion.Header>
-                    <Accordion.Body>
-                        <Form>
+                    <Accordion.Body >
                             <Row>
-                                <Col>
-                                    <label for="efectivo">Ingrese el monto:</label>
-                                </Col>
-                                <Col>
-                                    <input type="number" id="efectivo" placeholder="0"/>
-                                </Col>
-                            </Row>
-                            <Row>
-                                 <Col>&nbps;</Col>
-                                <Col>
-                                <Button color="outline-success"><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Pagar</Button>
-                                </Col>
-                            </Row>
-                        </Form>
+                              <Col className="acordeon-body-efectivo"> 
+                              <FormularioPagoEfectivo/>
+                              </Col> 
+                            </Row>                      
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                     <Accordion.Header>
-                        <h4>
+                    <div className="title-acordeon">
                             <FontAwesomeIcon icon={faCreditCard} />&nbsp; Pagar con Tarjeta
-                        </h4>
-
+                    </div> 
                     </Accordion.Header>
                     <Accordion.Body>
-                       
+                        <Row>
+                        <Col className="acordeon-body-tarjeta">
+                        <FormularioPagoTarjeta/>
+                        </Col> 
+                        </Row>
+                          
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-        </Container>
-
-
-
 
     );
 

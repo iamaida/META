@@ -15,7 +15,6 @@ const VerAgregarProductosServiciosCliente = () => {
             <NavbarMenuPrincipal/>
             <BreadcrumbAgregarProductos/>
             <TablaAgregarProductos />
-            <div className='margen-footer'></div>
             <Footer/>
          </div>
          
