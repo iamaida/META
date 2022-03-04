@@ -142,7 +142,8 @@ img{
   margin-left: 500px;
   margin-right: 500px;
   width: 450px;
-  height: 400px;
+  height: 100px;
+  background-color: aqua;
 }
 
 .acordeon-body-efectivo{
@@ -160,3 +161,41 @@ img{
   color:#930001;
   font: nunito;
 }
+
+.formulario-datosoperacion{
+  background-color: #F5F5DC;
+  height: 160px;
+  width: 260px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-right: 280px;
+  border-radius: 8px;
+  color: #930001;
+  font: nunito;
+}
+.contenedor-formulario-datosoperacion{
+  background-color:#F5F5DC;
+  border:2px outset #930001;
+  margin-top: 10px;
+  margin-left: 55px;
+  margin-right: 510px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  height: 240px;
+  width:320px;
+}
+
+.margen-fila{
+  border-bottom: 2px outset #930001;
+  text-align: center;
+
+}
+.margen-ultima-fila{
+  border-bottom: 0px outset #F5F5DC;
+  text-align: center;
+
+}
+
+
+

@@ -13,7 +13,7 @@ import ModuloInventario from './pages/ModuloInventario';
 import VerProductosServiciosCliente from './components/modulo-pago/VerProductosServiciosCliente';
 import RegistrarProducto from './components/modulo-inventario/RegistrarProducto';
 import VerAgregarProductosServiciosCliente from './components/modulo-pago/VerAgregarProductosServiciosCliente';
-import AcordeonPago from './components/modulo-pago/AcordeonPago';
+import DatosOperacion from './components/modulo-pago/DatosOperacion';
 import ModuloPago from './pages/ModuloPago';
 
 export function App() {
@@ -34,7 +34,7 @@ export function App() {
          <Route exact path='/pago' element={ <ModuloPago /> } />
          <Route exact path='/pagoserviciosproductoscliente' element={ <VerProductosServiciosCliente  /> } />
          <Route exact path='/pagoagregarserviciosproductoscliente' element={ <VerAgregarProductosServiciosCliente  /> } />
-         <Route exact path='/realizarpago' element={ <AcordeonPago /> } />
+         <Route exact path='/realizarpago' element={ <DatosOperacion /> } />
         
       </Routes>
     </BrowserRouter>

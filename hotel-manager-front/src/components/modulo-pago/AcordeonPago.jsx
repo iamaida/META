@@ -15,7 +15,7 @@ const AcordeonPago = () => {
 
 
     return (
-    
+           
             <Accordion defaultActiveKey="0" className="acordeon-pago" >
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>
@@ -47,7 +47,7 @@ const AcordeonPago = () => {
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
-
+            
     );
 
 }

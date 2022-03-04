@@ -13,53 +13,60 @@ const FormularioDatosOperacion = () => {
 
     return (
 
-        <div className="contenedor-formulario-pagotarjeta">
-        <Form className="formulario-pagotarjeta">  
-                <Row>
-                    <Row>
-                        <Col sm ={8}>
-                            <label for="numero-tarjeta">Número Tarjeta</label>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col sm={4}>
-                        <input type="text" size={34} id="numero-tarjeta" placeholder="número tarjeta"/>
-                        </Col>
-                    </Row>
+        <div className="contenedor-formulario-datosoperacion">
+        <Form className="formulario-datosoperacion"> 
+                <Row className="margen-fila">
+                        <Col>
+                                <h4>
+                                        Datos de la operación
+                                </h4>
+                        </Col>    
+                        
+                </Row> 
+                <Row className="margen-fila">
+                    
+                    <Col sm ={6}>
+                            <label for="importe">Importe:</label>
+                    </Col>
+                    <Col sm ={6}>
+                            <label for="cantidad-importe"><h4>$100.000</h4></label>
+                    </Col>
+                        
                 </Row>
-                <Row>
-                    <Row>
-                     <Col sm={2}>  <label for="caducidad">Caducidad</label> </Col>
-                    </Row>
-                    <Row>
-                        <Col sm={3}>
-                            <input type="text" id="mes" size={6} placeholder="mm"/>
-                        </Col>
-                        <Col sm={4}></Col>
-                        <Col sm={3}>
-                            <input type="text" id="año" size={6} placeholder="aa"/>
-                        </Col>
-                    </Row>
-                </Row>
-                <Row>
-                    <Row>
-                        <Col sm={8}> 
-                            <label for="caducidad">Cod. Seguridad</label>
-                        </Col>
-                         
-                    </Row>
-                    <Row>
-                        <Col sm={8}>
-                            <input size={34} type="text" id="codigo-seguridad" placeholder="codigo"/>
-                        </Col>
-                    </Row>
-                </Row>
-                <Row>&nbsp;</Row>
-                <Row>
-                    <Col sm={6}>
-                    <Button color="outline-success" ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Pagar</Button>
+                <Row className="margen-fila">
+                     <Col sm ={6}>
+                            <label for="cliente">Cliente:</label>
+                    </Col>
+                    <Col sm ={6}>
+                            <label for="nombre-cliente">Pepito Perez</label>
                     </Col>
                 </Row>
+                <Row className="margen-fila">
+                     <Col sm ={6}>
+                            <label for="tipo-documento">Tipo Doc:</label>
+                    </Col>
+                    <Col sm ={6}>
+                            <label for="tipo-documento">C.C.</label>
+                    </Col>
+                </Row>
+                <Row className="margen-fila">
+                     <Col sm ={6}>
+                            <label for="numero-documento">Núm. Doc:</label>
+                    </Col>
+                    <Col sm ={6}>
+                            <label for="numero-documento">1234567890</label>
+                    </Col>
+                </Row>
+                <Row className="margen-ultima-fila">
+                     <Col sm ={6}>
+                            <label for="fecha">Fecha:</label>
+                    </Col>
+                    <Col sm ={6}>
+                            <label for="una-fecha">07/12/2021</label>
+                    </Col>
+                </Row>
+              
+               
             </Form>
 
             </div>
