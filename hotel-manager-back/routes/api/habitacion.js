@@ -41,4 +41,16 @@ router.get('/habitacion/:id_habitacion', async (req, res) => {
     res.json(habitacion)
 });
 
+//Ver habitacion de cliente especifico
+router.get('/habitacioncliente/:id_reserva', async (req, res) => {
+    const habitacion = await Habitacion.findAll({
+        where: {
+            id_habitacion:{
+                [Op.in]: sequelize.literal(`(SELECT id_habitacion FROM reservas WHERE id_reserva=${req.params.id_reserva})`)
+            }
+        }
+    });
+    res.json(habitacion);
+})
+
 module.exports = router;

@@ -7,11 +7,13 @@ import ModuloUsuarios from './pages/ModuloUsuarios';
 import ModuloReservas from './pages/ModuloReservas';
 import ConsultaHabitacionesDisponibles from './pages/reservas/hacer-reserva/ConsultaHabitacionesDisponibles';
 import DatosCliente from './pages/reservas/hacer-reserva/DatosCliente';
+import VerReserva from './pages/reservas/ver-reserva/VerReserva';
 
 import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
 import Datos from './components/Datos';
 import Prueba from './components/Prueba';
+import BreadcrumbPaginas from './components/componentes-generales/BreadcrumbPaginas';
 
 export function App() {
   return(
@@ -24,12 +26,16 @@ export function App() {
         <Route exact path='/reservas' element={ <ModuloReservas />} />
         <Route exact path='/consultaHabitaciones' element={ <ConsultaHabitacionesDisponibles />} />
         <Route exact path='/datosCliente' element={ <DatosCliente />} />
+        <Route exact path='/verReserva' element={ <VerReserva /> } />
 
 
         <Route exact path='/reserva' element={ <Reserva /> } />
         <Route exact path='/consultas' element={ <Consultas /> } />
         <Route exact path='/datos' element={ <Datos /> } />
         <Route exact path='/prueba' element={ <Prueba /> } />
+        <Route exact path='/breadcrumb' element={ <BreadcrumbPaginas nombre={'reservas'} /> } />
+        
+
         
       </Routes>
     </BrowserRouter>
