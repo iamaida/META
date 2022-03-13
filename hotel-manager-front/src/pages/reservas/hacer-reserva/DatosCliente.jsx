@@ -5,6 +5,7 @@ import Footer from '../../../components/componentes-generales/Footer';
 import LineaTiempo from '../../../components/reserva/hacer-reserva/LineaTiempo';
 import InfoHabitacionReserva from '../../../components/reserva/hacer-reserva/InfoHabitacionReserva';
 import InfoClienteReserva from '../../../components/reserva/hacer-reserva/InfoClienteReserva';
+import BreadcrumbPaginas from '../../../components/componentes-generales/BreadcrumbPaginas';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +16,7 @@ export default function DatosClientes() {
     <div className='habitaciones-disponibles'>
         <Sidebar />
         <BarraNavegacion />
+        <BreadcrumbPaginas nombre={'datos personales'} />
         <h2 className='titulo-principal'>
           <FontAwesomeIcon icon={faUser} />&nbsp; Datos Personales
         </h2>

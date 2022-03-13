@@ -13,7 +13,7 @@ import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
 import Datos from './components/Datos';
 import Prueba from './components/Prueba';
-import BreadcrumbPaginas from './components/componentes-generales/BreadcrumbPaginas';
+import Cargando from './components/componentes-generales/Cargando';
 
 export function App() {
   return(
@@ -33,7 +33,7 @@ export function App() {
         <Route exact path='/consultas' element={ <Consultas /> } />
         <Route exact path='/datos' element={ <Datos /> } />
         <Route exact path='/prueba' element={ <Prueba /> } />
-        <Route exact path='/breadcrumb' element={ <BreadcrumbPaginas nombre={'reservas'} /> } />
+        <Route exact path='/cargando' element={ <Cargando /> } />
         
 
         

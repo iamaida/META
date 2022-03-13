@@ -37,6 +37,8 @@ export default function InfoClienteReserva() {
         
         const obtenerUltimoIdReserva = async () => {
             const res = await axios.get(`http://localhost:5000/api/reservas/lastid`);
+            console.log('ultimo id: ', res.data);
+            
             if(res.data===null){
                 setId_reserva(1);
             }else{
@@ -44,6 +46,7 @@ export default function InfoClienteReserva() {
             }
         }
         obtenerUltimoIdReserva();
+        
     }, [])
 
     const onChangeNombre = (e) => {

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Reserva } = require('../../database/db');
+const { Reserva, sequelize } = require('../../database/db');
 
 const { response } = require('express');
 
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 });
 
 //Obtener registro especifico de reserva
-router.get('/:id_reserva', async (req, res) => {
+router.get('/especifico/:id_reserva', async (req, res) => {
     const reserva = await Reserva.findAll({
         where:{id_reserva:req.params.id_reserva}
     });
@@ -25,8 +25,8 @@ router.get('/:id_reserva', async (req, res) => {
 
 //Obtener el id del ultimo elemento insertado
 router.get('/lastid', async(req, res) => {
-    const id_reserva = await Reserva.max('id_reserva')
-    res.json(id_reserva)
+    const id_reserva = await Reserva.max('id_reserva');
+    res.json(id_reserva);
 })
 
 

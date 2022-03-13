@@ -13,9 +13,7 @@ router.post('/register', async (req, res) => {
 
 //Ver todos los registros activos
 router.get('/', async (req, res) => {
-    const clientes = await Cliente.findAll({
-        where: {estado: true}
-    });
+    const clientes = await Cliente.findAll();
     res.json(clientes)
 });
 
@@ -34,7 +32,7 @@ router.get('/activos', async (req, res) => {
             }
         }   
     });
-    res.json(clientes_activos)
+    res.json(clientes_activos);
 });
 
 //Cliente especifico

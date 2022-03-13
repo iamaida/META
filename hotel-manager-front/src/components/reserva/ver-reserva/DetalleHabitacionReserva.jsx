@@ -3,6 +3,9 @@ import { Row, Col } from 'react-bootstrap';
 import reserva from '../../../assets/images-menu/reserva.jpg';
 import CardHabitacionesDisponibles from '../hacer-reserva/CardHabitacionesDisponibles';
 import Cookies from 'universal-cookie/es6';
+import '../../../styles/reservas/detalleHabitacionReserva.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 
 export default function DetalleHabitacionReserva() {
 
@@ -35,7 +38,8 @@ export default function DetalleHabitacionReserva() {
   }
 
   return (
-    <div>
+    <div className='detalle-habitacion-reserva'>
+      <h2 className='titulo-hab-res'> <FontAwesomeIcon icon={faCalendarCheck} /> &nbsp; Información de reserva</h2>
       <CardHabitacionesDisponibles nombre={info_habitacion['nombre']}  imagen={reserva} descripcion={info_habitacion['descripcion']} capacidad={info_habitacion['capacidad']} cantidad_camas={info_habitacion['cantidad_camas']} precio_persona={info_habitacion['precio_persona']} fechas_reserva={renderizarInfoReserva()}/>
     </div>
   )

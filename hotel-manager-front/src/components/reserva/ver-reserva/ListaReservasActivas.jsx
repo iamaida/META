@@ -3,6 +3,7 @@ import { ListGroup, Card } from 'react-bootstrap';
 import '../../../styles/reservas/listaReservasActivas.css';
 import axios from 'axios';
 import Cookies from 'universal-cookie/es6';
+import { Link } from 'react-router-dom';
 
 export default function ListaReservasActivas() {
 
@@ -25,7 +26,7 @@ export default function ListaReservasActivas() {
   }
 
   const guardarInfoReservaCliente = async (id_reserva) => {
-    const res = await axios.get(`http://localhost:5000/api/reservas/${id_reserva}`);
+    const res = await axios.get(`http://localhost:5000/api/reservas/especifico/${id_reserva}`);
     cookie.set('infoReservaCliente', res.data, {path: '/'});
     console.log('Res: ', res.data);
   }
@@ -37,9 +38,13 @@ export default function ListaReservasActivas() {
   }
 
   const guardarInfo = (id_reserva, id_cliente) => {
-    guardarInfoHabitacionCliente(id_reserva);
-    guardarInfoReservaCliente(id_reserva);
-    guardarInfoPersonalCliente(id_cliente);
+    try{
+      guardarInfoHabitacionCliente(id_reserva);
+      guardarInfoReservaCliente(id_reserva);
+      guardarInfoPersonalCliente(id_cliente);
+    }catch(e){
+      console.log('error: ', e)
+    } 
   }
 
   return (
@@ -51,7 +56,9 @@ export default function ListaReservasActivas() {
           <ListGroup>
           {clientes_activos.map(({id_cliente, id_reserva, nombre, apellido})=> (
             <div key={id_cliente} className='lista-reservas'>
-              <ListGroup.Item action onClick={()=>guardarInfo(id_reserva, id_cliente)}>Reserva #{id_reserva}, {nombre} {apellido}</ListGroup.Item>
+              <Link to='/cargando'>
+                <ListGroup.Item action onClick={()=>guardarInfo(id_reserva, id_cliente)}>Reserva #{id_reserva}, {nombre} {apellido}</ListGroup.Item>
+              </Link>
             </div>  
           ))}
           </ListGroup>

@@ -20,3 +20,8 @@ p{
 .texto-principal{
     font-weight: bold;
 }
+
+.tarjeta-cliente{
+    margin-left: 100px;
+    margin-bottom: 30px;
+}

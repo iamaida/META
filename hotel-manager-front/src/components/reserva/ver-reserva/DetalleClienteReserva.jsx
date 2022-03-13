@@ -20,7 +20,7 @@ export default function DetalleClienteReserva() {
         <h2 className='titulo-principal'>
             <FontAwesomeIcon icon={faUser} />&nbsp; Datos Personales Cliente
         </h2>
-        <Card style={{ width: '80%' }}>
+        <Card className ='tarjeta-cliente' style={{ width: '80%' }}>
             <Card.Body>
                 <Row>
                     <Col>

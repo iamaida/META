@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
 //Ver habitaciones disponibles
 router.get('/disponibles/:capacidad/:fecha_ingreso/:fecha_salida', async (req, res) => {
     const habitaciones_dispo = await Habitacion.findAll({
+        attributes: ['id_habitacion', 'nombre', 'cantidad_camas', 'imagen'],
         where:{
             [Op.and]: [
                 {capacidad:{

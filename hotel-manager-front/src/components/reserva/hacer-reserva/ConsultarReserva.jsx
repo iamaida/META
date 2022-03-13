@@ -86,6 +86,7 @@ export default function ConsultarReserva() {
         const res = await axios.get(`http://localhost:5000/api/habitaciones/disponibles/${capacidad}/${fecha_ingreso}/${fecha_salida}` );
         console.log(res.data, capacidad, fecha_ingreso, fecha_salida);
         datosHabitaciones.set('datosHabitaciones', res.data , { path: '/' });
+        console.log(datosHabitaciones.get('datosHabitaciones'));
         const info={
             fecha_ingreso:fecha_ingreso,
             fecha_salida:fecha_salida,
@@ -93,7 +94,7 @@ export default function ConsultarReserva() {
             num_kids: cantidad_kids
         };
         infoReserva.set('infoReserva', info , { path: '/' });
-        console.log(infoReserva.get('infoReserva'), datosHabitaciones.get('datosHabitaciones'));
+        console.log(infoReserva.get('infoReserva'));
         setFecha_ingreso('');
         setFecha_salida('');
         setCantidad_adultos(0);
@@ -103,6 +104,7 @@ export default function ConsultarReserva() {
     const consultar = () =>{
         console.log('Click');
         consultarBase();
+        datosHabitaciones.get('datosHabitaciones')
         handleShow();
 
     }
