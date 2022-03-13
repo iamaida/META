@@ -1,7 +1,7 @@
 const moment = require('moment');
 
 module.exports = (sequelize, type) => {
-    return sequelize.define('User', {
+    return sequelize.define('user', {
         id_usuario: {
             type: type.INTEGER,
             primaryKey: true,

@@ -8,7 +8,7 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { Link } from 'react-router-dom';
-import '../styles/sidebar.css';
+import '../../styles/componentes-generales/sidebar.css';
 
 const Sidebar = () => {
   return (
@@ -25,13 +25,13 @@ const Sidebar = () => {
             <Link to="/reservas">
               <CDBSidebarMenuItem icon='plus-circle'> Reservas</CDBSidebarMenuItem>
             </Link>
-            <Link exact to="/pago">
+            <Link to="/pago">
               <CDBSidebarMenuItem icon="comments-dollar">Pago</CDBSidebarMenuItem>
             </Link>
-            <Link exact to="/inventario">
+            <Link to="/inventario">
               <CDBSidebarMenuItem icon="warehouse">Inventario</CDBSidebarMenuItem>
             </Link>
-            <Link exact to="/reportes">
+            <Link to="/reportes">
               <CDBSidebarMenuItem icon="chart-line">Reportes</CDBSidebarMenuItem>
             </Link>
 
