@@ -29,5 +29,21 @@ router.get('/lastid', async(req, res) => {
     res.json(id_reserva);
 })
 
+//Modificar datos reservas
+router.put('/edit/:id_reserva', async (req, res) => {
+    await Reserva.update(req.body, {
+        where: { id_reserva: req.params.id_reserva }
+
+    });
+    res.json({success: 'Se modificó'});
+});
+
+//Desactivar reserva
+router.put('/desactivar/:id_reserva', async (req, res) => {
+    await Reserva.update(req.body, {
+        where: { id_reserva: req.params.id_reserva }
+    });
+    res.json({success: 'Se eliminó'});
+});
 
 module.exports = router;

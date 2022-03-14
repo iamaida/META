@@ -43,4 +43,20 @@ router.get('/:id_cliente', async (req, res) => {
     res.json(cliente)
 })
 
+//Modificar datos cliente
+router.put('/edit/:id_cliente', async (req, res) => {
+    await Cliente.update(req.body, {
+        where: { id_cliente: req.params.id_cliente }
+    });
+    res.json({success: 'Se modificó'});
+});
+
+//Desactivar cliente
+router.put('/desactivar/:id_cliente', async (req, res) => {
+    await Cliente.update(req.body, {
+        where: { id_cliente: req.params.id_cliente}
+    });
+    res.json({success: 'Se eliminó'});
+});
+
 module.exports = router;
