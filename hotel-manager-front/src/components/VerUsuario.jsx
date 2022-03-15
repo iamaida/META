@@ -170,7 +170,6 @@ insertarUsuario = async () => {
         this.componentDidMount();
     }catch(e){
         console.log(e)
-<<<<<<< HEAD
     }
 }
 
@@ -205,38 +204,6 @@ eliminarUsuario = async () => {
     }
 }
 
-=======
-    }
-}
-
-editarUsuario = async () => {
-    var lista = this.state.form;
-    console.log(lista)
-    try{
-        const res = await axios.put(`http://localhost:5000/api/users/edit/${lista.id_usuario}`,
-        {tipo_documento:lista.tipo_documento, num_documento:lista.num_documento,
-            nombre:lista.nombre, apellido:lista.apellido, genero:lista.genero, fecha_nacimiento:lista.fecha_nacimiento, telefono:lista.telefono, cargo:lista.cargo}
-        )
-        console.log(res.data);
-        this.setState({lista:{}});
-        this.componentDidMount();
-        
-    }catch(e){
-        console.log(e);
-    }
-}
-
-eliminarUsuario = async () => {
-    var lista = this.state.form;
-    console.log(lista);
-    try{
-        const res = await axios.put(`http://localhost:5000/api/users/`)
-    }catch(e){
-        
-    }
-}
-
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
     render() {
         return (
             <>
@@ -299,7 +266,6 @@ eliminarUsuario = async () => {
                         <FormGroup>
                             <label> </label>
 
-<<<<<<< HEAD
                             
                 <select class="form-control" id="exampleFormControlSelect1" onChange={this.handleChange}>
                              <option selected value = "0" >Tipo de Documento</option>
@@ -307,24 +273,16 @@ eliminarUsuario = async () => {
                              <option>Tarjeta de Identidad</option>
                              <option>Nit</option>
                             </select> 
-=======
-                            <input
-                                className='form-control' name="tipo_documento" type="text" onChange={this.handleChange} />
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
                         </FormGroup>
 
                         <FormGroup>
                             <label>Numero Doc:</label>
                             <input
-<<<<<<< HEAD
 
                                 className='form-control'name="NumeroDoc" type="text" onChange={this.handleChange}/>
 
                               
 
-=======
-                                className='form-control'name="num_documento" type="text" onChange={this.handleChange}/>
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
                         </FormGroup>
                         <FormGroup>
                             <label>Nombre:</label>
@@ -334,15 +292,11 @@ eliminarUsuario = async () => {
                         <FormGroup>
                             <label>Apellidos:</label>
                             <input
-<<<<<<< HEAD
 
 
                             className='form-control'name="apellidos" type="text" onChange={this.handleChange}/>
 
                             
-=======
-                                className='form-control'name="apellido" type="text" onChange={this.handleChange}/>
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
                         </FormGroup>
                         <FormGroup>
                             <label>Genero:</label>
@@ -357,12 +311,8 @@ eliminarUsuario = async () => {
                         <FormGroup>
                             <label>Fecha Nac.:</label>
                             <input
-<<<<<<< HEAD
                             className='form-control' type ="date" id= "fecha de nacimiento" min="1930-01-01" max="2023-12-31"onChange={this.handleChange} ></input>
                                 
-=======
-                                className='form-control'name="fecha_nacimiento" type="text" onChange={this.handleChange}/>
->>>>>>> f1a4560b7d6b079d02add495786e1def04cf9f46
                         </FormGroup>
                         <FormGroup>
                             <label>Cargo:</label>
