@@ -236,6 +236,8 @@ eliminarUsuario = async () => {
     }
 }
 
+<<<<<<< HEAD:hotel-manager-front/src/components/VerUsuario.jsx
+=======
 
 opcionesDocumentoFinal =[];
 validar = () => {
@@ -268,6 +270,7 @@ validarCampoPassword = () => {
     }
 }
 
+>>>>>>> 239a204c9f11dda3a752480fb12884fd9b70c6cd:hotel-manager-front/src/components/usuarios/VerUsuario.jsx
     render() {
         return (
             <>
@@ -329,12 +332,24 @@ validarCampoPassword = () => {
                     </ModalHeader>
 
                     <ModalBody>
+<<<<<<< HEAD:hotel-manager-front/src/components/VerUsuario.jsx
+                        <FormGroup>
+                            <label> </label>
+
+                            
+                <select class="form-control" id="exampleFormControlSelect1" onChange={this.handleChange}>
+                             <option selected value = "0" >Tipo de Documento</option>
+                             <option>Cedula</option>
+                             <option>Tarjeta de Identidad</option>
+                             <option>Nit</option>
+=======
                         <FormGroup>      
                             <label>Tipo de documento:</label>                     
                             <select class="form-control" name='tipo_documento' onChange={this.handleChange} value={this.state.form.tipo_documento}>
                                 <option value='C.C.'>C.C.</option>
                                 <option value='T.I.'>T.I.</option>
                                 <option value='C.E.'>  C.E.</option>
+>>>>>>> 239a204c9f11dda3a752480fb12884fd9b70c6cd:hotel-manager-front/src/components/usuarios/VerUsuario.jsx
                             </select> 
                         </FormGroup>
 
@@ -374,8 +389,14 @@ validarCampoPassword = () => {
                                 className='form-control'name="telefono" type="text" onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
+<<<<<<< HEAD:hotel-manager-front/src/components/VerUsuario.jsx
+                            <label>Fecha Nac.:</label>
+                            <input
+                            className='form-control' type ="date" id= "fecha de nacimiento" min="1930-01-01" max="2023-12-31"onChange={this.handleChange} ></input>
+=======
                             <label>Fecha Nacimiento:</label>
                             <input className='form-control' type ="date" name='fecha_nacimiento' min="1930-01-01" max="2023-12-31"onChange={this.handleChange} ></input>
+>>>>>>> 239a204c9f11dda3a752480fb12884fd9b70c6cd:hotel-manager-front/src/components/usuarios/VerUsuario.jsx
                                 
                         </FormGroup>
                         <FormGroup>
