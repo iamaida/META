@@ -36,4 +36,29 @@ router.get('/activos', async (req, res) => {
     res.json(clientes_activos)
 });
 
+// consulta reporte donde vive
+router.get('/reporte', async (req, res) => {
+    const datos = await Cliente.findAll({
+        atributes:[
+            'donde_viene', 
+            [ Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
+            
+        ],
+            group:'donde_viene'  
+    });
+    res.json(datos)
+});
+
+router.get('/reporte2', async (req, res) => {
+    const datos = await Cliente.findAll({
+        atributes:[
+            'para_donde_va', 
+            [ Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
+            
+        ],
+            group:'para_donde_va'  
+    });
+    res.json(datos)
+});
+
 module.exports = router;

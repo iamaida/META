@@ -12,6 +12,7 @@ import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
 import Datos from './components/Datos';
 import Prueba from './components/Prueba';
+import Reportes from './components/Reportes';
 
 export function App() {
   return(
@@ -25,7 +26,7 @@ export function App() {
         <Route exact path='/consultaHabitaciones' element={ <ConsultaHabitacionesDisponibles />} />
         <Route exact path='/datosCliente' element={ <DatosCliente />} />
 
-
+        <Route exact path='/reportes' element={ <Reportes />} />
         <Route exact path='/reserva' element={ <Reserva /> } />
         <Route exact path='/consultas' element={ <Consultas /> } />
         <Route exact path='/datos' element={ <Datos /> } />
