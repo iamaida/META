@@ -36,7 +36,7 @@ router.get('/activos', async (req, res) => {
 });
 
 //Cliente especifico
-router.get('/:id_cliente', async (req, res) => {
+router.get('/especifico/:id_cliente', async (req, res) => {
     const cliente = await Cliente.findAll({
         where:{ id_cliente:req.params.id_cliente}
     });
@@ -58,5 +58,17 @@ router.put('/desactivar/:id_cliente', async (req, res) => {
     });
     res.json({success: 'Se eliminó'});
 });
+
+//Consulta reporte donde_viene
+router.get('/reporte', async (req, res) => {
+    const datos = await Cliente.findAll({
+        attributes:[
+            'donde_viene',
+            [Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
+    ],
+        group: 'donde_viene'
+    })
+    res.json(datos)
+})
 
 module.exports = router;

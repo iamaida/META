@@ -16,6 +16,8 @@ import Prueba from './components/Prueba';
 import Cargando from './components/componentes-generales/Cargando';
 import CargandoEliminarReserva from './components/reserva/ver-reserva/cargandoEliminarReserva';
 import ModificarReservacion from './components/reserva/modificar-reserva/ModificarReservacion';
+import VerReportes from './components/reportes/VerReportes';
+import VerReportes2 from './components/reportes/VerReportes2';
 
 export function App() {
   return(
@@ -37,6 +39,8 @@ export function App() {
         <Route exact path='/datos' element={ <Datos /> } />
         <Route exact path='/prueba' element={ <Prueba /> } />
         <Route exact path='/modificarreserva' element={ <ModificarReservacion/> } />
+        <Route exact path='/reportes' element={ <VerReportes/> } />
+        <Route exact path='/reportes2' element={ <VerReportes2/> } />
         
         
 
