@@ -13,9 +13,7 @@ router.post('/register', async (req, res) => {
 
 //Ver todos los registros activos
 router.get('/', async (req, res) => {
-    const clientes = await Cliente.findAll({
-        where: {estado: true}
-    });
+    const clientes = await Cliente.findAll();
     res.json(clientes)
 });
 
@@ -25,6 +23,7 @@ router.get('/todos', async (req, res) => {
     res.json(clientes)
 });
 
+//Clientes que tienen reservas activas
 router.get('/activos', async (req, res) => {
     const clientes_activos = await Cliente.findAll({
         where:{
@@ -33,9 +32,10 @@ router.get('/activos', async (req, res) => {
             }
         }   
     });
-    res.json(clientes_activos)
+    res.json(clientes_activos);
 });
 
+<<<<<<< HEAD
 // consulta reporte donde vive
 router.get('/reporte', async (req, res) => {
     const datos = await Cliente.findAll({
@@ -61,4 +61,42 @@ router.get('/reporte2', async (req, res) => {
     res.json(datos)
 });
 
+=======
+//Cliente especifico
+router.get('/especifico/:id_cliente', async (req, res) => {
+    const cliente = await Cliente.findAll({
+        where:{ id_cliente:req.params.id_cliente}
+    });
+    res.json(cliente)
+})
+
+//Modificar datos cliente
+router.put('/edit/:id_cliente', async (req, res) => {
+    await Cliente.update(req.body, {
+        where: { id_cliente: req.params.id_cliente }
+    });
+    res.json({success: 'Se modificó'});
+});
+
+//Desactivar cliente
+router.put('/desactivar/:id_cliente', async (req, res) => {
+    await Cliente.update(req.body, {
+        where: { id_cliente: req.params.id_cliente}
+    });
+    res.json({success: 'Se eliminó'});
+});
+
+//Consulta reporte donde_viene
+router.get('/reporte', async (req, res) => {
+    const datos = await Cliente.findAll({
+        attributes:[
+            'donde_viene',
+            [Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
+    ],
+        group: 'donde_viene'
+    })
+    res.json(datos)
+})
+
+>>>>>>> 68bc166e91e8f2f7c7855c59c15f393a6562481c
 module.exports = router;

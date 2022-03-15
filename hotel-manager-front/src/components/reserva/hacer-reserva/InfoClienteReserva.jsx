@@ -37,6 +37,8 @@ export default function InfoClienteReserva() {
         
         const obtenerUltimoIdReserva = async () => {
             const res = await axios.get(`http://localhost:5000/api/reservas/lastid`);
+            console.log('ultimo id: ', res.data);
+            
             if(res.data===null){
                 setId_reserva(1);
             }else{
@@ -44,6 +46,7 @@ export default function InfoClienteReserva() {
             }
         }
         obtenerUltimoIdReserva();
+        
     }, [])
 
     const onChangeNombre = (e) => {
@@ -237,7 +240,7 @@ export default function InfoClienteReserva() {
                         <Col>
                         <Form.Group className="mb-3" controlId="para_donde_va">
                             <Form.Label>Ciudad de destino</Form.Label>
-                            <Form.Control name='para_donde va' type="text" placeholder="Ingrese la ciudad de destino" onChange={onChangePara_donde_va}/>
+                            <Form.Control name='para_donde_va' type="text" placeholder="Ingrese la ciudad de destino" onChange={onChangePara_donde_va}/>
                         </Form.Group>
                         </Col>
                     </Row>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -11,10 +11,13 @@ import { Link } from 'react-router-dom';
 import '../../styles/componentes-generales/sidebar.css';
 
 const Sidebar = () => {
+
+  const [estado, setEstado] = useState(true);
+
   return (
-    <div className='sidebar' style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="#fff" backgroundColor="#930001">
-        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+    <div className='sidebar'  style={{ display: 'flex', height: '100%', overflow: 'scroll initial' }}>
+      <CDBSidebar data-toggle="collapse" textColor="#fff" backgroundColor="#930001">
+        <CDBSidebarHeader onClick={()=>setEstado(estado ? false : true)} prefix={<i className="fa fa-bars fa-large"></i>}>
           <a href="/menuprincipal" className="text-decoration-none" style={{ color: 'inherit' }}>
             Hotel Berlín
           </a>

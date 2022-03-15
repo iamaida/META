@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
 //Ver habitaciones disponibles
 router.get('/disponibles/:capacidad/:fecha_ingreso/:fecha_salida', async (req, res) => {
     const habitaciones_dispo = await Habitacion.findAll({
+        attributes: ['id_habitacion', 'nombre', 'cantidad_camas', 'imagen'],
         where:{
             [Op.and]: [
                 {capacidad:{
@@ -40,5 +41,17 @@ router.get('/habitacion/:id_habitacion', async (req, res) => {
     });
     res.json(habitacion)
 });
+
+//Ver habitacion de cliente especifico
+router.get('/habitacioncliente/:id_reserva', async (req, res) => {
+    const habitacion = await Habitacion.findAll({
+        where: {
+            id_habitacion:{
+                [Op.in]: sequelize.literal(`(SELECT id_habitacion FROM reservas WHERE id_reserva=${req.params.id_reserva})`)
+            }
+        }
+    });
+    res.json(habitacion);
+})
 
 module.exports = router;
