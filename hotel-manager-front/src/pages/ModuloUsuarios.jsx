@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react'
 import Cookies from 'universal-cookie/es6';
-import Sidebar from '../components/Sidebar';
-import NavbarMenuPrincipal from '../components/NavbarMenuPrincipal';
-import VerUsuario from '../components/VerUsuario';
-import Footer from '../components/Footer';
-import '../styles/moduloUsuarios.css';
-import BreadcrumbPaginas from '../components/BreadcrumbPaginas';
+import Sidebar from '../components/componentes-generales/Sidebar';
+import BarraNavegacion from '../components/componentes-generales/BarraNavegacion';
+import VerUsuario from '../components/usuarios/VerUsuario';
+import Footer from '../components/componentes-generales/Footer';
+import '../styles/css-pages/moduloUsuarios.css';
+import BreadcrumbPaginas from '../components/componentes-generales/BreadcrumbPaginas';
 
 export default function ModuloUsuarios() {
 
@@ -24,7 +24,7 @@ export default function ModuloUsuarios() {
   return (
     <div className='modulo-usuarios'>
         <Sidebar />
-        <NavbarMenuPrincipal />
+        <BarraNavegacion />
         <BreadcrumbPaginas nombre={'usuarios'} />
         <VerUsuario />
         <Footer />

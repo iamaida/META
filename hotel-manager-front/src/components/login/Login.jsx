@@ -3,8 +3,8 @@ import { Container, Form, Button, Row, Col, Card} from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser, faKey} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import '../styles/card.css';
-import '../styles/login.css';
+import '../../styles/componentes-generales/card.css';
+import '../../styles/login/login.css';
 import Cookies from "universal-cookie/es6";
 import Alerta from './Alerta';
 

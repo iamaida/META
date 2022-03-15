@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from './CardMenuPrincipal';
-import reserva from '../assets/images/reserva.jpg';
-import pago from '../assets/images/pago.jpg';
-import inventario from '../assets/images/inventario.jpg';
-import reportes from '../assets/images/reportes.png';
-import usuarios from '../assets/images/usuarios.jpg';
-import '../styles/card.css';
+import reserva from '../../assets/images-menu/reserva.jpg';
+import pago from '../../assets/images-menu/pago.jpg';
+import inventario from '../../assets/images-menu/inventario.jpg';
+import reportes from '../../assets/images-menu/reportes.png';
+import usuarios from '../../assets/images-menu/usuarios.jpg';
+import '../../styles/componentes-generales/card.css';
 
 export default function CardsMenuPrincipal() {
 
@@ -14,7 +14,7 @@ export default function CardsMenuPrincipal() {
           id: 1,
           title: "Reservas",
           image: reserva,
-          url: "/menuprincipal",
+          url: "/reservas",
           text: 'Hacer reservas de habitaciones'
         },
         {
@@ -28,14 +28,14 @@ export default function CardsMenuPrincipal() {
           id: 3,
           title: "Inventario",
           image: inventario,
-          url: "/menuprincipal",
+          url: "/inventario",
           text: 'Gestionar inventario de productos'
         },
         {
             id: 4,
             title: "Reportes",
             image: reportes,
-            url: "/menuprincipal",
+            url: "/reportes",
             text: 'Analizar la gestión del hotel'
           },
           {

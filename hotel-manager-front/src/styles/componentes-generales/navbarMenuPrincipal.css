@@ -1,9 +1,10 @@
-.navbar {
+.navbar{
     color: #ffffff;
     background: #930001;
     padding: 5px 10px;
     border-radius: 0;
-    border: 9px solid #930001;    
+    border: 9px solid #930001;
+    position: fixed;
 }
 
 .navbar img {

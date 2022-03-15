@@ -10,6 +10,13 @@
   .card-text {
     padding: 0.3rem 1rem;
     font-size: 1rem;
+    
+  }
+  .card-title{
+    color: #960001;
+  }
+  .card-title-title{
+    color: #960001;
   }
   
   .overflow {
