@@ -4,16 +4,19 @@ const { User } = require('../../database/db');
 const { check, validationResult } = require('express-validator');
 const moment = require('moment');
 const jwt = require('jwt-simple');
+
 const { response } = require('express');
 
 //Consultar usuarios
 router.get('/', async (req, res) => {
-    const users = await User.findAll();
+    const users = await User.findAll({
+        where: {estado: true}
+    });
     res.json(users)
 });
 
 //Consultar usuario especifico
-router.get('/user/:email', async (req, res) => {
+router.get('/:email', async (req, res) => {
     const _email = req.params.email
     const user = await User.findOne({
         where: { email:  _email} });
@@ -35,7 +38,6 @@ router.post('/register', [
         //Muestra los errores que tuvo
         return res.status(422).json( { errores: errors.array() })
     }
-
     //El 10 corresponde al nivel de encriptación de la contraseña
     req.body.password = bcrypt.hashSync(req.body.password, 10);
     const user = await User.create(req.body);
@@ -46,10 +48,23 @@ router.post('/register', [
 router.put('/edit/:userId', async (req, res) => {
     await User.update(req.body, {
         where: { id_usuario: req.params.userId }
+
     });
     res.json({success: 'Se modificó'});
 });
 
+//Editar contraseña
+router.put('/edit/password/:userId', async (req, res) => {
+    req.body.password = bcrypt.hashSync(req.body.password, 10);
+    await User.update(req.body, {
+        where: { id_usuario: req.params.userId }
+
+    });
+    res.json({success: 'Se modificó la contraseña'});
+});
+
+
+//Desactivar usuario
 router.put('/eliminar/:userId', async (req, res) => {
     
     await User.update(req.body, {
@@ -67,7 +82,7 @@ router.post('/login', async (req, res) => {
         const iguales = bcrypt.compareSync(req.body.password, user.password);
         if (iguales){
             
-            res.json({ success: createToken(user) });
+            res.json({ success: createToken(user) , email: req.body.email});
         }else{
             res.json({ error: 'Error en usuario y/o contraseña'})
         }
@@ -80,12 +95,12 @@ router.post('/login', async (req, res) => {
         email: user.email
     }
 
-    const token = jwt.sign(userForToken, '123')
+    //const token = jwt.sign(userForToken, '123')
 
-    response.send({
-        email: user.email,
-        token
-    })
+    //response.send({
+      //  email: user.email,
+        //token
+    //})
 })
 
 

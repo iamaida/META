@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useHistory } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Form, Container, Row, Col } from 'react-bootstrap';
 import '../styles/Reserva.css';
+import axios from 'axios';
+import Cookies from 'universal-cookie/es6';
 
 const Reserva = () => {
     const userInfo = useState();
@@ -11,25 +13,32 @@ const Reserva = () => {
     const [menores, setMenores] = useState('');
     const [tipo_documento, setTipoDocumento] = useState('');
     const [num_documento, setNumDocumento] = useState('');
+    const idHabitacion = new Cookies();
+
+    const consultarHabitacion = async () => {
+        const res = await axios.get(`http://localhost:5000/api/habitaciones/habitacion`, { id_habitacion:1} );
+    }
     
-
-
-useEffect( ()=>{
-
-    if(!userInfo){
-        userInfo.push("/");
-    }else{  
-        setFechaIngreso(userInfo.fecha_ingreso);
-        setFechaSalida(userInfo.fecha_salida);
-        setAdultos(userInfo.email);
-        setMenores(userInfo.menores);
-        setTipoDocumento(userInfo.tipo_documento);
-        setNumDocumento(userInfo.num_documento);
-       
+    const enviarDatos = (e) => {
+            e.preventDefault();
     }
 
+    useEffect( ()=>{
 
-},[userInfo]);
+        if(!userInfo){
+            userInfo.push("/");
+        }else{  
+            setFechaIngreso(userInfo.fecha_ingreso);
+            setFechaSalida(userInfo.fecha_salida);
+            setAdultos(userInfo.email);
+            setMenores(userInfo.menores);
+            setTipoDocumento(userInfo.tipo_documento);
+            setNumDocumento(userInfo.num_documento);
+        
+        }
+
+
+    },[userInfo]);
 
 
 
@@ -37,7 +46,7 @@ useEffect( ()=>{
     
     return(
         
-        <Container fluid="lg">
+        <Container fluid="lg" onSubmit={enviarDatos}>
             
             <React.Fragment>
                     <center><h1>HACER RESERVACIÓN   </h1></center>
@@ -152,11 +161,11 @@ useEffect( ()=>{
   </Row>
                     </Container>
                 
-                    <form method="get" action="/consultas">
-                        <button type="submit">Consultar </button>
-                    </form>
+                    
+                        <button type="submit" onClick={()=>consultarHabitacion()}>Consultar </button>
+                    
  
-                    <a href="http://localhost:3000/consultas" class="button">Consultar</a>
+                    {/*<a href="http://localhost:3000/consultas" class="button">Consultar</a>*/}
                     
         </Form>
         </div> 
