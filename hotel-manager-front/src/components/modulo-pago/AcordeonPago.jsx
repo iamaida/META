@@ -3,12 +3,11 @@ import {Button} from 'reactstrap'
 import { Container, Accordion, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faCommentDollar } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/VerUsuario.css';
+import '../../styles/usuarios/VerUsuario.css';
 import '../../styles/moduloPago.css';
 import FormularioPagoTarjeta from './FormularioPagoTarjeta';
 import FormularioPagoEfectivo from './FormularioPagoEfectivo';
 import axios from 'axios';
-import AlertConfirmacion from '../../components/AlertConfirmacion';
 
 
 const AcordeonPago = () => {

@@ -1,9 +1,9 @@
 import React from "react";
-import Sidebar from '../Sidebar';
-import NavbarMenuPrincipal from '../NavbarMenuPrincipal';
+import Sidebar from '../../components/componentes-generales/Sidebar';
+import BarraNavegacion from '../../components/componentes-generales/BarraNavegacion';
 import BreadcrumbAgregarProductos from './BreadcrumbAgregarProductos';
 import TablaAgregarProductos from './TablaAgregarProductos';
-import Footer from '../Footer';
+import Footer from '../../components/componentes-generales/Footer';
 import '../../styles/moduloInventario.css';
 
 const VerAgregarProductosServiciosCliente = () => {
@@ -12,7 +12,7 @@ const VerAgregarProductosServiciosCliente = () => {
     return(
         <div className='pago'>
             <Sidebar/>
-            <NavbarMenuPrincipal/>
+            <BarraNavegacion/>
             <BreadcrumbAgregarProductos/>
             <TablaAgregarProductos />
             <Footer/>

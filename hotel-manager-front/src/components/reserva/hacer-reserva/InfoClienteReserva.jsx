@@ -240,7 +240,7 @@ export default function InfoClienteReserva() {
                         <Col>
                         <Form.Group className="mb-3" controlId="para_donde_va">
                             <Form.Label>Ciudad de destino</Form.Label>
-                            <Form.Control name='para_donde va' type="text" placeholder="Ingrese la ciudad de destino" onChange={onChangePara_donde_va}/>
+                            <Form.Control name='para_donde_va' type="text" placeholder="Ingrese la ciudad de destino" onChange={onChangePara_donde_va}/>
                         </Form.Group>
                         </Col>
                     </Row>

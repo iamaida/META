@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
-import Sidebar from '../components/Sidebar';
-import NavbarMenuPrincipal from '../components/NavbarMenuPrincipal';
-import Footer from '../components/Footer';
+import Sidebar from '../components/componentes-generales/Sidebar';
+import BarraNavegacion from '../components/componentes-generales/BarraNavegacion';
+import Footer from '../components/componentes-generales/Footer';
 import BreadcrumbInformacionCuenta from '../components/modulo-pago/BreadcrumbInformacionCuenta';
 import InformacionCuenta from '../components/modulo-pago/InformacionCuenta';
 import '../styles/moduloPago.css';
@@ -12,7 +12,7 @@ function ModuloPago() {
 
   return (
     <div className ="pago">
-        <NavbarMenuPrincipal />
+        <BarraNavegacion />
         <Sidebar />
        < BreadcrumbInformacionCuenta/>
        <InformacionCuenta />

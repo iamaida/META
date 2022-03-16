@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import {  Button, Container, Row, Col, Table} from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt, faPlusCircle, faBeer, faEgg } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/VerUsuario.css';
+import '../../styles/usuarios/VerUsuario.css';
 import '../../styles/moduloPago.css';
 import axios from 'axios';
-import AlertConfirmacion from '../../components/AlertConfirmacion';
 
 const TablaAgregarProductos = () => {
 
