@@ -5,6 +5,7 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/componentes-generales/navbarMenuPrincipal.css';
 import Cookies from 'universal-cookie/es6';
 import user from '../../assets/images-menu/user.png';
+import recurso1 from '../../assets/images-habitaciones/Recurso 1.png';
 
 export default function BarraNavegacion() {
 
@@ -34,11 +35,13 @@ export default function BarraNavegacion() {
   return(
           <div className='navbar-tam'>
           <Navbar className='navbar' variant='dark'>
-              <Navbar.Brand className='navbar-brand' href="./menuprincipal">Hotel Berlín</Navbar.Brand>
+              <Navbar.Brand className='navbar-brand' href="./menuprincipal">
+                <img className='imagen-logo' src={recurso1} alt='Logo' />
+                </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse className='justify-content-end navbar-collapse' id="basic-navbar-nav">
                 <Nav>
-                <img src={user} className="avatar" alt="Avatar" />
+                <img src={user} className="avatar perfil" alt="Avatar" />
                   <NavDropdown title={`${email}`} id="basic-nav-dropdown" className='justify-content-end'>
                       <NavDropdown.Item className='dropdown-item navbar-dropdown'>
                         <Button  variant="light" type="submit" onClick={()=>cerrarSesion()}>

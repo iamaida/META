@@ -18,6 +18,11 @@ import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
 import Prueba from './components/Prueba';
 import Cargando from './components/componentes-generales/Cargando';
+import CargandoEliminarReserva from './components/reserva/ver-reserva/cargandoEliminarReserva';
+import ModificarReservacion from './components/reserva/modificar-reserva/ModificarReservacion';
+import ReporteProveniencia from './components/reportes/ReporteProveniencia';
+import ReporteOcupacion from './components/reportes/ReporteOcupacion';
+import ReporteReservasPorMes from './components/reportes/ReporteReservasPorMes';
 
 export function App() {
   return(
@@ -31,11 +36,18 @@ export function App() {
         <Route exact path='/consultaHabitaciones' element={ <ConsultaHabitacionesDisponibles />} />
         <Route exact path='/datosCliente' element={ <DatosCliente />} />
         <Route exact path='/verReserva' element={ <VerReserva /> } />
+        <Route exact path='/cargando' element={ <Cargando /> } />
+        <Route exact path='/cargandoeliminarreserva' element={ <CargandoEliminarReserva /> } />
 
         <Route exact path='/reserva' element={ <Reserva /> } />
         <Route exact path='/consultas' element={ <Consultas /> } />
         <Route exact path='/prueba' element={ <Prueba /> } />
-        <Route exact path='/cargando' element={ <Cargando /> } />
+        <Route exact path='/modificarreserva' element={ <ModificarReservacion/> } />
+        <Route exact path='/reportedondeviene' element={ < ReporteProveniencia/> } />
+        <Route exact path='/reporteocupacion' element={ < ReporteOcupacion/> } />
+        <Route exact path='/reportereservaspormes' element={ < ReporteReservasPorMes/> } />
+
+        
         
         <Route exact path='/datosoperacion' element={ <DatosOperacion /> } />
 

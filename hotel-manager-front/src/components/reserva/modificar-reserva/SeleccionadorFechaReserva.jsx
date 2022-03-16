@@ -5,12 +5,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCalendarDay} from '@fortawesome/free-solid-svg-icons';
 import { registerLocale} from  "react-datepicker";
-import '../../styles/modificarReserva.css';
+import '../../../styles/modificarReserva.css';
 import es from 'date-fns/locale/es';
 registerLocale('es', es);
 
 const SeleccionardorFechaReserva = () => {
     
+
+    
+
     const [selectedDate, setSelectedDate] = useState(null);
     return(
         
@@ -24,7 +27,7 @@ const SeleccionardorFechaReserva = () => {
                         <DatePicker 
                             selected={selectedDate} 
                             onChange={date => setSelectedDate(date)}//Permite obtener la fecha seleccionada
-                            dateFormat = 'yyyy-MM-dd' //Define el formato
+                            dateFormat = 'yyyy-mm-dd' //Define el formato
                             locale='es'
                             minDate = {new Date ()}
                             /* maxDate = {new Date ()}*/

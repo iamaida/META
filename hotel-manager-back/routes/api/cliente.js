@@ -36,11 +36,51 @@ router.get('/activos', async (req, res) => {
 });
 
 //Cliente especifico
-router.get('/:id_cliente', async (req, res) => {
+router.get('/especifico/:id_cliente', async (req, res) => {
     const cliente = await Cliente.findAll({
         where:{ id_cliente:req.params.id_cliente}
     });
     res.json(cliente)
 })
 
+//Modificar datos cliente
+router.put('/edit/:id_cliente', async (req, res) => {
+    await Cliente.update(req.body, {
+        where: { id_cliente: req.params.id_cliente }
+    });
+    res.json({success: 'Se modificó'});
+});
+
+//Desactivar cliente
+router.put('/desactivar/:id_cliente', async (req, res) => {
+    await Cliente.update(req.body, {
+        where: { id_cliente: req.params.id_cliente}
+    });
+    res.json({success: 'Se eliminó'});
+});
+
+//Consulta reporte donde_viene
+router.get('/reporte', async (req, res) => {
+    const datos = await Cliente.findAll({
+        attributes:[
+            'donde_viene',
+            [Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
+    ],
+        group: 'donde_viene'
+    })
+    res.json(datos)
+})
+
+
+router.get('/reporte2', async (req, res) => {
+    const datos = await Cliente.findAll({
+        attributes:[
+            'para_donde_va', 
+            [ Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
+            
+        ],
+            group:'para_donde_va'  
+    });
+    res.json(datos)
+});
 module.exports = router;
