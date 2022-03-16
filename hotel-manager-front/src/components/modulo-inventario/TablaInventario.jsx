@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt, faPlusCircle, faWarehouse, faSave } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/VerUsuario.css';
+import '../../styles/usuarios/VerUsuario.css';
 import '../../styles/moduloInventario.css';
 import axios from 'axios';
-import AlertConfirmacion from '../../components/AlertConfirmacion';
-
 
 
 const TablaInventario = () => {

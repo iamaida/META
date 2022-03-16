@@ -5,10 +5,15 @@ import InicioSesion from './pages/InicioSesion';
 import MenuPrincipal from './pages/MenuPrincipal';
 import ModuloUsuarios from './pages/ModuloUsuarios';
 import ModuloReservas from './pages/ModuloReservas';
+import ModuloInventario from './pages/ModuloInventario';
+import ModuloPago from './pages/ModuloPago';
 import ConsultaHabitacionesDisponibles from './pages/reservas/hacer-reserva/ConsultaHabitacionesDisponibles';
 import DatosCliente from './pages/reservas/hacer-reserva/DatosCliente';
 import VerReserva from './pages/reservas/ver-reserva/VerReserva';
-
+import RegistrarProducto from './components/modulo-inventario/RegistrarProducto';
+import VerProductosServiciosCliente from './components/modulo-pago/VerProductosServiciosCliente';
+import VerAgregarProductosServiciosCliente from './components/modulo-pago/VerAgregarProductosServiciosCliente';
+import DatosOperacion from './components/modulo-pago/DatosOperacion';
 import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
 import Prueba from './components/Prueba';
@@ -27,15 +32,13 @@ export function App() {
         <Route exact path='/datosCliente' element={ <DatosCliente />} />
         <Route exact path='/verReserva' element={ <VerReserva /> } />
 
-
         <Route exact path='/reserva' element={ <Reserva /> } />
         <Route exact path='/consultas' element={ <Consultas /> } />
         <Route exact path='/prueba' element={ <Prueba /> } />
         <Route exact path='/cargando' element={ <Cargando /> } />
         
+        <Route exact path='/datosoperacion' element={ <DatosOperacion /> } />
 
-        <Route exact path='/consultarReservas' element={ <ConsultarReserva /> } />
-         <Route exact path='/modificarreserva' element={ <ModificarReservacion /> } />
          <Route exact path='/inventario' element={ <ModuloInventario /> } />
          <Route exact path='/registarproducto' element={ <RegistrarProducto /> } />
          <Route exact path='/pago' element={ <ModuloPago /> } />

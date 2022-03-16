@@ -1,10 +1,10 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Sidebar from '../Sidebar';
-import NavbarMenuPrincipal from '../NavbarMenuPrincipal';
+import Sidebar from '../../components/componentes-generales/Sidebar';
+import BarraNavegacion from '../../components/componentes-generales/BarraNavegacion';
 import BreadCrumbRegistrarProducto from '../../components/modulo-inventario/BreadCrumbRegistrarProducto';
 import FormularioRegistrarProducto from '../../components/modulo-inventario/FormularioRegistrarProducto';
-import Footer from '../Footer';
+import Footer from '../../components/componentes-generales/Footer';
 import '../../styles/moduloInventario.css';
 
 
@@ -15,7 +15,7 @@ const RegistrarProducto = () => {
        <div className="inventario">
            
            <Sidebar/>
-           <NavbarMenuPrincipal/>
+           <BarraNavegacion/>
            <BreadCrumbRegistrarProducto/>     
            <FormularioRegistrarProducto/>
            <Footer/>

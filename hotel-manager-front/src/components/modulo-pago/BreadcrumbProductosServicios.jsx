@@ -1,5 +1,5 @@
 import { Breadcrumb} from 'react-bootstrap';
-import '../../styles/breadcrumbPaginas.css';
+import '../../styles/componentes-generales/breadcrumbPaginas.css';
 
 
  function BreadcrumbProductosServicios() {
