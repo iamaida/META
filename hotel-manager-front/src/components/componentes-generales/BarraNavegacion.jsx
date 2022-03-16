@@ -5,6 +5,8 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/componentes-generales/navbarMenuPrincipal.css';
 import Cookies from 'universal-cookie/es6';
 import user from '../../assets/images-menu/user.png';
+import berlin2 from "../../assets/images-habitaciones/berlin2.png"
+
 
 export default function BarraNavegacion() {
 
@@ -34,7 +36,8 @@ export default function BarraNavegacion() {
   return(
           <div className='navbar-tam'>
           <Navbar className='navbar' variant='dark'>
-              <Navbar.Brand className='navbar-brand' href="./menuprincipal">Hotel Berlín</Navbar.Brand>
+              <Navbar.Brand className='' href="./menuprincipal">
+              <img className="berlin2" src={berlin2} alt='Foto'/></Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse className='justify-content-end navbar-collapse' id="basic-navbar-nav">
                 <Nav>

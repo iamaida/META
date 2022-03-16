@@ -7,6 +7,7 @@ import '../../styles/componentes-generales/card.css';
 import '../../styles/login/login.css';
 import Cookies from "universal-cookie/es6";
 import Alerta from './Alerta';
+import berlin from "../../assets/images-habitaciones/berlin.png"
 
 
 export default function Login() {
@@ -102,7 +103,7 @@ export default function Login() {
       <div className="login-contenedor">
             <Container className="login">
                 <Row sm={"auto"}>
-                    <Col sm={7} ><img src='https://picsum.photos/190/270' alt='Foto'/></Col>
+                    <Col sm={7} ><img src={berlin} alt='Foto'/></Col>
                     <Col sm={5}  className="formulario_inicio_sesion">
                         { componente }
                         <Card className="card_login card text-center bg-dark animate__animated animate__fadeInUp">

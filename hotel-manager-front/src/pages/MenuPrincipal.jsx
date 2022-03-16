@@ -12,7 +12,11 @@ export default function MenuPrincipal() {
   return (
     <div className='menu-principal'>
 
-      <BarraNavegacion />
+      <BarraNavegacion
+     
+     link rel="icon" href="favicon.png"/>
+     
+      
       <h1 className='titulo-menu'>
         <FontAwesomeIcon icon={faHandshake} />
         &nbsp;¡Bienvenido a Hotel Manager!
