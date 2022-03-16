@@ -11,7 +11,6 @@ import VerReserva from './pages/reservas/ver-reserva/VerReserva';
 
 import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
-import Datos from './components/Datos';
 import Prueba from './components/Prueba';
 import Cargando from './components/componentes-generales/Cargando';
 import CargandoEliminarReserva from './components/reserva/ver-reserva/cargandoEliminarReserva';
@@ -37,7 +36,6 @@ export function App() {
 
         <Route exact path='/reserva' element={ <Reserva /> } />
         <Route exact path='/consultas' element={ <Consultas /> } />
-        <Route exact path='/datos' element={ <Datos /> } />
         <Route exact path='/prueba' element={ <Prueba /> } />
         <Route exact path='/modificarreserva' element={ <ModificarReservacion/> } />
         <Route exact path='/reportedondeviene' element={ < ReporteProveniencia/> } />
@@ -47,6 +45,14 @@ export function App() {
         
         
 
+        <Route exact path='/consultarReservas' element={ <ConsultarReserva /> } />
+         <Route exact path='/modificarreserva' element={ <ModificarReservacion /> } />
+         <Route exact path='/inventario' element={ <ModuloInventario /> } />
+         <Route exact path='/registarproducto' element={ <RegistrarProducto /> } />
+         <Route exact path='/pago' element={ <ModuloPago /> } />
+         <Route exact path='/pagoserviciosproductoscliente' element={ <VerProductosServiciosCliente  /> } />
+         <Route exact path='/pagoagregarserviciosproductoscliente' element={ <VerAgregarProductosServiciosCliente  /> } />
+         <Route exact path='/realizarpago' element={ <DatosOperacion /> } />
         
       </Routes>
     </BrowserRouter>

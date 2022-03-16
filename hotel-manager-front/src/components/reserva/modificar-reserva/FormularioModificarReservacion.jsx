@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState,useEffect } from "react";
 import { Form, Button, Row, Col } from 'react-bootstrap';
 //import SeleccionardorFechaReserva from "./SeleccionadorFechaReserva";
@@ -19,6 +20,24 @@ const FormularioModificarReservacion = () => {
     var fecha_min_2='';
     var fecha_max_1='';
     var fecha_max_2='';
+=======
+import React , { useState } from "react";
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
+import '../../styles/modificarReserva.css';
+
+const FormularioModificarReservacion = () => {
+
+    const [fecha_ingreso, setFecha_ingreso] = useState('');
+    const [fecha_salida, setFecha_salida] = useState('');
+    const [cantidad_adultos, setCantidad_adultos] = useState('3');
+    const [cantidad_kids, setCantidad_kids] = useState('6');
+    const [capacidad, setCapacidad] = useState('');
+    const cantidad_huespedes=[1,2,3,4,5,6]
+
+    var fecha_min='';
+    var fecha_max='';
+>>>>>>> c7675bed6b2ec540a0021432d5607e1fb64de830
 
     const onChangeFecha_ingreso = (e) => {
         setFecha_ingreso(e.currentTarget.value);
@@ -30,6 +49,7 @@ const FormularioModificarReservacion = () => {
         console.log(fecha_salida);
     };
 
+<<<<<<< HEAD
     const onChangeNum_adultos = (e) => {
         setNum_adultos(e.currentTarget.value);
         console.log(num_adultos);
@@ -71,6 +91,17 @@ const FormularioModificarReservacion = () => {
 
         setFecha_actual(obtenerFechaActual());
     },[])
+=======
+    const onChangeCantidad_adultos = (e) => {
+        setCantidad_adultos(e.currentTarget.value);
+        console.log(cantidad_adultos);
+    };
+
+    const onChangeCantidad_kids = (e) => {
+        setCantidad_kids(e.currentTarget.value);
+        console.log(cantidad_kids);
+    };
+>>>>>>> c7675bed6b2ec540a0021432d5607e1fb64de830
 
     const fechas = () => {
         const tiempoTranscurrido = Date.now();
@@ -88,6 +119,7 @@ const FormularioModificarReservacion = () => {
 
         const anio_max=String(parseInt(anio)+1)
 
+<<<<<<< HEAD
         fecha_min_1=`${anio}-${mes}-${dia}`;
         fecha_max_1=`${anio_max}-${mes}-${dia}`;
 
@@ -122,26 +154,57 @@ const FormularioModificarReservacion = () => {
     }
 
     return(    
+=======
+        fecha_min=`${anio}-${mes}-${dia}`
+        fecha_max=`${anio_max}-${mes}-${dia}`
+      }
+
+    fechas()
+    
+    const validarCantidadHuespedes= (cantidad_personas) => {
+        let copia_cantidad_huespedes = cantidad_huespedes.slice()
+        for (let i = 0; i < copia_cantidad_huespedes.length; i++) {
+                if(cantidad_personas == copia_cantidad_huespedes[i] ){
+                    copia_cantidad_huespedes.splice(i, 1); 
+                }
+          }
+        return copia_cantidad_huespedes;
+    };
+
+
+    return(
+            
+>>>>>>> c7675bed6b2ec540a0021432d5607e1fb64de830
           <div className='form-style'>   
             <React.Fragment>
-                    <left><h4>MODIFICAR RESERVACIÓN</h4></left>
+                    <left><h4>Modificar Reservación</h4></left>
             </React.Fragment>
         <Form onSubmit={enviarDatos}>
             <Row>  
                 <Col>
                     <Form.Group className="mb-3" controlId="fecha_ingreso">
                     <Form.Label>Fecha Ingreso</Form.Label>
+<<<<<<< HEAD
                     <Form.Control type="date" placeholder="Fecha de ingreso" name='fecha_ingreso' value={fecha_ingreso} min={fecha_min_1} max={fecha_max_1} onChange={onChangeFecha_ingreso}/>
                     {/*<SeleccionardorFechaReserva tipo_fecha={'fecha_ingreso'}/>*/}
+=======
+                    <Form.Control type="date" placeholder="Fecha de ingreso" name='fecha_ingreso' min={fecha_min} max={fecha_max} onChange={onChangeFecha_ingreso}/>
+>>>>>>> c7675bed6b2ec540a0021432d5607e1fb64de830
                     </Form.Group>
                     
                 </Col>
                
                 <Col>
+<<<<<<< HEAD
                     <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
                         <Form.Label>Fecha Salida</Form.Label>
                         <Form.Control type="date" placeholder="Fecha de salida" name='fecha_salida' value={fecha_salida} min={fecha_min_2} max={fecha_max_2} onChange={onChangeFecha_salida}/>
                         {/*<SeleccionardorFechaReserva tipo_fecha={'fecha_salida'}/>*/}
+=======
+                <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
+                    <Form.Label>Fecha Salida</Form.Label>
+                    <Form.Control type="date" placeholder="Fecha de salida" name='fecha_salida' min={fecha_min} max={fecha_max} onChange={onChangeFecha_salida}/>
+>>>>>>> c7675bed6b2ec540a0021432d5607e1fb64de830
                     </Form.Group>
                 </Col>
             
@@ -151,24 +214,42 @@ const FormularioModificarReservacion = () => {
                 
                 <Col>
                 <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
+<<<<<<< HEAD
                     <Form.Label>Adultos (+13)</Form.Label>
                     <Form.Select value={num_adultos} name='cantidad_kids' onChange={onChangeNum_adultos}>
                         <option>Seleccione</option>
                         {cantidad_huespedes.map((num) => (
                             <option key={num}>{num}</option>
                         ))}
+=======
+                    <Form.Label> Cantidad Adultos </Form.Label>
+                    <Form.Select name='cantidad_adultos' onChange={onChangeCantidad_adultos}>
+                        <option>{cantidad_adultos}</option>
+                        {validarCantidadHuespedes(cantidad_adultos).map((num) => (
+                                    <option key={num} value={num}>{num}</option>
+                                ))}
+>>>>>>> c7675bed6b2ec540a0021432d5607e1fb64de830
                     </Form.Select>
                     </Form.Group>
                 </Col>
                 
                 <Col>
                 <Form.Group className="mb-3" controlId="formBasicTipoDocumento">
+<<<<<<< HEAD
                     <Form.Label>Menores</Form.Label>
                     <Form.Select value={num_kids} name='num_kids' onChange={onChangeNum_kids}>
                         <option>Seleccione</option>
                         {cantidad_huespedes.map((num) => (
                             <option key={num}>{num}</option>
                         ))}
+=======
+                    <Form.Label >Cantidad Niños</Form.Label>
+                    <Form.Select name='cantidad_kids' onChange={onChangeCantidad_kids}>
+                        <option>{cantidad_kids}</option>
+                        {validarCantidadHuespedes(cantidad_kids).map((num) => (
+                                    <option key={num} value={num}>{num}</option>
+                                ))}
+>>>>>>> c7675bed6b2ec540a0021432d5607e1fb64de830
                     </Form.Select>
                     </Form.Group>
                 </Col>
