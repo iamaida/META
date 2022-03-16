@@ -52,7 +52,7 @@ function Prueba(){
             </div>
         </div>   
     )
-    
+     
     return(
        <div className ="Datos">
            <br />

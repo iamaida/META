@@ -21,7 +21,7 @@ export default function CardsMenuPrincipal() {
           id: 2,
           title: "Pago",
           image: pago,
-          url: "/menuprincipal",
+          url: "/pago",
           text:"Realizar pago de servicios prestados" 
         },
         {
