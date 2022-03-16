@@ -10,6 +10,7 @@ import '../../styles/modificarReserva.css';
 
 const ModificarReservacion = () => {
     return(
+        
         <div className='principal'>
              <NavbarMenuPrincipal/>
             <Sidebar/>
@@ -25,8 +26,8 @@ const ModificarReservacion = () => {
             <TabsModificarReserva/>
             <div className='margen-footer'></div>
             <Footer/>
+        
          </div>
-         
     
     );
 
