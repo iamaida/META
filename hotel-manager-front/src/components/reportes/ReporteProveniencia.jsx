@@ -4,13 +4,13 @@ import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-export default function VerReportes2() {
+export default function ReporteProveniencia() {
 
     const [donde_viene, setDonde_viene] = useState('');
     const [cantidad, setCantidad] = useState('');
+    const [color, setColor] = useState('');
 
     useEffect(()=> {
-    
         const obtenerDatos = async () => {
             const res = await axios.get('http://localhost:5000/api/clientes/reporte')
             console.log(res.data);
@@ -23,19 +23,38 @@ export default function VerReportes2() {
                 return elemento.donde_viene
             })
             setCantidad(auxCantidad);
-            setDonde_viene(auxDonde_viene);     
+            setDonde_viene(auxDonde_viene);
             console.log(auxCantidad, auxDonde_viene)
-        }
+            const tam_datos=auxCantidad.length
+            console.log(tam_datos)
 
+            colorHEX();
+        }
         obtenerDatos();
-        
+
+        const generarCaracter = () => {
+            var caracter = ['a', 'b', 'c', 'd', 'e', 'f', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            var numero = (Math.random()*15).toFixed(0);
+            return caracter[numero];
+        }
+    
+        const colorHEX = () => {
+            var color='';
+            for(var i=0; i<6; i++){
+                color= color + generarCaracter();
+            }
+            setColor('#' + color);
+        }
+    
     },[])
+
+    
 
     const data={
         labels: donde_viene,
         datasets: [{
             label: 'Cantidad',
-            backgroundColor: 'rgba(0,255,0,1)',
+            backgroundColor: color,
             borderColor:'black',
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(0,255,0,0.2)',

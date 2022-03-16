@@ -35,33 +35,6 @@ router.get('/activos', async (req, res) => {
     res.json(clientes_activos);
 });
 
-<<<<<<< HEAD
-// consulta reporte donde vive
-router.get('/reporte', async (req, res) => {
-    const datos = await Cliente.findAll({
-        atributes:[
-            'donde_viene', 
-            [ Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
-            
-        ],
-            group:'donde_viene'  
-    });
-    res.json(datos)
-});
-
-router.get('/reporte2', async (req, res) => {
-    const datos = await Cliente.findAll({
-        atributes:[
-            'para_donde_va', 
-            [ Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
-            
-        ],
-            group:'para_donde_va'  
-    });
-    res.json(datos)
-});
-
-=======
 //Cliente especifico
 router.get('/especifico/:id_cliente', async (req, res) => {
     const cliente = await Cliente.findAll({
@@ -98,5 +71,16 @@ router.get('/reporte', async (req, res) => {
     res.json(datos)
 })
 
->>>>>>> 68bc166e91e8f2f7c7855c59c15f393a6562481c
+
+router.get('/reporte2', async (req, res) => {
+    const datos = await Cliente.findAll({
+        attributes:[
+            'para_donde_va', 
+            [ Sequelize.fn("COUNT", Sequelize.col("id_cliente")), "cantidad"]
+            
+        ],
+            group:'para_donde_va'  
+    });
+    res.json(datos)
+});
 module.exports = router;

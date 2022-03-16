@@ -32,7 +32,7 @@ export default function ListaReservasActivas() {
   }
 
   const guardarInfoPersonalCliente = async (id_cliente) => {
-    const res = await axios.get(`http://localhost:5000/api/clientes/${id_cliente}`);
+    const res = await axios.get(`http://localhost:5000/api/clientes/especifico/${id_cliente}`);
     cookie.set('infoPersonalCliente', res.data, {path: '/'});
     console.log('Cli:', res.data)
   }

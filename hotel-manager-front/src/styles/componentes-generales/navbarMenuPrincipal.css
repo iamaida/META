@@ -7,15 +7,23 @@
     position: fixed;
 }
 
-.navbar img {
+.perfil{
     border-radius: 50%;
     width: 36px;
     height: 36px;
     margin-right: 10px;
 }
 
+.imagen-logo{
+    margin-right: 10px;
+    border-radius: 0%;
+    width: 120px;
+    height: 36px;
+}
+
 .navbar-brand{
     margin-left: 80px;
+    border-radius: 100%;
 }
 
 .navbar-collapse{
