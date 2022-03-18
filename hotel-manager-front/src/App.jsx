@@ -5,19 +5,27 @@ import InicioSesion from './pages/InicioSesion';
 import MenuPrincipal from './pages/MenuPrincipal';
 import ModuloUsuarios from './pages/ModuloUsuarios';
 import ModuloReservas from './pages/ModuloReservas';
+import ModuloInventario from './pages/ModuloInventario';
+import ModuloPago from './pages/ModuloPago';
 import ConsultaHabitacionesDisponibles from './pages/reservas/hacer-reserva/ConsultaHabitacionesDisponibles';
 import DatosCliente from './pages/reservas/hacer-reserva/DatosCliente';
 import VerReserva from './pages/reservas/ver-reserva/VerReserva';
+<<<<<<< HEAD
 import TarjetasHabitacionModificarReserva from './pages/reservas/modificar-reserva/TarjetasHabitacionModificarReserva';
 import CargandoModificar from './components/reserva/modificar-reserva/CargandoModificar';
 import Reportes from './pages/Reportes';
 import ModuloInventario from './pages/ModuloInventario';
 import ModuloPago from './pages/ModuloPago';
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 import RegistrarProducto from './components/modulo-inventario/RegistrarProducto';
 import VerProductosServiciosCliente from './components/modulo-pago/VerProductosServiciosCliente';
 import VerAgregarProductosServiciosCliente from './components/modulo-pago/VerAgregarProductosServiciosCliente';
 import DatosOperacion from './components/modulo-pago/DatosOperacion';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
 import Prueba from './components/Prueba';
@@ -60,9 +68,13 @@ export function App() {
         <Route exact path='/pagoagregarserviciosproductoscliente' element={ <VerAgregarProductosServiciosCliente  /> } />
         <Route exact path='/realizarpago' element={ <DatosOperacion /> } />
         
+        <Route exact path='/datosoperacion' element={ <DatosOperacion /> } />
 
+<<<<<<< HEAD
         {/*<Route exact path='/consultarReservas' element={ <ConsultarReserva /> } />
          <Route exact path='/modificarreserva' element={ <ModificarReservacion /> } />
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
          <Route exact path='/inventario' element={ <ModuloInventario /> } />
          <Route exact path='/registarproducto' element={ <RegistrarProducto /> } />
          <Route exact path='/pago' element={ <ModuloPago /> } />

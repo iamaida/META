@@ -8,7 +8,10 @@ import '../../styles/moduloPago.css';
 import FormularioPagoTarjeta from './FormularioPagoTarjeta';
 import FormularioPagoEfectivo from './FormularioPagoEfectivo';
 import axios from 'axios';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 
 
 const AcordeonPago = () => {

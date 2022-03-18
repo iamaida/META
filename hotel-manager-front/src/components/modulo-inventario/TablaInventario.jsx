@@ -6,7 +6,10 @@ import '../../styles/usuarios/VerUsuario.css';
 import '../../styles/moduloInventario.css';
 import { useEffect } from "react";
 import axios from 'axios';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 
 
 const TablaInventario = () => {

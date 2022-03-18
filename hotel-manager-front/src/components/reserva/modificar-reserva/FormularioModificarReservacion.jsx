@@ -20,7 +20,10 @@ const FormularioModificarReservacion = () => {
     var fecha_min_2='';
     var fecha_max_1='';
     var fecha_max_2='';
+<<<<<<< HEAD
     const cookie = new Cookies();
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 
     const onChangeFecha_ingreso = (e) => {
         setFecha_ingreso(e.currentTarget.value);

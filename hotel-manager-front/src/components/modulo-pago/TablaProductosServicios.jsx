@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt, faPlusCircle, faCocktail, faFileInvoiceDollar } from '@fortawesome/free-solid-svg-icons';
+<<<<<<< HEAD
 import '../../styles/usuarios/VerUsuario.css'
+=======
+import '../../styles/usuarios/VerUsuario.css';
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 import '../../styles/moduloPago.css';
 import '../../styles/moduloInventario.css'
 import axios from 'axios';
+<<<<<<< HEAD
 import AlertConfirmacion from '../../components/componentes-generales/AlertConfirmacion';
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 
 
 

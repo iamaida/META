@@ -6,7 +6,10 @@ import { faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import '../../styles/usuarios/VerUsuario.css';
 import '../../styles/moduloPago.css';
 import axios from 'axios';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 69f3c6bf12f46cb935926e356fa2217269abd3ee
 
 
 const FormularioPagoTarjeta = () => {
