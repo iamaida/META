@@ -1,9 +1,9 @@
 import React from "react";
-import Sidebar from '../components/Sidebar';
-import NavbarMenuPrincipal from '../components/NavbarMenuPrincipal';
+import Sidebar from "../components/componentes-generales/Sidebar";
+import BarraNavegacion from "../components/componentes-generales/BarraNavegacion";
 import BreadCrumVerInventario from '../components/modulo-inventario/BreadCrumbVerInventario';
 import TablaInventario from '../components/modulo-inventario/TablaInventario';
-import Footer from '../components/Footer';
+import Footer from "../components/componentes-generales/Footer";
 import '../styles/moduloInventario.css';
 
 const VerInventario = () => {
@@ -12,7 +12,7 @@ const VerInventario = () => {
     return(
         <div className='principal'>
             <Sidebar/>
-            <NavbarMenuPrincipal/>
+            <BarraNavegacion/>
             <BreadCrumVerInventario/>
             <TablaInventario/>
             <div className='margen-footer'></div>

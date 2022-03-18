@@ -3,7 +3,7 @@ import { Card, Button, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-export default function CardHabitacionesDisponibles({ nombre, imagen, cantidad_camas, precio_persona, funcion, fechas_reserva}) {
+export default function CardHabitacionesDisponibles({ nombre, imagen, cantidad_camas, precio_persona, funcion, fechas_reserva, link}) {
 
   return (
     <div>
@@ -28,7 +28,7 @@ export default function CardHabitacionesDisponibles({ nombre, imagen, cantidad_c
                             <div className='button-hab'>
                             {funcion!==undefined &&
                                 <Button style={{background: '#930001', borderColor:'#930001'}} onClick={funcion}>
-                                    <Link to='/datosCliente' className='button-link-hab'>Seleccionar</Link>
+                                    <Link to={link} className='button-link-hab'>Seleccionar</Link>
                                 </Button>
                             }
                                 

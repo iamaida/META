@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import '../../styles/reportes/reportes.css';
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
@@ -12,7 +13,7 @@ export default function ReporteProveniencia() {
 
     useEffect(()=> {
         const obtenerDatos = async () => {
-            const res = await axios.get('http://localhost:5000/api/clientes/reporte')
+            const res = await axios.get('http://localhost:5000/api/clientes/dondeviene')
             console.log(res.data);
             const respuesta = res.data
 
@@ -69,8 +70,8 @@ export default function ReporteProveniencia() {
     }
 
   return (
-    <div style={{width:'100%', height:'500px'}}>
-        <h2>Ciudades de proveniencia de clientes</h2>
+    <div style={{width:'300px', height:'350px'}}>
+        <h3 className='titulo-reportes'>Ciudades de proveniencia de clientes</h3>
         <Bar data={data} options={opciones} />
     </div>
   )

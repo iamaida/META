@@ -60,7 +60,7 @@ router.put('/desactivar/:id_cliente', async (req, res) => {
 });
 
 //Consulta reporte donde_viene
-router.get('/reporte', async (req, res) => {
+router.get('/dondeviene', async (req, res) => {
     const datos = await Cliente.findAll({
         attributes:[
             'donde_viene',
@@ -72,7 +72,7 @@ router.get('/reporte', async (req, res) => {
 })
 
 
-router.get('/reporte2', async (req, res) => {
+router.get('/paradondeva', async (req, res) => {
     const datos = await Cliente.findAll({
         attributes:[
             'para_donde_va', 

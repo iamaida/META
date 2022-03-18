@@ -1,29 +1,21 @@
 import React, { useState } from "react";
-import { Form, Row, Col, Container } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
 import { Button} from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSave, faSoap} from '@fortawesome/free-solid-svg-icons';
+import { faSoap} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import '../../styles/moduloInventario.css';
+import foto from '../../assets/images-menu/foto.png'
+import { Link } from "react-router-dom";
 
 
 const FormularioRegistrarProducto = () => {
 
     const [nombre, setNombre] = useState('');
-    const [descrip, setDescripcion] = useState('');
+    const [descripcion, setDescripcion] = useState('');
     const [imagen, setImagen] = useState('');
     const [precio, setPrecio] = useState('');
     const [cantidad, setCantidad] = useState('');
-    const [modalModificar, setModalModificar] = useState(false);
-    const [modalEliminar, setModalEliminar] = useState(false);
-    const [producto, setProducto] = useState( {
-        id:" ",
-        nombre: "",
-        descrip: "",
-        imagen: "",
-        precio: "",
-        cantidad:"" 
-    })
 
     const onChangeNombre= (e) => {
         setNombre(e.currentTarget.value);
@@ -32,7 +24,7 @@ const FormularioRegistrarProducto = () => {
 
     const onChangeDescripcion = (e) => {
         setDescripcion(e.currentTarget.value);
-        console.log(descrip);
+        console.log(descripcion);
     };
 
     const onChangeImagen = (e) => {
@@ -49,6 +41,11 @@ const FormularioRegistrarProducto = () => {
         console.log(cantidad);
     };
 
+    const registrarProducto = async () => {
+        const res = axios.post(`http://localhost:5000/api/productos/register`,
+        { nombre:nombre, descripcion:descripcion, imagen:imagen, precio:precio, cantidad:cantidad})
+        console.log(res.data)
+    }
 
     return (
         
@@ -65,7 +62,7 @@ const FormularioRegistrarProducto = () => {
         <Form >
                         <Row>
                             <Col>
-                                <img src={producto.imagen} />
+                                <img className='imagen-inventario' src={foto} alt='foto imagen'/>
                             </Col>
                             <Col>
                                 <Row><br></br></Row>
@@ -76,10 +73,10 @@ const FormularioRegistrarProducto = () => {
                                 </Row>
                                 <Row>                                    
                                     <Col sm={8}>
-                                    <input className='form-control' name="src" type="text" placeholder={producto.imagen} onChange={onChangeImagen} />
+                                    <input className='form-control' name="src" type="text" onChange={onChangeImagen} />
                                     </Col>
                                     <Col>
-                                        <Button color="secondary"><FontAwesomeIcon icon={faSave} /></Button>
+                                        {/*<Button color="secondary"><FontAwesomeIcon icon={faSave} /></Button>*/}
                                     </Col>
                                 </Row>
                             </Col>
@@ -89,7 +86,7 @@ const FormularioRegistrarProducto = () => {
                                 <Form.Group>
 
                                     <label>Nombre</label>
-                                    <input className='form-control' name="nombre" type="text" placeholder={producto.nombre} onChange={onChangeNombre} />
+                                    <input className='form-control' name="nombre" type="text"  onChange={onChangeNombre} />
 
                                 </Form.Group>
                             </Col>
@@ -97,7 +94,7 @@ const FormularioRegistrarProducto = () => {
                                 <Form.Group>
 
                                     <label>Descripción</label>
-                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} placeholder={producto.descrip}/>
+                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} />
 
                                 </Form.Group>
                             </Col>
@@ -107,14 +104,14 @@ const FormularioRegistrarProducto = () => {
                                 <Form.Group>
 
                                     <label>Precio</label>
-                                    <input className='form-control' name="precio" type="numeric" onChange={onChangePrecio} placeholder={producto.precio} />
+                                    <input className='form-control' name="precio" type="numeric" onChange={onChangePrecio}  />
 
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group>
                                     <label>Cantidad</label>
-                                    <input className='form-control' name="cantidad" type="numeric" onChange={onChangeCantidad}  placeholder={producto.cantidad}/>
+                                    <input className='form-control' name="cantidad" type="numeric" onChange={onChangeCantidad} />
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -126,7 +123,7 @@ const FormularioRegistrarProducto = () => {
                 <div className="boton-registro">
                     <Row>
                     <Col sm={11}>
-                        <Button color="primary" >Guardar</Button>
+                        <Link to='/inventario' ><Button color="primary" onClick={()=>registrarProducto()}>Guardar</Button></Link>
                     </Col>
                     </Row>
                 </div>        

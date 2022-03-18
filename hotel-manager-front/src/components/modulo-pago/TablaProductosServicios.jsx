@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt, faPlusCircle, faCocktail, faFileInvoiceDollar } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/VerUsuario.css';
+import '../../styles/usuarios/VerUsuario.css'
 import '../../styles/moduloPago.css';
+import '../../styles/moduloInventario.css'
 import axios from 'axios';
-import AlertConfirmacion from '../../components/AlertConfirmacion';
+import AlertConfirmacion from '../../components/componentes-generales/AlertConfirmacion';
 
 
 
@@ -101,7 +102,7 @@ const TablaProductosServicios = () => {
                     {/* Botón Nuevo Producto/Servicio*/}
                     <Col sm={4}>
                         <div className=' d-flex justify-content-end'>
-                            <Button color="outline-success" href='/pagoagregarserviciosproductoscliente' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Agregar Producto/Servicio</Button>
+                            <Button color="success" href='/pagoagregarserviciosproductoscliente' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Agregar Producto/Servicio</Button>
                         </div>
                     </Col>
                 </Row>
@@ -123,7 +124,7 @@ const TablaProductosServicios = () => {
                     {products.map(( elemento ) => (
                         <Row className='table-body'>
 
-                            <Col> <img src={elemento.imagen} /> </Col>
+                            <Col> <img className='imagen-inventario' src={elemento.imagen} alt='imagen-inventario'/> </Col>
                             <Col>{elemento.nombre} </Col>
                             <Col>{elemento.descrip}</Col>
                             <Col>$ {elemento.precio}</Col>
@@ -161,7 +162,7 @@ const TablaProductosServicios = () => {
                     <Form >
                         <Row>
                             <Col>
-                                <img src={producto.imagen} />
+                                <img className='imagen-inventario' src={producto.imagen} alt='imagen-inventario'/>
                             </Col>
                             <Col>
                                 <Row>&nbsp;</Row>

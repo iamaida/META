@@ -59,7 +59,7 @@ const InformacionCuenta = () => {
                     
                         <Row>
                             <Col>
-                                <img src={elemento.imagen} />
+                                <img className="imagen-pago" src={elemento.imagen} alt='imagen-pago'/>
                             </Col>
                             <Col>
                                 <Row >

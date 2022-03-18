@@ -8,6 +8,15 @@ import ModuloReservas from './pages/ModuloReservas';
 import ConsultaHabitacionesDisponibles from './pages/reservas/hacer-reserva/ConsultaHabitacionesDisponibles';
 import DatosCliente from './pages/reservas/hacer-reserva/DatosCliente';
 import VerReserva from './pages/reservas/ver-reserva/VerReserva';
+import TarjetasHabitacionModificarReserva from './pages/reservas/modificar-reserva/TarjetasHabitacionModificarReserva';
+import CargandoModificar from './components/reserva/modificar-reserva/CargandoModificar';
+import Reportes from './pages/Reportes';
+import ModuloInventario from './pages/ModuloInventario';
+import ModuloPago from './pages/ModuloPago';
+import RegistrarProducto from './components/modulo-inventario/RegistrarProducto';
+import VerProductosServiciosCliente from './components/modulo-pago/VerProductosServiciosCliente';
+import VerAgregarProductosServiciosCliente from './components/modulo-pago/VerAgregarProductosServiciosCliente';
+import DatosOperacion from './components/modulo-pago/DatosOperacion';
 
 import Reserva from './components/Reserva';
 import Consultas from './components/Consultas';
@@ -33,6 +42,7 @@ export function App() {
         <Route exact path='/verReserva' element={ <VerReserva /> } />
         <Route exact path='/cargando' element={ <Cargando /> } />
         <Route exact path='/cargandoeliminarreserva' element={ <CargandoEliminarReserva /> } />
+        <Route exact path='/reportes' element={ <Reportes /> } />
 
         <Route exact path='/reserva' element={ <Reserva /> } />
         <Route exact path='/consultas' element={ <Consultas /> } />
@@ -41,18 +51,24 @@ export function App() {
         <Route exact path='/reportedondeviene' element={ < ReporteProveniencia/> } />
         <Route exact path='/reporteocupacion' element={ < ReporteOcupacion/> } />
         <Route exact path='/reportereservaspormes' element={ < ReporteReservasPorMes/> } />
-
+        <Route exact path='/habitacionesmodificar' element={ < TarjetasHabitacionModificarReserva/> } />
+        <Route exact path='/cargandomodificar' element={ < CargandoModificar/> } />
+        <Route exact path='/inventario' element={ <ModuloInventario /> } />
+        <Route exact path='/pago' element={ <ModuloPago /> } />
+        <Route exact path='/registarproducto' element={ <RegistrarProducto /> } />
+        <Route exact path='/pagoserviciosproductoscliente' element={ <VerProductosServiciosCliente  /> } />
+        <Route exact path='/pagoagregarserviciosproductoscliente' element={ <VerAgregarProductosServiciosCliente  /> } />
+        <Route exact path='/realizarpago' element={ <DatosOperacion /> } />
         
-        
 
-        <Route exact path='/consultarReservas' element={ <ConsultarReserva /> } />
+        {/*<Route exact path='/consultarReservas' element={ <ConsultarReserva /> } />
          <Route exact path='/modificarreserva' element={ <ModificarReservacion /> } />
          <Route exact path='/inventario' element={ <ModuloInventario /> } />
          <Route exact path='/registarproducto' element={ <RegistrarProducto /> } />
          <Route exact path='/pago' element={ <ModuloPago /> } />
          <Route exact path='/pagoserviciosproductoscliente' element={ <VerProductosServiciosCliente  /> } />
          <Route exact path='/pagoagregarserviciosproductoscliente' element={ <VerAgregarProductosServiciosCliente  /> } />
-         <Route exact path='/realizarpago' element={ <DatosOperacion /> } />
+         <Route exact path='/realizarpago' element={ <DatosOperacion /> } />*/}
         
       </Routes>
     </BrowserRouter>

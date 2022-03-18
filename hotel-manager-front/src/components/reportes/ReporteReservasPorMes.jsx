@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../../styles/reportes/reportes.css';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
@@ -100,8 +101,8 @@ export default function ReporteReservasPorMes() {
     }
 
   return (
-    <div style={{width:'100%', height:'500px'}}>
-        <h2>Ciudades de proveniencia de clientes</h2>
+    <div style={{width:'300px', height:'350px'}}>
+        <h3 className='titulo-reportes'>Historico de reservas año actual</h3>
         <Line data={data} options={opciones} />
     </div>
   )

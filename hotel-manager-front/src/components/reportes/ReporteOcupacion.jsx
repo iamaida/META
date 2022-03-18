@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import '../../styles/reportes/reportes.css';
 import { Pie } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
+
 
 export default function ReporteOcupacion() {
   
@@ -70,8 +72,8 @@ export default function ReporteOcupacion() {
     }
 
   return (
-    <div style={{width:'100%', height:'500px'}}>
-        <h2>Ocupación de habitaciones</h2>
+    <div style={{width:'300px', height:'350px'}}>
+        <h3 className='titulo-reportes'>Ocupación de habitaciones</h3>
         <Pie data={data} options={opciones} />
     </div>
   )

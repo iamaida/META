@@ -3,10 +3,8 @@ import { Button } from 'reactstrap'
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle} from '@fortawesome/free-solid-svg-icons';
-import '../../styles/VerUsuario.css';
+import '../../styles/usuarios/VerUsuario.css';
 import '../../styles/moduloPago.css';
-import axios from 'axios';
-import AlertConfirmacion from '../../components/AlertConfirmacion';
 
 
 const FormularioDatosOperacion = () => {

@@ -2,32 +2,29 @@ import React, { useState } from "react";
 import {  Button, Container, Row, Col, Modal, ModalBody, ModalHeader, FormGroup, Form, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt, faPlusCircle, faWarehouse, faSave } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/VerUsuario.css';
+import '../../styles/usuarios/VerUsuario.css';
 import '../../styles/moduloInventario.css';
+import { useEffect } from "react";
 import axios from 'axios';
-import AlertConfirmacion from '../../components/AlertConfirmacion';
 
 
 
 const TablaInventario = () => {
 
     const [nombre, setNombre] = useState('');
-    const [descrip, setDescripcion] = useState('');
+    const [descripcion, setDescripcion] = useState('');
     const [imagen, setImagen] = useState('');
     const [precio, setPrecio] = useState(0);
     const [cantidad, setCantidad] = useState(0,2);
     const [modalModificar, setModalModificar] = useState(false);
     const [modalEliminar, setModalEliminar] = useState(false);
-    const [producto, setProducto] = useState( {
-        id:" ",
-        nombre: "",
-        descrip: "",
-        imagen: "",
-        precio: 0,
-        cantidad: 0
-    })
+
+    //Usado para mostrar los datos en editar
+    const [producto, setProducto] = useState('')
+
+    //Datos usados para mostrar
     const [products, setProducts] =useState([
-        {
+        /*{
             id:"1",
             nombre: "Juego de Sabanas",
             descrip: "Unidad",
@@ -50,20 +47,39 @@ const TablaInventario = () => {
             imagen: "https://i.ibb.co/DQnd77w/soap-bars-on-wood.jpg",
             precio: 2000,
             cantidad: 30
-        }
+        }*/
     ])
 
+    useEffect(()=> {  
+        obtenerDatos()
+    },[]);
+
+    const obtenerDatos = async () => {
+        const res = await axios.get(`http://localhost:5000/api/productos/`)
+        console.log(res.data)
+        setProducts(res.data)
+    }
     
     const openModalModificar = (registro) => { 
         setModalModificar(true) ;
         setProducto(registro) ;
+        setNombre(registro.nombre);
+        setDescripcion(registro.descripcion);
+        setImagen(registro.imagen);
+        setPrecio(registro.precio);
+        setCantidad(registro.cantidad);
+
     }
     const closeModalModificar = () =>{
         setModalModificar(false)
+        setProducto({
+
+        })
     }
 
     const openModalEliminar = (registro) => { 
         setModalEliminar(true) ;
+        setProducto(registro);
     }
 
     const closeModalEliminar = () =>{
@@ -78,7 +94,7 @@ const TablaInventario = () => {
 
     const onChangeDescripcion = (e) => {
         setDescripcion(e.currentTarget.value);
-        console.log(descrip);
+        console.log(descripcion);
     };
 
     const onChangeImagen = (e) => {
@@ -95,13 +111,11 @@ const TablaInventario = () => {
         console.log(cantidad);
     };
 
-
-
-    const modificarDatosProducto = () => {
+    /*const modificarDatosProducto = () => {
         let p ={
         id:" ",
         nombre: nombre,
-        descrip: descrip,
+        descrip: descripcion,
         imagen: imagen,
         precio: precio,
         cantidad: cantidad
@@ -119,12 +133,32 @@ const TablaInventario = () => {
 
         setProducts(nuevos_productos)
 
-    };
+    };*/
+
+    const modificarDatosProducto = async () => {
+        const res = await axios.put(`http://localhost:5000/api/productos/edit/${producto.id_producto}`,
+        { nombre:nombre, descripcion:descripcion, imagen:imagen, precio:precio, cantidad:cantidad});
+        console.log(res.data);
+        setProducto([]);
+        closeModalModificar();
+        obtenerDatos();
+    }
+
+    const eliminarProducto = async () => {
+        const res = await axios.delete(`http://localhost:5000/api/productos/delete/${producto.id_producto}`)
+        console.log(res.data);
+        obtenerDatos();
+        closeModalEliminar();
+    }
+
+    const envioDatos = (e) => {
+        e.preventDefault();
+    }
 
     return (
 
         <>
-            <Container className='usuario'>
+            <Container className='usuario' onSubmit={envioDatos}>
 
                 <Row className='titulo-boton'>
                     {/* Titulo Gestión Inventario*/}
@@ -136,7 +170,7 @@ const TablaInventario = () => {
                     {/* Botón Nuevo Producto*/}
                     <Col sm={4}>
                         <div className=' d-flex justify-content-end'>
-                            <Button color="outline-success" href='/registarproducto' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Nuevo Producto</Button>
+                            <Button color="success" href='/registarproducto' ><FontAwesomeIcon icon={faPlusCircle} />&nbsp; Nuevo Producto</Button>
                         </div>
                     </Col>
                 </Row>
@@ -156,16 +190,15 @@ const TablaInventario = () => {
                 {/* Cuerpo*/}
                 <div className="scroll">
                     {products.map(( elemento ) => (
-                        <Row className='table-body'>
-
-                            <Col> <img src={elemento.imagen} /> </Col>
+                        <Row key={elemento.id_producto} className='table-body'>
+                            <Col> <img className='imagen-inventario' src={elemento.imagen} alt='imagen-inventario'/> </Col>
                             <Col>{elemento.nombre} </Col>
-                            <Col>{elemento.descrip}</Col>
+                            <Col>{elemento.descripcion}</Col>
                             <Col>$ {elemento.precio}</Col>
                             <Col>{elemento.cantidad}</Col>
                             <Col>
                                 <Button color="outline-primary" onClick={()=>openModalModificar(elemento)}> <FontAwesomeIcon icon={faPencilAlt} /> </Button>&nbsp;&nbsp;
-                                <Button color="outline-danger" onClick={openModalEliminar}> <FontAwesomeIcon icon={faTrashAlt} /> </Button>
+                                <Button color="outline-danger" onClick={()=>openModalEliminar(elemento)}> <FontAwesomeIcon icon={faTrashAlt} /> </Button>
                             </Col>
 
                         </Row>
@@ -184,7 +217,7 @@ const TablaInventario = () => {
                     <Form >
                         <Row>
                             <Col>
-                                <img src={producto.imagen} />
+                                <img className='imagen-inventario-edit' src={imagen} alt='imagen-invnetario'/>
                             </Col>
                             <Col>
                                 <Row><br></br></Row>
@@ -195,7 +228,7 @@ const TablaInventario = () => {
                                 </Row>
                                 <Row>                                    
                                     <Col sm={8}>
-                                    <input className='form-control' name="src" type="text" placeholder={producto.imagen} onChange={onChangeImagen} />
+                                    <input className='form-control' name="imagen" type="text" value={imagen} onChange={onChangeImagen} />
                                     </Col>
                                     <Col>
                                         <Button color="secondary"><FontAwesomeIcon icon={faSave} /></Button>
@@ -208,7 +241,7 @@ const TablaInventario = () => {
                                 <FormGroup>
 
                                     <label>Nombre</label>
-                                    <input className='form-control' name="nombre" type="text" placeholder={producto.nombre} onChange={onChangeNombre} />
+                                    <input className='form-control' name="nombre" type="text" value={nombre} onChange={onChangeNombre} />
 
                                 </FormGroup>
                             </Col>
@@ -216,7 +249,7 @@ const TablaInventario = () => {
                                 <FormGroup>
 
                                     <label>Descripción</label>
-                                    <input className='form-control' name="descrip" type="text" onChange={onChangeDescripcion} placeholder={producto.descrip}/>
+                                    <input className='form-control' name="descripcion" type="text" onChange={onChangeDescripcion} value={descripcion}/>
 
                                 </FormGroup>
                             </Col>
@@ -226,14 +259,14 @@ const TablaInventario = () => {
                                 <FormGroup>
 
                                     <label>Precio</label>
-                                    <input className='form-control' name="precio" type="text" onChange={onChangePrecio} placeholder={producto.precio} />
+                                    <input className='form-control' name="precio" type="text" onChange={onChangePrecio} value={precio} />
 
                                 </FormGroup>
                             </Col>
                             <Col>
                                 <FormGroup>
                                     <label>Cantidad</label>
-                                    <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad}  placeholder={producto.cantidad}/>
+                                    <input className='form-control' name="cantidad" type="text" onChange={onChangeCantidad}  value={cantidad}/>
                                 </FormGroup>
                             </Col>
                         </Row>
@@ -241,7 +274,7 @@ const TablaInventario = () => {
                 </ModalBody>
                 <ModalFooter>
                     <Button color="danger" onClick={closeModalModificar}>Cancelar</Button>
-                    <Button color="primary" onClick={modificarDatosProducto}>Guardar</Button>
+                    <Button color="primary" onClick={()=>modificarDatosProducto()}>Guardar</Button>
                 </ModalFooter>
             </Modal>
 
@@ -256,7 +289,7 @@ const TablaInventario = () => {
 
                     <ModalFooter>
                         <Button color="danger" onClick={closeModalEliminar}>Cancelar</Button>
-                        <Button color="primary" >Aceptar</Button>
+                        <Button color="primary" onClick={() => eliminarProducto()}>Aceptar</Button>
                         
                     </ModalFooter>
             </Modal>
