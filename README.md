@@ -4,15 +4,15 @@ This repository contain all the information associated with the development of a
 
 ## Take a look at the system 👀
 
-![Screenshot 1](images/1.PNG)
+![Screenshot 1](multimedia/1.gif)
 
-| Pay module                    | Reservation module            |
-| ----------------------------- | ----------------------------- |
-| ![Screenshot 1](images/1.PNG) | ![Screenshot 2](images/2.PNG) |
+| Pay module                           | Reservation module                       |
+| ------------------------------------ | ---------------------------------------- |
+| ![Screenshot 1](multimedia/PAGO.gif) | ![Screenshot 2](multimedia/RESERVAS.gif) |
 
-| Inventory module              | Payment module                |
-| ----------------------------- | ----------------------------- |
-| ![Screenshot 1](images/1.PNG) | ![Screenshot 2](images/2.PNG) |
+| Inventory module                           | Payment module                                  |
+| ------------------------------------------ | ----------------------------------------------- |
+| ![Screenshot 1](multimedia/INVENTARIO.gif) | ![Screenshot 2](multimedia/productosComida.gif) |
 
 ## Development Team
 
