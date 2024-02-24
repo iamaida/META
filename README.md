@@ -10,7 +10,7 @@ This repository contain all the information associated with the development of a
 | ------------------------------------ | ---------------------------------------- |
 | ![Screenshot 1](multimedia/PAGO.gif) | ![Screenshot 2](multimedia/RESERVAS.gif) |
 
-| Inventory module                           | Payment module                                  |
+| Inventory module                           | Products and services module                    |
 | ------------------------------------------ | ----------------------------------------------- |
 | ![Screenshot 1](multimedia/INVENTARIO.gif) | ![Screenshot 2](multimedia/productosComida.gif) |
 
